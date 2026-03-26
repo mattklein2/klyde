@@ -10,7 +10,7 @@
   .header { border-bottom: 2px solid #f78166; padding-bottom: 16px; margin-bottom: 24px; }
   .header h1 { font-size: 24px; font-weight: 700; color: #f0f6fc; letter-spacing: -0.5px; }
   .header .date { color: #8b949e; font-size: 14px; margin-top: 4px; }
-  .stats { display: flex; gap: 16px; margin-top: 12px; }
+  .stats { display: flex; gap: 16px; margin-top: 12px; flex-wrap: wrap; }
   .stat { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 8px 14px; font-size: 13px; }
   .stat strong { color: #f78166; }
   .headlines { background: linear-gradient(135deg, #161b22, #1c2333); border: 1px solid #30363d; border-radius: 12px; padding: 20px; margin-bottom: 28px; }
@@ -40,157 +40,93 @@
   .noise-item { font-size: 13px; color: #6e7681; padding: 4px 0; }
   .footer { margin-top: 32px; padding-top: 16px; border-top: 1px solid #21262d; text-align: center; font-size: 12px; color: #484f58; }
   code { background: #1c2333; padding: 2px 6px; border-radius: 4px; font-size: 13px; color: #f78166; font-family: 'SF Mono', 'Fira Code', monospace; }
+  .run-badge { display: inline-block; background: #1c2333; border: 1px solid #30363d; border-radius: 6px; padding: 2px 8px; font-size: 11px; color: #8b949e; margin-left: 10px; vertical-align: middle; }
 </style>
 </head>
 <body>
 
 <div class="header">
-  <h1>Klyde Daily Briefing</h1>
+  <h1>Klyde Daily Briefing <span class="run-badge">Run #2 — 9:30 AM</span></h1>
   <div class="date">March 26, 2026</div>
   <div class="stats">
-    <div class="stat"><strong>30</strong> bookmarks scanned</div>
-    <div class="stat"><strong>17</strong> signal</div>
-    <div class="stat"><strong>13</strong> noise</div>
+    <div class="stat"><strong>3</strong> bookmarks scanned</div>
+    <div class="stat"><strong>3</strong> signal</div>
+    <div class="stat"><strong>0</strong> noise</div>
+    <div class="stat"><strong>0</strong> urgent</div>
   </div>
 </div>
 
 <div class="headlines">
   <h2>The Headlines</h2>
-  <p>TerraInk went viral — two separate posts showed people how to make the same map posters you're selling for free. Differentiation is now urgent. The /last30days Claude Code skill automates what Klyde does manually. And MiroFish's multi-agent architecture is a blueprint for Slab Street's pricing intelligence.</p>
+  <p>Three clean signals, zero noise. Agent companies are now a one-command install — companies.sh lets you run a full CEO + CMO agent org from a single repo. Claude mobile got work tools (Figma, Canva, Amplitude), and MCP app builders are being actively recruited to get featured in Claude. A sports data platform just launched for MLB Opening Day as a direct structural comp for Slab Street.</p>
 </div>
 
 <div class="section-title">Signal</div>
 
 <div class="card">
   <div class="card-header">
-    <h3>TerraInk Is Now Widely Known</h3>
-    <span class="tag tag-urgent">URGENT</span>
-  </div>
-  <div class="meta">@MillieMarconnni — Mar 23 &middot; 431 RTs, 3.7K likes | @ihtesham2005 — Mar 21 &middot; 447 RTs, 5.3K likes</div>
-  <div class="body">Two viral posts told the world that custom city map posters ($50-$100 on Etsy) can be made for free with TerraInk. Your secret weapon is now public knowledge. Iowa-specific branding and storytelling are your edge.</div>
-</div>
-
-<div class="card">
-  <div class="card-header">
-    <h3>/last30days — Research On Autopilot</h3>
+    <h3>companies.sh — Run an Entire AI Company with One Command</h3>
     <span class="tag tag-all">ALL 3</span>
   </div>
-  <div class="meta">@aiedge_ &amp; @MillieMarconnni — Mar 24 &middot; 460 RTs, 5.3K likes</div>
-  <div class="body">Claude Code skill that scans Reddit, X, YouTube, TikTok, Hacker News and more from the last 30 days on any topic. Writes prompts based on what the community actually figured out. Install: <code>/plugin marketplace add mvarshov/last30days-skill</code></div>
+  <div class="meta">@dotta — Mar 26, ~9am · 45 likes, 1.9K views</div>
+  <div class="body">
+    Demonstrated making a full production video in 10 minutes by orchestrating a CEO agent and CMO agent, each holding specialized skills. The underlying tech: <code>companies.sh</code> — an open standard for Agent Companies. Import and run entire company structures with a single command: <code>npx companies.sh add &lt;repo/company&gt;</code>. Each agent has a role, memory, and a skill set.
+    <br><br>
+    <strong style="color:#8b949e">Cedar &amp; Ink:</strong> Social media agent + Etsy listing agent + video agent, all running from one repo.<br>
+    <strong style="color:#8b949e">Slab Street:</strong> Price analyst agent + newsletter agent + data ingestion agent.<br>
+    <strong style="color:#8b949e">Shop Metrics:</strong> Content agent + demo video agent + competitive research agent.
+  </div>
 </div>
 
 <div class="card">
   <div class="card-header">
-    <h3>Remotion Video Generation</h3>
+    <h3>Build an MCP App — Get Featured in Claude</h3>
     <span class="tag tag-all">ALL 3</span>
   </div>
-  <div class="meta">@chhddavid — Mar 25 &middot; 115 RTs, 1.5K likes</div>
-  <div class="body">Claude + Remotion generates videos from a single prompt. Motion design, demos, animations. Install: <code>npx skills add remotion-dev/skills</code></div>
+  <div class="meta">@TobinSouth — Mar 25 · 436 likes, 63K views &nbsp;|&nbsp; Official Claude announcement</div>
+  <div class="body">
+    @TobinSouth is actively recruiting: "go build an interactive mcp app and dm me, we'll put it in claude." Coincides with Claude's official announcement that work tools are now on mobile — Figma designs, Canva slides, Amplitude dashboards via Opus 4.6.
+    <br><br>
+    <strong style="color:#8b949e">The opportunity:</strong> Cedar &amp; Ink map generator MCP, Slab Street card pricing MCP, Shop Metrics machining calculator MCP. Build one, get featured. Claude on mobile means users can access these tools anywhere.
+  </div>
 </div>
 
 <div class="card">
   <div class="card-header">
-    <h3>MiroFish Multi-Agent Architecture</h3>
+    <h3>Sharpr Launches for MLB Opening Day — Sports Data Comp for Slab Street</h3>
     <span class="tag tag-slab">SLAB STREET</span>
   </div>
-  <div class="meta">@hanakoxbt — Mar 15-16 &middot; 199 RTs, 3.1K likes</div>
-  <div class="body">274 agents running 4 quant formulas, scanning Polymarket. "God View" shows agents with memory and personality forming opinions together. This is what a card pricing intelligence engine should look like.</div>
-</div>
-
-<div class="card">
-  <div class="card-header">
-    <h3>Official Anthropic Skills Guide</h3>
-    <span class="tag tag-all">ALL 3</span>
+  <div class="meta">@StephByronKeech — Mar 26 · 13 likes, 1.4K views</div>
+  <div class="body">
+    Sharpr launched a free-to-start platform with pitcher projections and a prop betting simulator for MLB Opening Day. It's a data hub for one sport, one use case — structurally identical to what Slab Street is building for trading cards.
+    <br><br>
+    <strong style="color:#8b949e">Relevance:</strong> Study their onboarding, free tier strategy, and data presentation UI. The "free for first few days" launch mechanic drove 1.4K views from a small account — directly replicable for Slab Street's beta launch.
   </div>
-  <div class="meta">@trq212 — Mar 17 &middot; 2.7K RTs, 16K likes, 6.6M views</div>
-  <div class="body">The official article on how skills work in Claude Code. What works, what doesn't, how to structure and distribute them. Essential reading for building your own skills.</div>
-</div>
-
-<div class="card">
-  <div class="card-header">
-    <h3>WebMCP Early Preview</h3>
-    <span class="tag tag-slab">SLAB STREET</span>
-  </div>
-  <div class="meta">@ChromiumDev — Feb 13 &middot; 397 RTs, 4.3K likes</div>
-  <div class="body">Google's official standard for AI agents interacting with websites. The future of browser automation — more reliable marketplace scraping at scale.</div>
-</div>
-
-<div class="card">
-  <div class="card-header">
-    <h3>5 Best Claude Code Plugins</h3>
-    <span class="tag tag-all">ALL 3</span>
-  </div>
-  <div class="meta">@DeRonin_ — Feb 15</div>
-  <div class="body">Superpowers (brainstorming, subagent dev, code review), Frontend-design (polished aesthetic UI code), and three more worth checking out.</div>
-</div>
-
-<div class="card">
-  <div class="card-header">
-    <h3>skillsmp.com — 60K+ Claude Skills</h3>
-    <span class="tag tag-all">ALL 3</span>
-  </div>
-  <div class="meta">@milesdeutscher — Jan 14 &middot; 383 RTs, 4K likes</div>
-  <div class="body">Full marketplace of pre-built Claude skills. Search by keyword. Find tools for each business instead of building from scratch.</div>
-</div>
-
-<div class="card">
-  <div class="card-header">
-    <h3>MIT Recursive Meta-Cognition</h3>
-    <span class="tag tag-shop">SHOP METRICS</span>
-  </div>
-  <div class="meta">@godofprompt — Jan 15</div>
-  <div class="body">Prompting technique that outperforms standard prompts by 110%. Team-of-experts reasoning. Great for calculator logic and technical documentation.</div>
-</div>
-
-<div class="card">
-  <div class="card-header">
-    <h3>markdown.new</h3>
-    <span class="tag tag-all">ALL 3</span>
-  </div>
-  <div class="meta">Post ~Feb 2026</div>
-  <div class="body">Prepend <code>markdown.new</code> to any URL for clean Markdown output. 80% fewer tokens. Works on any website.</div>
-</div>
-
-<div class="card">
-  <div class="card-header">
-    <h3>Claude Agent SDK Guide</h3>
-    <span class="tag tag-all">ALL 3</span>
-  </div>
-  <div class="meta">Article ~Jan 2026 &middot; 203 RTs, 2.2K likes</div>
-  <div class="body">Complete guide to building agents. Reference for when you're ready to build custom multi-agent workflows.</div>
-</div>
-
-<div class="card">
-  <div class="card-header">
-    <h3>Genealogy + Maps Crossover</h3>
-    <span class="tag tag-cedar">CEDAR &amp; INK</span>
-  </div>
-  <div class="meta">@MattPrusak — Mar 18 &middot; 258 RTs, 3.4K likes</div>
-  <div class="body">AI-assisted genealogy research repo for Claude Code. Iowa town maps + family history = premium niche product idea for reunions and heritage gifts.</div>
 </div>
 
 <div class="actions">
   <h2>Action Items</h2>
-  <div class="action-item"><div class="checkbox"></div>Differentiate Cedar &amp; Ink NOW — TerraInk is public. Iowa branding and storytelling are your edge.</div>
-  <div class="action-item"><div class="checkbox"></div>Install /last30days skill: <code>/plugin marketplace add mvarshov/last30days-skill</code></div>
-  <div class="action-item"><div class="checkbox"></div>Read the official Anthropic skills article (from @trq212)</div>
-  <div class="action-item"><div class="checkbox"></div>Install Superpowers and Frontend-design Claude Code plugins</div>
-  <div class="action-item"><div class="checkbox"></div>Browse skillsmp.com for pre-built skills relevant to each business</div>
-  <div class="action-item"><div class="checkbox"></div>Study MiroFish architecture for Slab Street pricing intelligence</div>
-  <div class="action-item"><div class="checkbox"></div>Try <code>markdown.new</code> for web content ingestion</div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div>Explore <code>companies.sh</code> — clone or fork an example Agent Company and map it to one of your three businesses. Cedar &amp; Ink is fastest to model (social + listing + video agents).</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div>Build a minimal MCP app for one business and DM @TobinSouth. A Shop Metrics machining calculator MCP (speeds, feeds, tolerances) is differentiated enough to get noticed.</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div>Check out Sharpr and screenshot their onboarding + data presentation UX. Use as a reference for Slab Street's beta launch design.</div>
+  </div>
 </div>
 
 <div class="noise-section">
-  <h2>Noise (Cleared)</h2>
-  <div class="noise-item">@Cache100x — Dog memecoin &middot; @stalk0x — Crypto low caps &middot; @whatsupmeta — $TON holdings</div>
-  <div class="noise-item">@FuckerOnSol — Solana memes &middot; @based_d0m — Conspiracy &middot; @LateNightSeth — Political comedy</div>
-  <div class="noise-item">@citadelwolf — $SEI guide &middot; @WyldeApes — Crypto &middot; @Portalcoin — Crystal Dash</div>
-  <div class="noise-item">@salvonchain — BRC-20 &middot; @GuyDealership — GM recall &middot; @polygridxyz — Polymarket feed</div>
-  <div class="noise-item">@UltraLinx — Speed reading &middot; Self-help article &middot; @k1rallik — Banksy article</div>
+  <h2>Noise — Cleared</h2>
+  <div class="noise-item">None — all 3 bookmarks were signal. Clean queue.</div>
 </div>
 
 <div class="footer">
-  Klyde Intelligence System &middot; Built with Claude Cowork &middot; Delivered daily at 3am
+  Klyde Intelligence System &nbsp;·&nbsp; Automated run &nbsp;·&nbsp; March 26, 2026 &nbsp;·&nbsp; <a href="https://mattklein2.github.io/klyde/briefings/2026-03-26-briefing.html" style="color:#484f58">mattklein2.github.io/klyde</a>
 </div>
 
 </body>
