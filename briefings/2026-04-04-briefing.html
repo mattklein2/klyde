@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Klyde Daily Briefing — April 4, 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d1117; color: #e6edf3; line-height: 1.6; padding: 24px; max-width: 720px; margin: 0 auto; }
+  .header { border-bottom: 2px solid #f78166; padding-bottom: 16px; margin-bottom: 24px; }
+  .header h1 { font-size: 24px; font-weight: 700; color: #f0f6fc; letter-spacing: -0.5px; }
+  .header .date { color: #8b949e; font-size: 14px; margin-top: 4px; }
+  .stats { display: flex; gap: 16px; margin-top: 12px; flex-wrap: wrap; }
+  .stat { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 8px 14px; font-size: 13px; }
+  .stat strong { color: #f78166; }
+  .headlines { background: linear-gradient(135deg, #161b22, #1c2333); border: 1px solid #30363d; border-radius: 12px; padding: 20px; margin-bottom: 28px; }
+  .headlines h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: #f78166; margin-bottom: 10px; }
+  .headlines p { font-size: 15px; color: #c9d1d9; }
+  .section-title { font-size: 18px; font-weight: 700; color: #f0f6fc; margin: 28px 0 16px; padding-bottom: 8px; border-bottom: 1px solid #21262d; }
+  .card { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 16px; margin-bottom: 12px; transition: border-color 0.2s; }
+  .card:hover { border-color: #f78166; }
+  .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+  .card h3 { font-size: 16px; font-weight: 600; color: #f0f6fc; flex: 1; }
+  .tag { font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 12px; white-space: nowrap; margin-left: 8px; }
+  .tag-cedar { background: #1a4d2e; color: #56d364; }
+  .tag-slab { background: #1c3a5e; color: #58a6ff; }
+  .tag-shop { background: #4a3000; color: #f9a825; }
+  .tag-all { background: #3d1f5c; color: #bc8cff; }
+  .tag-urgent { background: #5c1f1f; color: #ff7b72; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+  .card .meta { font-size: 13px; color: #8b949e; margin-bottom: 8px; }
+  .card .body { font-size: 14px; color: #c9d1d9; }
+  .actions { margin-top: 28px; }
+  .actions h2 { font-size: 18px; font-weight: 700; color: #f0f6fc; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid #21262d; }
+  .action-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid #21262d; font-size: 14px; color: #c9d1d9; }
+  .action-item:last-child { border-bottom: none; }
+  .checkbox { width: 18px; height: 18px; border: 2px solid #30363d; border-radius: 4px; flex-shrink: 0; margin-top: 2px; }
+  .noise-section { margin-top: 28px; }
+  .noise-section h2 { font-size: 18px; font-weight: 700; color: #8b949e; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #21262d; }
+  .noise-item { font-size: 13px; color: #6e7681; padding: 4px 0; }
+  .footer { margin-top: 32px; padding-top: 16px; border-top: 1px solid #21262d; text-align: center; font-size: 12px; color: #484f58; }
+  code { background: #1c2333; padding: 2px 6px; border-radius: 4px; font-size: 13px; color: #f78166; font-family: 'SF Mono', 'Fira Code', monospace; }
+  .run-badge { display: inline-block; background: #1c2333; border: 1px solid #30363d; border-radius: 6px; padding: 2px 8px; font-size: 11px; color: #8b949e; margin-left: 10px; vertical-align: middle; }
+  .app-use { margin-top: 8px; padding-top: 8px; border-top: 1px solid #21262d; font-size: 13px; color: #8b949e; }
+  .app-use strong { color: #6e7681; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>Klyde Daily Briefing <span class="run-badge">Run #10 — 3:00 AM</span></h1>
+  <div class="date">Saturday, April 4, 2026</div>
+  <div class="stats">
+    <div class="stat"><strong>6</strong> bookmarks scanned</div>
+    <div class="stat"><strong>6</strong> signal</div>
+    <div class="stat"><strong>0</strong> noise</div>
+    <div class="stat"><strong>0</strong> urgent</div>
+  </div>
+</div>
+<div class="headlines">
+  <h2>The Headlines</h2>
+  <p>Perfect signal day — all 6 bookmarks were actionable. Karpathy dropped a 10M-view thread on using LLMs to build personal knowledge bases with Obsidian, which is essentially the architecture Klyde itself should evolve toward. AutoAgent launched as the first open-source self-optimizing agent library, hitting #1 on two major benchmarks. Claude officially shipped Microsoft 365 connectors on every plan. And a new MCP finally fixes Claude Code's notoriously bad UI design problem.</p>
+</div>
+<div class="section-title">Signal</div>
+<div class="card">
+  <div class="card-header">
+    <h3>LLM Knowledge Bases — Karpathy's Personal Wiki System</h3>
+    <span class="tag tag-all">ALL 3</span>
+  </div>
+  <div class="meta">@karpathy — Apr 2 · 39K likes, 10M views</div>
+  <div class="body">Karpathy shared his full workflow for using LLMs to build personal knowledge bases. Index raw data into a raw/ directory, then an LLM compiles a wiki of interlinked .md files viewed in Obsidian. Q&amp;A, health checks, and outputs filed back in so research compounds over time.
+    <div class="app-use"><strong>Cedar &amp; Ink:</strong> Market intel wiki. | <strong>Slab Street:</strong> Card pricing knowledge base. | <strong>Shop Metrics:</strong> Living machining reference.</div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <h3>AutoAgent — Self-Optimizing Agent Library</h3>
+    <span class="tag tag-all">ALL 3</span>
+  </div>
+  <div class="meta">@kevingu — Apr 2 · 4.2K likes, 2.5M views</div>
+  <div class="body">First open-source library for autonomously improving agents. Meta-agent optimizes task agent's harness. Hit #1 on SpreadsheetBench (96.5%) and TerminalBench (55.1%). Key insight: same-model pairings outperform cross-model. GitHub: kevinrgu/autoagent
+    <div class="app-use"><strong>Cedar &amp; Ink:</strong> Self-optimizing listing agent. | <strong>Slab Street:</strong> Self-improving pricing agents. | <strong>Shop Metrics:</strong> Auto-optimize calculator accuracy.</div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <h3>Microsoft 365 Connectors — Every Claude Plan</h3>
+    <span class="tag tag-all">ALL 3</span>
+  </div>
+  <div class="meta">@claudeai — Apr 3 · 15K likes, 3.4M views</div>
+  <div class="body">Claude now connects to Outlook, OneDrive, and SharePoint on every plan. Bring email, docs, and files directly into conversations.
+    <div class="app-use"><strong>All businesses:</strong> Connect cloud docs and assets directly into Claude sessions.</div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <h3>Landing Page Factory — 7 Free Claude Skills</h3>
+    <span class="tag tag-all">ALL 3</span>
+  </div>
+  <div class="meta">@TheMattBerman — Apr 2 · 1.5K likes, 111K views</div>
+  <div class="body">7 Claude skills that turn one URL into unlimited landing pages. Uses Firecrawl for brand DNA, Bloom AI for visuals, slop-ban copy, and QA scoring. Free.
+    <div class="app-use"><strong>Cedar &amp; Ink:</strong> Iowa heritage landing pages. | <strong>Slab Street:</strong> Beta launch pages. | <strong>Shop Metrics:</strong> Per-calculator landing pages.</div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <h3>Claude Code UI Design MCP</h3>
+    <span class="tag tag-all">ALL 3</span>
+  </div>
+  <div class="meta">@om_patel5 — Apr 3 · 2.9K likes, 315K views</div>
+  <div class="body">MCP that gives Claude its own AI design tool. Creates designs matching your existing design system and drops them into the codebase. One command setup. Kills generic AI layouts.
+    <div class="app-use"><strong>All businesses:</strong> Brand-matching UI generation. One-command setup.</div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <h3>Claude + Obsidian = AI Employee System</h3>
+    <span class="tag tag-all">ALL 3</span>
+  </div>
+  <div class="meta">@sourfraser — Apr 2 · 889 likes, 159K views</div>
+  <div class="body">Full system: Give Claude a brain via Claude Projects, build Obsidian vault for creative memory, run a daily loop where Claude surfaces new angles from accumulated data.
+    <div class="app-use"><strong>All businesses:</strong> Per-business Claude Projects + Obsidian vault = compounding intelligence.</div>
+  </div>
+</div>
+<div class="actions">
+  <h2>Action Items</h2>
+  <div class="action-item"><div class="checkbox"></div>Study Karpathy's LLM Knowledge Base workflow</div>
+  <div class="action-item"><div class="checkbox"></div>Try Landing Page Factory for Cedar &amp; Ink</div>
+  <div class="action-item"><div class="checkbox"></div>Explore AutoAgent for Slab Street pricing agents</div>
+  <div class="action-item"><div class="checkbox"></div>Set up Microsoft 365 connectors in Claude</div>
+  <div class="action-item"><div class="checkbox"></div>Install the UI Design MCP</div>
+  <div class="action-item"><div class="checkbox"></div>Add @kevingu and @TheMattBerman to Accounts Worth Following</div>
+</div>
+<div class="noise-section">
+  <h2>Noise Cleared</h2>
+  <div class="noise-item">None — all 6 bookmarks were signal today. Perfect hit rate.</div>
+</div>
+<div class="footer">Klyde Intelligence System</div>
+</body>
+</html>
