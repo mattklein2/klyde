@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Klyde Daily Briefing — Sunday, April 5, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #0d1117; color: #f0f6fc; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 15px; line-height: 1.6; padding: 24px 16px 60px; }
+    .container { max-width: 780px; margin: 0 auto; }
+    .header { border-bottom: 1px solid #30363d; padding-bottom: 20px; margin-bottom: 24px; }
+    .header-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+    .brand { font-size: 13px; color: #6e7681; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+    .date { font-size: 13px; color: #8b949e; }
+    h1 { font-size: 26px; font-weight: 700; color: #f78166; margin-top: 10px; }
+    .stats-bar { display: flex; gap: 24px; margin-top: 14px; flex-wrap: wrap; }
+    .stat { display: flex; flex-direction: column; gap: 2px; }
+    .stat-value { font-size: 22px; font-weight: 700; color: #f78166; }
+    .stat-label { font-size: 11px; color: #6e7681; text-transform: uppercase; letter-spacing: 0.06em; }
+    .section-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #6e7681; font-weight: 600; margin-bottom: 12px; margin-top: 32px; }
+    .headlines-card { background: linear-gradient(135deg, #161b22 0%, #1c2333 100%); border: 1px solid #30363d; border-radius: 8px; padding: 20px 22px; margin-bottom: 8px; }
+    .headlines-card h2 { font-size: 16px; font-weight: 700; color: #f78166; margin-bottom: 10px; }
+    .headlines-card p { color: #c9d1d9; font-size: 14px; line-height: 1.7; }
+    .signal-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 18px 20px; margin-bottom: 12px; transition: border-color 0.15s; }
+    .signal-card:hover { border-color: #f78166; }
+    .card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+    .card-title { font-size: 15px; font-weight: 600; color: #f0f6fc; line-height: 1.4; }
+    .tags { display: flex; gap: 6px; flex-wrap: wrap; flex-shrink: 0; }
+    .tag { font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; letter-spacing: 0.04em; white-space: nowrap; }
+    .tag-build { background: #1a4d2e; color: #56d364; }
+    .tag-run { background: #3d1f5c; color: #bc8cff; }
+    .tag-urgent { background: #5c1f1f; color: #ff7b72; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+    .card-meta { font-size: 12px; color: #6e7681; margin-bottom: 10px; }
+    .card-meta a { color: #6e7681; text-decoration: none; }
+    .card-meta a:hover { color: #f78166; text-decoration: underline; }
+    .card-body { font-size: 14px; color: #c9d1d9; line-height: 1.65; }
+    .card-body strong { color: #f0f6fc; }
+    .application-block { background: #1c2333; border-left: 3px solid #f78166; padding: 10px 14px; margin-top: 12px; border-radius: 0 4px 4px 0; font-size: 13px; color: #c9d1d9; line-height: 1.6; }
+    .application-block strong { color: #f78166; display: block; margin-bottom: 4px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .action-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 18px 20px; }
+    .action-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; border-bottom: 1px solid #21262d; font-size: 13px; color: #c9d1d9; }
+    .action-item:last-child { border-bottom: none; }
+    .action-check { width: 16px; height: 16px; border: 1.5px solid #30363d; border-radius: 3px; flex-shrink: 0; margin-top: 2px; }
+    .action-text { line-height: 1.5; }
+    .action-text strong { color: #f0f6fc; }
+    .noise-card { background: #161b22; border: 1px solid #21262d; border-radius: 8px; padding: 14px 18px; }
+    .noise-item { font-size: 13px; color: #6e7681; padding: 5px 0; border-bottom: 1px solid #21262d; }
+    .noise-item:last-child { border-bottom: none; }
+    .noise-handle { color: #484f58; font-weight: 600; }
+    .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #21262d; text-align: center; font-size: 12px; color: #484f58; }
+    code { background: #1c2333; color: #f78166; padding: 1px 5px; border-radius: 3px; font-family: 'SF Mono','Fira Code',monospace; font-size: 12px; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="header-top"><span class="brand">Klyde Intelligence System</span><span class="date">Sunday, April 5, 2026 &middot; 3:00 AM</span></div>
+    <h1>Shop Metrics Daily Briefing</h1>
+    <div class="stats-bar">
+      <div class="stat"><span class="stat-value">11</span><span class="stat-label">Scanned</span></div>
+      <div class="stat"><span class="stat-value">8</span><span class="stat-label">Signal</span></div>
+      <div class="stat"><span class="stat-value">3</span><span class="stat-label">Noise</span></div>
+    </div>
+  </div>
+  <div class="section-label">Executive Summary</div>
+  <div class="headlines-card">
+    <h2>Big night for 4man architecture &amp; agent tooling</h2>
+    <p>Two high-priority items this morning: an open-source engine that already implements Karpathy's LLM Wiki pattern (study this before building 4man's backend), and Addy Osmani's Google-validated agent skills framework that's a direct template for 4man's domain skill design. Supporting those are design.md (one file locks in Shop Metrics' calculator UI system forever), Claude Mem (persistent memory for Claude Code sessions), and YC-style evaluation prompts for pressure-testing product decisions. Skill graphs round out the agent architecture tools. Stop marker from yesterday not found &mdash; possible unbookmark &mdash; all 11 bookmarks processed.</p>
+  </div>
+  <div class="section-label">Signal &mdash; 8 Items</div>
+  <div class="signal-card">
+    <div class="card-header"><div class="card-title">agentmemory &mdash; Open-Source LLM Wiki Engine (4man's Architecture)</div><div class="tags"><span class="tag tag-build">Build Better</span><span class="tag tag-urgent">Urgent</span></div></div>
+    <div class="card-meta"><a href="https://x.com/ghumare64/status/2040474696391463158" target="_blank">@ghumare64</a> &middot; April 5, 2026 &middot; github.com/rohitg00/agentmemory</div>
+    <div class="card-body">Karpathy described the LLM Wiki pattern (intel item #18). <strong>agentmemory is the open-source engine that already does it.</strong> Raw data goes in, the LLM indexes and cross-links it into a persistent wiki, Q&amp;A runs against the full knowledge base, and health checks find inconsistencies. 100% open source.</div>
+    <div class="application-block"><strong>Shop Metrics Application</strong>Study this repo before designing 4man's knowledge backend &mdash; it's the architecture you were going to build from scratch. Feed the entire Machinery's Handbook in; 4man gets a persistent, queryable, self-maintaining knowledge base. Auto cross-linking connects machining concepts (feed rate &rarr; surface finish &rarr; tool life). The linting function catches formula inconsistencies across tools.</div>
+  </div>
+  <div class="signal-card">
+    <div class="card-header"><div class="card-title">Addy Osmani (Google) &mdash; 19 Engineering Skills + 7 Commands for AI Agents</div><div class="tags"><span class="tag tag-build">Build Better</span><span class="tag tag-run">Run Smarter</span><span class="tag tag-urgent">Urgent</span></div></div>
+    <div class="card-meta"><a href="https://x.com/DataChaz/status/2040357775830814798" target="_blank">@DataChaz</a> &middot; April 5, 2026 &middot; via Addy Osmani (@addyosmani, Google Chrome DevRel)</div>
+    <div class="card-body">Osmani dropped 19 engineering skills + 7 commands for AI coding agents, inspired by Google best practices. <strong>Structured skill framework with consistent command interface.</strong> AI coding agents are powerful but need structure &mdash; this provides it.</div>
+    <div class="application-block"><strong>Shop Metrics Application</strong>This is the template for 4man's skill design. Map the 19 skills to machining domains: speeds/feeds skill, GD&amp;T skill, thread calculation skill, material property skill, tooling recommendation skill. The 7-command pattern gives 4man a consistent interface regardless of which calculation type the machinist asks about. Google-validated = less trial-and-error.</div>
+  </div>
+  <div class="signal-card">
+    <div class="card-header"><div class="card-title">Claude Code Skill Graphs &mdash; Visual Knowledge Organization for Agents</div><div class="tags"><span class="tag tag-build">Build Better</span><span class="tag tag-run">Run Smarter</span></div></div>
+    <div class="card-meta"><a href="https://x.com/VadimStrizheus/status/2040687605600141619" target="_blank">@VadimStrizheus</a> &middot; April 5, 2026 (newest bookmark)</div>
+    <div class="card-body">Skill graphs for Claude Code agents &mdash; visualize and organize an agent's domain knowledge as a compact shareable artifact. "Give this to your agent. You'll thank me later."</div>
+    <div class="application-block"><strong>Shop Metrics Application</strong>Map 4man's knowledge domains as a skill graph: machining formulas &rarr; GD&amp;T &rarr; speeds/feeds &rarr; material specs &rarr; tooling &rarr; Machinery's Handbook. Identify coverage gaps before building. Share between Klyde and 4man sessions for consistent cross-run context.</div>
+  </div>
+  <div class="signal-card">
+    <div class="card-header"><div class="card-title">design.md &mdash; One Plain Text File to Lock In Your Entire UI System</div><div class="tags"><span class="tag tag-build">Build Better</span></div></div>
+    <div class="card-meta"><a href="https://x.com/itsolelehmann/status/2040189738859307303" target="_blank">@itsolelehmann</a> &middot; April 5, 2026 &middot; Google-introduced pattern</div>
+    <div class="card-body"><strong>design.md</strong> is a single plain text file defining colors, fonts, spacing, button styles, and card layouts. AI coding agents read it as context for every UI decision &mdash; no more prompting about styling.</div>
+    <div class="application-block"><strong>Shop Metrics Application</strong>Write a Shop Metrics design.md once: industrial color palette, machinist-appropriate typography, dense data display patterns, error state conventions. Every calculator Claude builds thereafter matches the design system automatically. Fixes consistency across 37+ tools instantly.</div>
+  </div>
+  <div class="signal-card">
+    <div class="card-header"><div class="card-title">Claude Mem + n8n-mcp &mdash; Best GitHub Repos for Claude Code</div><div class="tags"><span class="tag tag-run">Run Smarter</span><span class="tag tag-build">Build Better</span></div></div>
+    <div class="card-meta"><a href="https://x.com/NainsiDwiv50980/status/2040286029270372519" target="_blank">@NainsiDwiv50980</a> &middot; April 5, 2026 &middot; github.com/thedotmack/claude-mem</div>
+    <div class="card-body">Curated GitHub repos for Claude Code. Standouts: <strong>Claude Mem</strong> (persistent memory across sessions &mdash; stop re-teaching Claude your codebase) and <strong>n8n-mcp</strong> (50+ styles, 161 color palettes, 99 UX patterns as MCP tools).</div>
+    <div class="application-block"><strong>Shop Metrics Application</strong>Claude Mem solves session context loss &mdash; critical for B2B calculator accuracy across sessions. n8n-mcp gives Claude professional design patterns for tool UIs. n8n integration opens automation workflows: lead capture &rarr; welcome sequence &rarr; onboarding.</div>
+  </div>
+  <div class="signal-card">
+    <div class="card-header"><div class="card-title">Goose &mdash; Block's Open-Source Local AI Agent (Any LLM, On-Device)</div><div class="tags"><span class="tag tag-build">Build Better</span><span class="tag tag-run">Run Smarter</span></div></div>
+    <div class="card-meta"><a href="https://x.com/heyrimsha/status/2039974285947924582" target="_blank">@heyrimsha</a> &middot; April 3, 2026 &middot; Jack Dorsey's Block, 100% open source</div>
+    <div class="card-body">Block open-sourced <strong>Goose</strong> &mdash; a local AI agent that installs software, executes code, edits files, and runs tests. Fully on-device, works with any LLM.</div>
+    <div class="application-block"><strong>Shop Metrics Application</strong>Competitive awareness: Goose is Claude Code's main open-source competitor. Key question: does Goose support MCP calls? If yes, a Shop Metrics machining MCP works in both Claude and Goose simultaneously &mdash; doubling distribution with no extra work.</div>
+  </div>
+  <div class="signal-card">
+    <div class="card-header"><div class="card-title">Paul Graham&ndash;Style YC Evaluation Prompts &mdash; Pressure-Test Before Building</div><div class="tags"><span class="tag tag-run">Run Smarter</span></div></div>
+    <div class="card-meta"><a href="https://x.com/godofprompt/status/2040377584551358575" target="_blank">@godofprompt</a> &middot; April 5, 2026</div>
+    <div class="card-body">6 Claude prompts that pressure-test startup ideas the way Paul Graham evaluates YC applications. Most ideas sound good. Few survive real scrutiny.</div>
+    <div class="application-block"><strong>Shop Metrics Application</strong>Run major decisions through these before building: 4man scope, MCP strategy, consulting pricing, "everything a shop needs in one place" positioning. CEO gut-check at zero cost. Use before pitching any AI consulting engagement.</div>
+  </div>
+  <div class="signal-card">
+    <div class="card-header"><div class="card-title">Clone One Repo + Write One Markdown File = Powerful Agent</div><div class="tags"><span class="tag tag-run">Run Smarter</span><span class="tag tag-build">Build Better</span></div></div>
+    <div class="card-meta"><a href="https://x.com/Axel_bitblaze69/status/2040312495886241836" target="_blank">@Axel_bitblaze69</a> &middot; April 5, 2026</div>
+    <div class="card-body">A minimal technique: clone one repo, write one markdown file &mdash; get an agent that outperforms most developer tools. Minimal setup, maximum capability through structured context.</div>
+    <div class="application-block"><strong>Shop Metrics Application</strong>Fast path for 4man domain prototypes: clone a calculator repo + write machining-domain markdown &rarr; agent that can extend calculator logic without full infrastructure. Good for rapid validation of 4man's machining knowledge coverage.</div>
+  </div>
+  <div class="section-label">Action Items</div>
+  <div class="action-card">
+    <div class="action-item"><div class="action-check"></div><div class="action-text"><strong>[Build]</strong> Clone and study <code>rohitg00/agentmemory</code> &mdash; understand indexing architecture before designing 4man's knowledge backend</div></div>
+    <div class="action-item"><div class="action-check"></div><div class="action-text"><strong>[Build]</strong> Read Addy Osmani's Agent Skills release &mdash; map his 19 skills to 4man's machining domains as a skills spec doc</div></div>
+    <div class="action-item"><div class="action-check"></div><div class="action-text"><strong>[Build]</strong> Write <code>design.md</code> for Shop Metrics &mdash; colors, fonts, spacing, data table patterns, error states. Use in every new calculator session going forward</div></div>
+    <div class="action-item"><div class="action-check"></div><div class="action-text"><strong>[Build]</strong> Check Goose MCP compatibility &mdash; if it supports MCP calls, Shop Metrics MCP gets double distribution (Claude + Goose) with no extra work</div></div>
+    <div class="action-item"><div class="action-check"></div><div class="action-text"><strong>[Run]</strong> Install <code>thedotmack/claude-mem</code> &mdash; persistent memory for Claude Code sessions stops context loss between calculator development sessions</div></div>
+    <div class="action-item"><div class="action-check"></div><div class="action-text"><strong>[Run]</strong> Run the 6 YC-style evaluation prompts on: (1) 4man scope, (2) MCP strategy, (3) consulting pricing before next sprint planning</div></div>
+    <div class="action-item"><div class="action-check"></div><div class="action-text"><strong>[Build]</strong> Draw 4man's skill graph &mdash; map domain coverage (machining formulas, GD&amp;T, speeds/feeds, material specs, tooling, Machinery's Handbook). Identify the white space</div></div>
+  </div>
+  <div class="section-label">Noise &mdash; Cleared (3 Items)</div>
+  <div class="noise-card">
+    <div class="noise-item"><span class="noise-handle">@oliviscusAI</span> &mdash; Generic "download anything from a link" browser tool. No Shop Metrics relevance.</div>
+    <div class="noise-item"><span class="noise-handle">@MaziyarPanahi</span> &mdash; Gemma 4 + SAM 3 + RF-DETR multi-model computer vision pipeline. Impressive tech, zero manufacturing application.</div>
+    <div class="noise-item"><span class="noise-handle">@aiwithmayank</span> &mdash; Generic Claude startup validation advice. Redundant with @godofprompt item; too general to add standalone.</div>
+  </div>
+  <div class="footer">
+    <div>Klyde Intelligence System &nbsp;&middot;&nbsp; Shop Metrics (myshopmetrics.com)</div>
+    <div style="margin-top:4px;color:#30363d;">Generated April 5, 2026 &middot; 11 bookmarks scanned &middot; 8 signal &middot; 3 noise</div>
+  </div>
+</div>
+</body>
+</html>
