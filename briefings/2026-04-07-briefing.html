@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Klyde Daily Briefing — Tuesday, April 7, 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0d1117;
+    color: #f0f6fc;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  a { color: #f78166; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .header {
+    text-align: center;
+    padding: 30px 0 20px;
+    border-bottom: 1px solid #30363d;
+    margin-bottom: 24px;
+  }
+  .header h1 { font-size: 28px; color: #f78166; margin-bottom: 6px; }
+  .header .date { color: #8b949e; font-size: 14px; margin-bottom: 16px; }
+  .stats-bar { display: flex; justify-content: center; gap: 24px; margin-top: 12px; }
+  .stat { text-align: center; }
+  .stat .number { font-size: 24px; font-weight: 700; color: #f78166; }
+  .stat .label { font-size: 12px; color: #6e7681; text-transform: uppercase; letter-spacing: 0.5px; }
+  .headlines {
+    background: linear-gradient(135deg, #161b22 0%, #1c2333 100%);
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+  .headlines h2 { font-size: 16px; color: #f78166; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+  .headlines p { color: #c9d1d9; font-size: 15px; }
+  .signal-section h2 { font-size: 18px; color: #f0f6fc; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid #30363d; }
+  .signal-card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 18px;
+    margin-bottom: 16px;
+    transition: border-color 0.2s;
+  }
+  .signal-card:hover { border-color: #f78166; }
+  .signal-card .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+  .signal-card h3 { font-size: 16px; color: #f0f6fc; flex: 1; }
+  .signal-card .meta { color: #6e7681; font-size: 12px; margin-bottom: 10px; }
+  .signal-card .body { color: #c9d1d9; font-size: 14px; margin-bottom: 12px; }
+  .signal-card .action {
+    background: #1c2333;
+    border-radius: 4px;
+    padding: 10px 12px;
+    font-size: 13px;
+    color: #f78166;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+  }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: 8px;
+  }
+  .tag-build { background: #1a4d2e; color: #56d364; }
+  .tag-run { background: #3d1f5c; color: #bc8cff; }
+  .tag-serve { background: #1c3a5e; color: #58a6ff; }
+  .tag-urgent { background: #5c1f1f; color: #ff7b72; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+  .action-items {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 18px;
+    margin: 24px 0;
+  }
+  .action-items h2 { font-size: 16px; color: #f78166; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; }
+  .action-item {
+    padding: 8px 0;
+    border-bottom: 1px solid #30363d;
+    color: #c9d1d9;
+    font-size: 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .action-item:last-child { border-bottom: none; }
+  .action-item .checkbox { color: #6e7681; flex-shrink: 0; }
+  .noise-section { margin: 24px 0; padding-top: 16px; border-top: 1px solid #30363d; }
+  .noise-section h2 { font-size: 14px; color: #6e7681; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+  .noise-item { color: #6e7681; font-size: 13px; padding: 4px 0; }
+  .footer { text-align: center; padding: 24px 0; border-top: 1px solid #30363d; margin-top: 24px; color: #484f58; font-size: 12px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>Klyde Daily Briefing</h1>
+  <div class="date">Tuesday, April 7, 2026</div>
+  <div class="stats-bar">
+    <div class="stat"><div class="number">6</div><div class="label">Scanned</div></div>
+    <div class="stat"><div class="number">5</div><div class="label">Signal</div></div>
+    <div class="stat"><div class="number">1</div><div class="label">Noise</div></div>
+  </div>
+</div>
+<div class="headlines">
+  <h2>Headlines</h2>
+  <p>MemPalace drops with the first-ever perfect score on LongMemEval — a structured memory architecture that could reshape how 4man stores machining knowledge. X releases an official MCP server, opening automated social listening for Shop Metrics. Algrow gives Claude real YouTube data access, unlocking machinist video research at scale.</p>
+</div>
+<div class="signal-section">
+  <h2>Signal</h2>
+  <div class="signal-card">
+    <div class="card-header">
+      <h3>MemPalace — Structured AI Memory with Perfect Recall</h3>
+      <span class="tag tag-build">Build Better</span>
+      <span class="tag tag-urgent">Urgent</span>
+    </div>
+    <div class="meta">@bensig · April 6, 2026 · 4.5K likes · 926K views</div>
+    <div class="body">Open-source AI memory system (MIT) that scored 100% on LongMemEval — the first perfect score ever recorded. Uses a palace architecture with wings, halls, and rooms that mirrors human memory. AAAK compression fits entire life context into ~120 tokens (30x lossless). Runs fully local, no cloud, no API key.</div>
+    <div class="action">ACTION: Study this architecture for 4man knowledge layer. Organize machining domains as wings (Speeds/Feeds, GD&amp;T, Threading, Materials). May outperform flat wiki approaches from intel #18, #25, #32.</div>
+  </div>
+  <div class="signal-card">
+    <div class="card-header">
+      <h3>X/Twitter Official MCP Server</h3>
+      <span class="tag tag-run">Run Smarter</span>
+      <span class="tag tag-build">Build Better</span>
+    </div>
+    <div class="meta">@jonoringer · April 5, 2026 · 1.4K likes · 210K views</div>
+    <div class="body">X released an official MCP server (xdevplatform/xmcp on GitHub). AI agents can now search posts, create posts, like, repost, and pull user info via the standardized MCP protocol. Python-based with OAuth and a configurable tool allowlist for safety.</div>
+    <div class="action">ACTION: Evaluate for automated monitoring of machinist conversations and competitor mentions on X. Combined with Klyde, this creates a full social intelligence + engagement loop.</div>
+  </div>
+  <div class="signal-card">
+    <div class="card-header">
+      <h3>Algrow YouTube Connector for Claude</h3>
+      <span class="tag tag-run">Run Smarter</span>
+      <span class="tag tag-build">Build Better</span>
+    </div>
+    <div class="meta">@samgrows · April 6, 2026 · 1.5K likes · 170K views</div>
+    <div class="body">Algrow plugged directly into Claude provides real, constantly updated YouTube data. Claude can now search and analyze actual video content instead of generating generic responses about videos it has never seen.</div>
+    <div class="action">ACTION: Use to research machinist YouTube channels (Titans of CNC, NYC CNC) for content gaps and pain points that Shop Metrics tools or 4man could fill.</div>
+  </div>
+  <div class="signal-card">
+    <div class="card-header">
+      <h3>Money Printer — Automated B2B Outbound Sales</h3>
+      <span class="tag tag-run">Run Smarter</span>
+    </div>
+    <div class="meta">@heynavtoor · April 6, 2026 · 2.3K likes · 301K views</div>
+    <div class="body">Automated outbound tool that reads your website, identifies ideal customer profiles, finds matching companies, personalizes outreach, and sends it automatically. Includes automated calling. Zero manual list building required.</div>
+    <div class="action">ACTION: Test by pointing at myshopmetrics.com for AI consulting lead generation. Start with consulting (higher ticket) before free tool distribution.</div>
+  </div>
+  <div class="signal-card">
+    <div class="card-header">
+      <h3>agent-browser — Browser Agent with Chat Interface</h3>
+      <span class="tag tag-run">Run Smarter</span>
+      <span class="tag tag-build">Build Better</span>
+    </div>
+    <div class="meta">@ctatedev · April 6, 2026 · 955 likes · 49.7K views</div>
+    <div class="body">agent-browser is now a full browser agent with chat interface. Supports one-shot commands and interactive mode. Built-in AI chat dashboard. Can be used as a sub-agent within larger orchestration systems.</div>
+    <div class="action">ACTION: Evaluate as lightweight sub-agent for competitor monitoring within a larger automation pipeline.</div>
+  </div>
+</div>
+<div class="action-items">
+  <h2>Action Items</h2>
+  <div class="action-item"><span class="checkbox">[ ]</span><span><span class="tag tag-build">Build</span> Study MemPalace architecture (github.com/milla-jovovich/mempalace) — evaluate palace structure for 4man machining knowledge organization</span></div>
+  <div class="action-item"><span class="checkbox">[ ]</span><span><span class="tag tag-run">Run</span> Set up X MCP server (xdevplatform/xmcp) and test automated monitoring of machinist keyword searches</span></div>
+  <div class="action-item"><span class="checkbox">[ ]</span><span><span class="tag tag-run">Run</span> Connect Algrow to Claude and research top machinist YouTube channels for content gaps</span></div>
+  <div class="action-item"><span class="checkbox">[ ]</span><span><span class="tag tag-run">Run</span> Test Money Printer on myshopmetrics.com for consulting lead generation viability</span></div>
+  <div class="action-item"><span class="checkbox">[ ]</span><span><span class="tag tag-build">Build</span> Compare MemPalace vs agentmemory (#25) vs llm-wiki (#32) for 4man knowledge architecture decision</span></div>
+</div>
+<div class="noise-section">
+  <h2>Noise — Cleared</h2>
+  <div class="noise-item">@heygurisingh — Developer Icons: open-source tech SVG icon library. React components for framework logos. No Shop Metrics application.</div>
+</div>
+<div class="footer">Klyde Intelligence System — Shop Metrics</div>
+</body>
+</html>
