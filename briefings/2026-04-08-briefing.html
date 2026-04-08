@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Klyde Briefing — Tuesday, April 8, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0d1117;
+      color: #f0f6fc;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      padding: 24px 16px;
+    }
+
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header {
+      margin-bottom: 24px;
+    }
+
+    .header-top {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+
+    .header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #f78166;
+      letter-spacing: -0.3px;
+    }
+
+    .header .date {
+      font-size: 13px;
+      color: #8b949e;
+    }
+
+    .stats-bar {
+      display: flex;
+      gap: 20px;
+      padding: 10px 16px;
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      margin-top: 12px;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .stat-value {
+      font-size: 20px;
+      font-weight: 700;
+      color: #f78166;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: #8b949e;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .stat-divider {
+      width: 1px;
+      background: #30363d;
+      margin: 0 4px;
+    }
+
+    /* Headlines */
+    .headlines {
+      background: linear-gradient(135deg, #161b22 0%, #1a1f2e 100%);
+      border: 1px solid #30363d;
+      border-left: 3px solid #f78166;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+
+    .headlines h2 {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #f78166;
+      margin-bottom: 10px;
+    }
+
+    .headlines p {
+      color: #c9d1d9;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    /* Section headers */
+    .section-header {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: #6e7681;
+      margin-bottom: 12px;
+      margin-top: 28px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #21262d;
+    }
+
+    /* Signal cards */
+    .card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 18px;
+      margin-bottom: 12px;
+      transition: border-color 0.15s;
+    }
+
+    .card:hover {
+      border-color: #f78166;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #f0f6fc;
+      line-height: 1.35;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+    }
+
+    .tag-build {
+      background: #1a4d2e;
+      color: #56d364;
+    }
+
+    .tag-run {
+      background: #3d1f5c;
+      color: #bc8cff;
+    }
+
+    .tag-serve {
+      background: #1c3a5e;
+      color: #58a6ff;
+    }
+
+    .tag-urgent {
+      background: #5c1f1f;
+      color: #ff7b72;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: #8b949e;
+      margin-bottom: 10px;
+    }
+
+    .card-meta a {
+      color: #8b949e;
+      text-decoration: none;
+    }
+
+    .card-meta a:hover {
+      color: #f78166;
+    }
+
+    .card-body {
+      font-size: 13px;
+      color: #c9d1d9;
+      line-height: 1.6;
+    }
+
+    .card-body p {
+      margin-bottom: 8px;
+    }
+
+    .card-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .card-body code {
+      background: #1c2333;
+      color: #f78166;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+
+    .card-body strong {
+      color: #f0f6fc;
+    }
+
+    /* Action items */
+    .action-list {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 18px;
+      margin-bottom: 12px;
+    }
+
+    .action-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid #21262d;
+      font-size: 13px;
+      color: #c9d1d9;
+    }
+
+    .action-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .action-item:first-child {
+      padding-top: 0;
+    }
+
+    .action-checkbox {
+      width: 14px;
+      height: 14px;
+      border: 1px solid #30363d;
+      border-radius: 3px;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .action-lens {
+      flex-shrink: 0;
+    }
+
+    /* Noise section */
+    .noise-list {
+      background: #0d1117;
+      border: 1px solid #21262d;
+      border-radius: 8px;
+      padding: 14px 18px;
+    }
+
+    .noise-item {
+      font-size: 12px;
+      color: #6e7681;
+      padding: 5px 0;
+      border-bottom: 1px solid #161b22;
+      display: flex;
+      gap: 8px;
+    }
+
+    .noise-item:last-child {
+      border-bottom: none;
+    }
+
+    .noise-handle {
+      color: #484f58;
+      flex-shrink: 0;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 36px;
+      padding-top: 16px;
+      border-top: 1px solid #21262d;
+      text-align: center;
+      font-size: 11px;
+      color: #484f58;
+      letter-spacing: 0.5px;
+    }
+
+    .footer span {
+      color: #f78166;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="header-top">
+        <h1>Klyde Daily Briefing</h1>
+      </div>
+      <div class="date">Tuesday, April 8, 2026</div>
+      <div class="stats-bar">
+        <div class="stat">
+          <span class="stat-value">9</span>
+          <span class="stat-label">Bookmarks Scanned</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-value">6</span>
+          <span class="stat-label">Signal</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-value">3</span>
+          <span class="stat-label">Noise</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-value">46–51</span>
+          <span class="stat-label">Intel Entries Added</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Headlines -->
+    <div class="headlines">
+      <h2>Today's Headlines</h2>
+      <p>
+        The 4man ingestion pipeline is now fully defined. OpenDataLoader converts the Machinery's Handbook to structured Markdown in ~20 seconds on CPU — combine it with agentmemory and llm-wiki and you have the complete stack. Meanwhile, code-review-graph's knowledge graph architecture cuts Claude's token usage by 49x, and a validated consulting pricing model ($1,500–3,000 + $300–500/mo) emerges from the Second Brain as a Service playbook. GEO content strategy also surfaces as a free acquisition channel: build free machining encyclopedias, AI search engines will cite them.
+      </p>
+    </div>
+
+    <!-- Signal Section -->
+    <div class="section-header">Signal — 6 Items</div>
+
+    <!-- Card 1: OpenDataLoader -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">OpenDataLoader — PDF to Markdown at 100 Pages/Second</div>
+      </div>
+      <div class="tags">
+        <span class="tag tag-build">Build Better</span>
+        <span class="tag tag-urgent">Urgent</span>
+      </div>
+      <div class="card-meta">
+        <a href="https://x.com/HowToAI_/status/2041511338112106910" target="_blank">@HowToAI_</a> · April 7, 2026 · 32 likes · 120K views
+      </div>
+      <div class="card-body">
+        <p>Open-source tool that converts PDFs to Markdown at 100 pages per second, entirely on CPU — no cloud, no cost. Handles complex layouts, tables, and nested structures that naive PDF converters mangle.</p>
+        <p><strong>Why this matters:</strong> The Machinery's Handbook is ~2,000 pages of dense tables. OpenDataLoader converts it in ~20 seconds and preserves the tabular data 4man needs to answer machining questions accurately. This is the missing ingestion piece.</p>
+        <p><strong>The full 4man stack is now defined:</strong> OpenDataLoader (convert) → llm-wiki #32 (index) → MemPalace #41 (store) → BM25 #33 (query). Start building.</p>
+      </div>
+    </div>
+
+    <!-- Card 2: Second Brain as a Service -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Second Brain as a Service — Consulting Pricing Model</div>
+      </div>
+      <div class="tags">
+        <span class="tag tag-build">Build Better</span>
+        <span class="tag tag-run">Run Smarter</span>
+        <span class="tag tag-urgent">Urgent</span>
+      </div>
+      <div class="card-meta">
+        <a href="https://x.com/coreyganim/status/2041644185028116628" target="_blank">@coreyganim</a> · April 7, 2026 · 72 likes · 540K views
+      </div>
+      <div class="card-body">
+        <p>Corey Ganim's validated pricing framework for selling knowledge base builds as a service: <strong>$1,500–3,000 upfront</strong> to build (3 folders, 1 schema file, client's existing data loaded), then <strong>$300–500/month retainer</strong> for ongoing ingestion, health checks, and new source processing.</p>
+        <p><strong>Shop Metrics application:</strong> This is the exact pricing structure for AI consulting engagements. Charge shops to build their knowledge base (job history, procedures, tooling data, CAD libraries), then maintain it monthly. Stop guessing — start quoting these numbers.</p>
+        <p>The retainer model creates predictable recurring revenue alongside the platform's free tools. Low barrier to entry, high lifetime value.</p>
+      </div>
+    </div>
+
+    <!-- Card 3: code-review-graph -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">code-review-graph — 49x Token Reduction via Knowledge Graph</div>
+      </div>
+      <div class="tags">
+        <span class="tag tag-build">Build Better</span>
+      </div>
+      <div class="card-meta">
+        <a href="https://x.com/hasantoxr/status/2041487311536603629" target="_blank">@hasantoxr</a> · April 7, 2026 · 38 likes · 73K views
+      </div>
+      <div class="card-body">
+        <p>Open-source tool that builds a persistent structural map of a codebase using Tree-sitter. Claude reads only the files actually relevant to a task — cutting token usage by <strong>49x</strong> on daily tasks. Graph persists across sessions.</p>
+        <p><strong>Apply to 4man:</strong> Instead of feeding the full Machinery's Handbook per query, build a structural knowledge graph so 4man reads only the relevant chapter or table. A 49x token reduction at query time is the difference between a viable and non-viable cost structure at scale.</p>
+        <p>Research this repo before finalizing 4man's architecture — the graph-first approach may be more efficient than the flat wiki approach.</p>
+      </div>
+    </div>
+
+    <!-- Card 4: GEO Content Strategy -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">GEO Content Strategy — Free Reference Sites as AI Search Bait</div>
+      </div>
+      <div class="tags">
+        <span class="tag tag-run">Run Smarter</span>
+      </div>
+      <div class="card-meta">
+        <a href="https://x.com/jackbutcher/status/2041711730426880411" target="_blank">@jackbutcher</a> · April 8, 2026 · 12 likes · 6K views
+      </div>
+      <div class="card-body">
+        <p>Jack Butcher ran an experiment: built a free "Complete Peptide Encyclopedia" with nothing to sell — purely to rank in the "new internet" (AI search). The thesis: comprehensive, free, authoritative reference content gets cited by AI search engines (Claude, ChatGPT, Perplexity) when users ask questions in that domain.</p>
+        <p><strong>Shop Metrics play:</strong> Build free encyclopedic reference pages — "The Complete Speeds &amp; Feeds Reference", "CNC Threading Encyclopedia", "GD&amp;T Symbol Library". When machinists ask AI search engines about threading or surface speeds, Shop Metrics gets cited. Zero product required to publish.</p>
+        <p>Bonus: these pages become training/retrieval data for 4man. Content doubles as both acquisition and knowledge base.</p>
+      </div>
+    </div>
+
+    <!-- Card 5: Visual Agent Management -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Visual AI Agent Management — RPG World Interface Concept</div>
+      </div>
+      <div class="tags">
+        <span class="tag tag-build">Build Better</span>
+      </div>
+      <div class="card-meta">
+        <a href="https://x.com/om_patel5/status/2041717699307323399" target="_blank">@om_patel5</a> · April 8, 2026 · 54 likes · 87K views
+      </div>
+      <div class="card-body">
+        <p>A developer built a pixel-character RPG world to manage 5 AI agents — each agent has a character, a station, and walks around the space. When enough unresolved issues pile up, agents congregate at a meeting point. Makes multi-agent state visible without a terminal or dashboard.</p>
+        <p><strong>Signal for 4man:</strong> The agent UX problem is unsolved. Non-technical users (shop owners) won't use a chat box that shows internal agent state as terminal output. Visualizing which machining domain 4man is querying (Speeds/Feeds, GD&amp;T, Materials) could be a differentiating UX choice.</p>
+        <p>Also: visual agent dashboards could be a premium deliverable in AI consulting engagements for shops.</p>
+      </div>
+    </div>
+
+    <!-- Card 6: Email Emulation Skill -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Email Emulation Skill — Test Auth Flows Without Real Emails</div>
+      </div>
+      <div class="tags">
+        <span class="tag tag-run">Run Smarter</span>
+      </div>
+      <div class="card-meta">
+        <a href="https://x.com/ctatedev/status/2041654204771500547" target="_blank">@ctatedev</a> · April 7, 2026 · 19 likes · 52K views
+      </div>
+      <div class="card-body">
+        <p>Vercel Labs Claude Code skill that emulates email delivery for testing — routes to a local inbox, extracts magic links and verification codes, completes auth flows end-to-end without sending real mail. One env var to reroute traffic.</p>
+        <p><code>npx skills add vercel-labs/emulate --skill resend</code></p>
+        <p>Useful for testing any Shop Metrics auth pipeline (user accounts, saved calculator presets, email verification) without flooding inboxes during development.</p>
+      </div>
+    </div>
+
+    <!-- Action Items -->
+    <div class="section-header">Action Items</div>
+    <div class="action-list">
+      <div class="action-item">
+        <div class="action-checkbox"></div>
+        <div class="action-lens"><span class="tag tag-build">Build</span></div>
+        <div>Test OpenDataLoader on a sample Machinery's Handbook section — validate table preservation quality before committing to the full ingestion pipeline</div>
+      </div>
+      <div class="action-item">
+        <div class="action-checkbox"></div>
+        <div class="action-lens"><span class="tag tag-build">Build</span></div>
+        <div>Map the full 4man ingestion stack end-to-end: OpenDataLoader → llm-wiki → MemPalace → BM25 hybrid query layer. This stack is now fully defined — write the spec.</div>
+      </div>
+      <div class="action-item">
+        <div class="action-checkbox"></div>
+        <div class="action-lens"><span class="tag tag-build">Build</span></div>
+        <div>Research code-review-graph on GitHub — evaluate whether Tree-sitter can map Machinery's Handbook chapter/table structure for 49x token reduction on 4man queries</div>
+      </div>
+      <div class="action-item">
+        <div class="action-checkbox"></div>
+        <div class="action-lens"><span class="tag tag-run">Run</span></div>
+        <div>Formalize consulting pricing deck: $1,500–3,000 setup + $300–500/mo retainer (Corey Ganim's Second Brain as a Service model). Start quoting these numbers.</div>
+      </div>
+      <div class="action-item">
+        <div class="action-checkbox"></div>
+        <div class="action-lens"><span class="tag tag-run">Run</span></div>
+        <div>Plan 3 GEO reference pages: "Complete Threading Reference", "Speeds &amp; Feeds Encyclopedia", "GD&amp;T Symbol Guide" — outline topics and publish as free static pages to capture AI search citations</div>
+      </div>
+      <div class="action-item">
+        <div class="action-checkbox"></div>
+        <div class="action-lens"><span class="tag tag-run">Run</span></div>
+        <div>Install vercel-labs/emulate Email Emulation skill for testing Shop Metrics auth workflows: <code>npx skills add vercel-labs/emulate --skill resend</code></div>
+      </div>
+    </div>
+
+    <!-- Noise Section -->
+    <div class="section-header">Noise — 3 Items Cleared</div>
+    <div class="noise-list">
+      <div class="noise-item">
+        <span class="noise-handle">@sopersone</span>
+        <span>3-hour algorithmic trading Python video — financial/trading content, no Shop Metrics relevance</span>
+      </div>
+      <div class="noise-item">
+        <span class="noise-handle">@dyah10</span>
+        <span>Pixa image/video platform promo tweet (RT and comment giveaway) — no technical content</span>
+      </div>
+      <div class="noise-item">
+        <span class="noise-handle">@stoichev</span>
+        <span>"Preview As" cookie banner regional compliance tool — niche legal/compliance, not applicable</span>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <span>Klyde</span> Intelligence System · Shop Metrics · April 8, 2026
+    </div>
+
+  </div>
+</body>
+</html>
