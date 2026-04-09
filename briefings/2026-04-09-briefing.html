@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Klyde Daily Briefing — Thursday, April 9, 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0d1117;
+    color: #f0f6fc;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    padding: 0 16px 60px;
+  }
+  a { color: #f78166; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* HEADER */
+  .header {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 40px 0 24px;
+    border-bottom: 1px solid #30363d;
+  }
+  .header-top {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+  .logo {
+    font-size: 22px;
+    font-weight: 700;
+    color: #f78166;
+    letter-spacing: -0.5px;
+  }
+  .divider { color: #30363d; font-size: 18px; }
+  .header-date {
+    font-size: 14px;
+    color: #8b949e;
+  }
+  .stats-bar {
+    display: flex;
+    gap: 24px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .stat-num {
+    font-size: 24px;
+    font-weight: 700;
+    color: #f78166;
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #6e7681;
+  }
+
+  /* MAIN CONTENT */
+  .content {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  /* HEADLINES */
+  .headlines-card {
+    background: linear-gradient(135deg, #161b22 0%, #1c2333 100%);
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    padding: 28px 32px;
+    margin: 28px 0;
+  }
+  .headlines-card h2 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #6e7681;
+    margin-bottom: 14px;
+  }
+  .headline-text {
+    font-size: 16px;
+    color: #c9d1d9;
+    line-height: 1.7;
+  }
+  .headline-text strong { color: #f0f6fc; }
+
+  /* SECTION HEADERS */
+  .section-header {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #6e7681;
+    margin: 36px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #21262d;
+  }
+
+  /* SIGNAL CARDS */
+  .card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 14px;
+    transition: border-color 0.15s;
+  }
+  .card:hover { border-color: #484f58; }
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #f0f6fc;
+    flex: 1;
+    min-width: 200px;
+  }
+  .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  .tag-build { background: #1a4d2e; color: #56d364; }
+  .tag-run { background: #3d1f5c; color: #bc8cff; }
+  .tag-serve { background: #1c3a5e; color: #58a6ff; }
+  .tag-urgent {
+    background: #5c1f1f;
+    color: #ff7b72;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.65; }
+  }
+  .card-meta {
+    font-size: 12px;
+    color: #6e7681;
+    margin-bottom: 10px;
+  }
+  .card-meta a { color: #8b949e; }
+  .card-meta a:hover { color: #f78166; }
+  .card-body {
+    font-size: 14px;
+    color: #c9d1d9;
+    line-height: 1.65;
+  }
+  .card-body p + p { margin-top: 8px; }
+  .card-body strong { color: #f0f6fc; }
+
+  /* ACTION ITEMS */
+  .action-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .action-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 18px;
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #c9d1d9;
+    line-height: 1.5;
+  }
+  .action-check {
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid #30363d;
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* NOISE SECTION */
+  .noise-list {
+    background: #161b22;
+    border: 1px solid #21262d;
+    border-radius: 8px;
+    padding: 18px 24px;
+  }
+  .noise-item {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 6px 0;
+    font-size: 13px;
+    color: #484f58;
+    border-bottom: 1px solid #21262d;
+  }
+  .noise-item:last-child { border-bottom: none; }
+  .noise-label {
+    font-size: 11px;
+    background: #21262d;
+    color: #6e7681;
+    padding: 2px 8px;
+    border-radius: 20px;
+    flex-shrink: 0;
+  }
+
+  /* FOOTER */
+  .footer {
+    max-width: 860px;
+    margin: 60px auto 0;
+    padding-top: 24px;
+    border-top: 1px solid #21262d;
+    text-align: center;
+    font-size: 12px;
+    color: #484f58;
+  }
+  .footer strong { color: #6e7681; }
+
+  /* CODE INLINE */
+  code {
+    background: #1c2333;
+    color: #f78166;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <span class="logo">Klyde</span>
+    <span class="divider">|</span>
+    <span class="header-date">Thursday, April 9, 2026</span>
+  </div>
+  <div class="stats-bar">
+    <div class="stat">
+      <span class="stat-num">14</span>
+      <span class="stat-label">Bookmarks Scanned</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">11</span>
+      <span class="stat-label">Signal</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">3</span>
+      <span class="stat-label">Noise</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">1</span>
+      <span class="stat-label">Urgent</span>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- HEADLINES -->
+  <div class="headlines-card">
+    <h2>Today's Headlines</h2>
+    <div class="headline-text">
+      <p><strong>Anthropic launched Claude Managed Agents</strong> — production infrastructure to deploy agents at scale. This is the most important item in today's scan: it's the deployment path for 4man, not a thing to build yourself. Meanwhile, the <strong>content automation toolkit keeps expanding</strong> — AI content pipelines, podcast generation from any doc, and style-matched writing tools give Shop Metrics a complete marketing engine for near-zero cost. Also: <strong>audit your Claude Code security settings</strong> before this week is out.</p>
+    </div>
+  </div>
+
+  <!-- SIGNAL -->
+  <div class="section-header">Signal — 11 items</div>
+
+  <!-- CARD 1: URGENT -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Claude Managed Agents — Production Infrastructure for 4man</div>
+      <div class="tags">
+        <span class="tag tag-urgent">Urgent</span>
+        <span class="tag tag-build">Build Better</span>
+      </div>
+    </div>
+    <div class="card-meta">
+      <a href="https://x.com/claudeai/status/2041927687460024721" target="_blank">@claudeai</a> · April 8–9, 2026 · Official Anthropic announcement
+    </div>
+    <div class="card-body">
+      <p>Anthropic launched <strong>Claude Managed Agents</strong> — everything needed to build and deploy agents at scale. An agent harness tuned for performance paired with production infrastructure. Go from prototype to live deployment <strong>in days, not months</strong>.</p>
+      <p>This is the deployment path for 4man. Don't build custom agent infrastructure — this handles scale, uptime, and reliability a solo builder can't maintain alone. Point Managed Agents at 4man's knowledge base and go live on Shop Metrics before any competitor gets there.</p>
+    </div>
+  </div>
+
+  <!-- CARD 2 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Claude Code AI Design Tool — Fix the Generic UI Problem</div>
+      <div class="tags">
+        <span class="tag tag-build">Build Better</span>
+        <span class="tag tag-run">Run Smarter</span>
+      </div>
+    </div>
+    <div class="card-meta">
+      <a href="https://x.com/cyrilXBT/status/2041753005675180346" target="_blank">@cyrilXBT</a> · April 8, 2026
+    </div>
+    <div class="card-body">
+      <p>Claude Code now has an AI design tool with full awareness of your existing design system. Eliminates the default <strong>Inter font / purple gradient</strong> output that makes every Claude-built UI look identical.</p>
+      <p>Shop Metrics application: every new calculator gets an industrial, technical interface that machinists actually trust — not another SaaS landing page aesthetic. Consistent design language across all 37+ tools maintained automatically. (Overlaps with intel #23 — this is viral confirmation the workflow is real.)</p>
+    </div>
+  </div>
+
+  <!-- CARD 3 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">LLM Wiki in Obsidian — Another Community Validation</div>
+      <div class="tags">
+        <span class="tag tag-build">Build Better</span>
+      </div>
+    </div>
+    <div class="card-meta">
+      <a href="https://x.com/dSebastien/status/2041788194077958654" target="_blank">@dSebastien</a> · April 8, 2026
+    </div>
+    <div class="card-body">
+      <p>Sébastien Dubois built a full LLM Wiki system in Obsidian inspired by @karpathy. Not a hacky script collection — a native system with proper note types, templates, and automation running as a solo operator.</p>
+      <p>This is the third community validation of intel #18 (Karpathy's pattern) and #25 (agentmemory). The pattern works in production. Study this before finalizing 4man's knowledge architecture — the implementation decisions are already solved by the community.</p>
+    </div>
+  </div>
+
+  <!-- CARD 4 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Website to Native App — One URL, Instant Mobile App</div>
+      <div class="tags">
+        <span class="tag tag-run">Run Smarter</span>
+        <span class="tag tag-serve">Serve Customers</span>
+      </div>
+    </div>
+    <div class="card-meta">
+      <a href="https://x.com/chhddavid/status/2041831248457560167" target="_blank">@chhddavid</a> · April 8, 2026
+    </div>
+    <div class="card-body">
+      <p>Tool converts any website to a native mobile app by pasting a URL — no custom development needed.</p>
+      <p>Machinists use tools on the shop floor. A native app removes friction: no browser, loads faster, works on old shop computers. App Store presence = new discovery channel beyond Google. Could become <strong>Shop Metrics Pro</strong> — a paid tier that unlocks the native app.</p>
+    </div>
+  </div>
+
+  <!-- CARD 5 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">SparkDrop — AI Content Pipeline Running Every Morning at 6am</div>
+      <div class="tags">
+        <span class="tag tag-run">Run Smarter</span>
+      </div>
+    </div>
+    <div class="card-meta">
+      <a href="https://x.com/CasJam/status/2041592566240460916" target="_blank">@CasJam (Brian Casel)</a> · April 7, 2026
+    </div>
+    <div class="card-body">
+      <p>Brian Casel's agent-driven content pipeline: his AI agent pitches content ideas, drafts posts, and surfaces learnings every morning at 6am. He reviews, gives input, approves, and schedules. <strong>Human stays in the loop; agent does the work.</strong></p>
+      <p>Clone this for Shop Metrics: Klyde feeds intel into the pipeline, agent surfaces machining pain points and article angles, Matt reviews and approves. 30 minutes of oversight replaces hours of content creation per week.</p>
+    </div>
+  </div>
+
+  <!-- CARD 6 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Claude Code Animated Social Media Posts</div>
+      <div class="tags">
+        <span class="tag tag-run">Run Smarter</span>
+      </div>
+    </div>
+    <div class="card-meta">
+      <a href="https://x.com/viktoroddy/status/2041830094520672349" target="_blank">@viktoroddy</a> · April 8, 2026
+    </div>
+    <div class="card-body">
+      <p>Claude Code can now design and generate animated social media posts from a prompt — no designer required.</p>
+      <p>Shop Metrics application: animated walkthroughs of new calculators, quick visual explanations of machining concepts, and product launch posts — all generated from a description. Cuts marketing production cost to zero.</p>
+    </div>
+  </div>
+
+  <!-- CARD 7 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Personalized Podcast Skill — Turn Any Doc Into Audio</div>
+      <div class="tags">
+        <span class="tag tag-run">Run Smarter</span>
+        <span class="tag tag-serve">Serve Customers</span>
+      </div>
+    </div>
+    <div class="card-meta">
+      <a href="https://x.com/zarazhangrui/status/2041736869998948528" target="_blank">@zarazhangrui (Zara Zhang)</a> · April 7, 2026
+    </div>
+    <div class="card-body">
+      <p>Claude skill that converts any content (docs, guides, transcripts) into a podcast with 2 AI hosts, published as an RSS feed for any podcast app.</p>
+      <p>Machinists listen during commutes, at the lathe, at the bench. Convert Shop Metrics technical guides and calculator documentation into audio — different format, different audience, same content. Potential for a <strong>Shop Metrics Machining Podcast</strong> brand that builds audience separate from the website.</p>
+    </div>
+  </div>
+
+  <!-- CARD 8 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">xAI API — Writes Content In Your Exact Style</div>
+      <div class="tags">
+        <span class="tag tag-run">Run Smarter</span>
+      </div>
+    </div>
+    <div class="card-meta">
+      <a href="https://x.com/sukh_saroy/status/2041678163315716175" target="_blank">@sukh_saroy</a> · April 7, 2026
+    </div>
+    <div class="card-body">
+      <p>xAI API generates content in your exact writing style without fine-tuning. Someone built an assistant that fetches news from any URL and writes posts in his style — no paid tools, no complex setup.</p>
+      <p>Alternative to Claude for style-matched content generation. Worth benchmarking for Shop Metrics social posts and newsletter content — if it can match Matt's voice reliably, it removes a major bottleneck in content production.</p>
+    </div>
+  </div>
+
+  <!-- CARD 9 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Claude Code Security Settings — Most Users Haven't Checked</div>
+      <div class="tags">
+        <span class="tag tag-run">Run Smarter</span>
+      </div>
+    </div>
+    <div class="card-meta">
+      <a href="https://x.com/noisyb0y1/status/2042086577636061436" target="_blank">@noisyb0y1</a> · April 9, 2026
+    </div>
+    <div class="card-body">
+      <p>By default, Claude Code can read SSH keys, AWS credentials, and other sensitive files — and send data wherever it wants. One malicious <code>CLAUDE.md</code> file in a cloned repo is enough to exfiltrate everything.</p>
+      <p><strong>Action: review Claude Code security settings this week.</strong> Also relevant for AI consulting work — shops need to understand this risk before letting any AI tool touch production systems.</p>
+    </div>
+  </div>
+
+  <!-- CARD 10 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">meetblueberry — AI IDE With Full Project Context</div>
+      <div class="tags">
+        <span class="tag tag-build">Build Better</span>
+        <span class="tag tag-run">Run Smarter</span>
+      </div>
+    </div>
+    <div class="card-meta">
+      <a href="https://x.com/andrewmichaelsa/status/2027626164223615217" target="_blank">@andrewmichaelsa</a> · Feb 28, 2026
+    </div>
+    <div class="card-body">
+      <p>Modern IDE for product builders: terminal, editor, and preview browser in one app. The AI model sees the entire project — code, browser preview, and tools simultaneously. Full Git worktrees support.</p>
+      <p>Alternative to Cursor/Windsurf worth watching for calculator development. The key differentiator: the model sees the rendered browser output alongside the code — potentially useful for testing Shop Metrics calculator UIs.</p>
+    </div>
+  </div>
+
+  <!-- CARD 11 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Claude Cowork — Full Bookkeeping and Tax Prep</div>
+      <div class="tags">
+        <span class="tag tag-run">Run Smarter</span>
+      </div>
+    </div>
+    <div class="card-meta">
+      <a href="https://x.com/JJEnglert/status/2041901304725774805" target="_blank">@JJEnglert</a> · April 8, 2026
+    </div>
+    <div class="card-body">
+      <p>JJ Englert's walkthrough of using Claude Cowork for complete bookkeeping and tax prep — first time he didn't dread the process. Setup: connect your files folder, walk Claude through your categories once, let it run.</p>
+      <p>Validates Cowork as capable of real financial workflows — not just document tasks. Use for Shop Metrics quarterly bookkeeping and end-of-year tax prep.</p>
+    </div>
+  </div>
+
+  <!-- ACTION ITEMS -->
+  <div class="section-header">Action Items</div>
+  <ul class="action-list">
+    <li class="action-item">
+      <div class="action-check"></div>
+      <div><strong>[Build]</strong> Review Claude Managed Agents — evaluate as the deployment path for 4man. Most important item from today's scan. <a href="https://x.com/claudeai/status/2041927687460024721" target="_blank">→ Source</a></div>
+    </li>
+    <li class="action-item">
+      <div class="action-check"></div>
+      <div><strong>[Build]</strong> Study LLM Wiki implementations (intel #18, #25, + today's @dSebastien) before finalizing 4man knowledge architecture.</div>
+    </li>
+    <li class="action-item">
+      <div class="action-check"></div>
+      <div><strong>[Run]</strong> Audit Claude Code security settings — check what files and credentials are accessible in your current setup. Do this before next build session.</div>
+    </li>
+    <li class="action-item">
+      <div class="action-check"></div>
+      <div><strong>[Run]</strong> Test the Website-to-App tool from @chhddavid — see if myshopmetrics.com converts cleanly to a native app.</div>
+    </li>
+    <li class="action-item">
+      <div class="action-check"></div>
+      <div><strong>[Run]</strong> Prototype a SparkDrop-style morning content pipeline for Shop Metrics — adapt Brian Casel's 6am agent workflow.</div>
+    </li>
+    <li class="action-item">
+      <div class="action-check"></div>
+      <div><strong>[Serve]</strong> Try the Personalized Podcast skill — convert one existing Shop Metrics guide into a podcast episode as a proof of concept.</div>
+    </li>
+  </ul>
+
+  <!-- NOISE -->
+  <div class="section-header">Noise — 3 items cleared</div>
+  <div class="noise-list">
+    <div class="noise-item">
+      <span class="noise-label">Crypto</span>
+      @SurfAI — Surf Skill: crypto data API for agents. $200k in API credits offer.
+    </div>
+    <div class="noise-item">
+      <span class="noise-label">Crypto</span>
+      @ryanli — Surf Skill launch post. Claude Code + crypto API framing.
+    </div>
+    <div class="noise-item">
+      <span class="noise-label">Vague</span>
+      @future_coded — Rocket 1.0 "Vibe Solutioning" platform. 1.5M users claim, no clear relevance to Shop Metrics.
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>Klyde Intelligence System</strong> · Shop Metrics Daily Briefing · April 9, 2026<br>
+  <span style="color:#30363d;">Automated scan of @MK4040_ bookmarks · 3am nightly</span>
+</div>
+
+</body>
+</html>
