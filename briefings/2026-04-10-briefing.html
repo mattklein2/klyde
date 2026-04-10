@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Klyde Daily Briefing — Friday, April 10, 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0d1117;
+    color: #f0f6fc;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    padding: 0 16px 60px;
+  }
+  a { color: #f78166; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* HEADER */
+  .header {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 40px 0 24px;
+    border-bottom: 1px solid #30363d;
+  }
+  .header-top {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+  .logo {
+    font-size: 22px;
+    font-weight: 700;
+    color: #f78166;
+    letter-spacing: -0.5px;
+  }
+  .divider { color: #30363d; font-size: 18px; }
+  .header-date {
+    font-size: 14px;
+    color: #8b949e;
+  }
+  .stats-bar {
+    display: flex;
+    gap: 24px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .stat-num {
+    font-size: 24px;
+    font-weight: 700;
+    color: #f78166;
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #6e7681;
+  }
+
+  /* MAIN CONTENT */
+  .content {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  /* HEADLINES */
+  .headlines-card {
+    background: linear-gradient(135deg, #161b22 0%, #1c2333 100%);
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    padding: 28px 32px;
+    margin: 28px 0;
+  }
+  .headlines-card h2 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #6e7681;
+    margin-bottom: 14px;
+  }
+  .headline-text {
+    font-size: 16px;
+    color: #c9d1d9;
+    line-height: 1.7;
+  }
+  .headline-text strong { color: #f0f6fc; }
+  .headline-text p + p { margin-top: 10px; }
+
+  /* SECTION HEADERS */
+  .section-header {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #6e7681;
+    margin: 36px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #21262d;
+  }
+
+  /* SIGNAL CARDS */
+  .card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 14px;
+    transition: border-color 0.15s;
+  }
+  .card:hover { border-color: #484f58; }
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #f0f6fc;
+    flex: 1;
+    min-width: 200px;
+  }
+  .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  .tag-build { background: #1a4d2e; color: #56d364; }
+  .tag-run { background: #3d1f5c; color: #bc8cff; }
+  .tag-serve { background: #1c3a5e; color: #58a6ff; }
+  .tag-urgent {
+    background: #5c1f1f;
+    color: #ff7b72;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.65; }
+  }
+  .card-meta {
+    font-size: 12px;
+    color: #6e7681;
+    margin-bottom: 10px;
+  }
+  .card-meta a { color: #8b949e; }
+  .card-meta a:hover { color: #f78166; }
+  .card-body {
+    font-size: 14px;
+    color: #c9d1d9;
+    line-height: 1.65;
+  }
+  .card-body p + p { margin-top: 8px; }
+  .card-body strong { color: #f0f6fc; }
+
+  /* ACTION ITEMS */
+  .action-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .action-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 18px;
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #c9d1d9;
+    line-height: 1.5;
+  }
+  .action-check {
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid #30363d;
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* NOISE SECTION */
+  .noise-list {
+    background: #161b22;
+    border: 1px solid #21262d;
+    border-radius: 8px;
+    padding: 18px 24px;
+  }
+  .noise-item {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 6px 0;
+    font-size: 13px;
+    color: #484f58;
+  }
+  .noise-item:last-child { border-bottom: none; }
+  .noise-label {
+    font-size: 11px;
+    background: #21262d;
+    color: #6e7681;
+    padding: 2px 8px;
+    border-radius: 20px;
+    flex-shrink: 0;
+  }
+
+  /* FOOTER */
+  .footer {
+    max-width: 860px;
+    margin: 60px auto 0;
+    padding-top: 24px;
+    border-top: 1px solid #21262d;
+    text-align: center;
+    font-size: 12px;
+    color: #484f58;
+  }
+  .footer strong { color: #6e7681; }
+
+  /* CODE INLINE */
+  code {
+    background: #1c2333;
+    color: #f78166;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <span class="logo">Klyde</span>
+    <span class="divider">|</span>
+    <span class="header-date">Friday, April 10, 2026</span>
+  </div>
+  <div class="stats-bar">
+    <div class="stat">
+      <span class="stat-num">8</span>
+      <span class="stat-label">Bookmarks Scanned</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">7</span>
+      <span class="stat-label">Signal</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">1</span>
+      <span class="stat-label">Noise</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">1</span>
+      <span class="stat-label">Urgent</span>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- HEADLINES -->
+  <div class="headlines-card">
+    <h2>Today's Headlines</h2>
+    <div class="headline-text">
+      <p><strong>Anthropic shipped Claude Managed Agents in public beta</strong> and the signal is already concentrating around it. Half the new bookmarks are the launch, reactions from Anthropic engineers, or GTM playbooks riding the release. The takeaway for Shop Metrics: <strong>4man's deployment path is now a product you can buy</strong>, and the vertical AI consulting arm has a ready-made template (the "6 problems every dentist has" playbook maps almost one-to-one onto machine shops).</p>
+      <p>The second theme is <strong>agent-addressable platforms</strong>. Shopify exposed its store surface to Claude Code, Codex, Cursor, and VS Code. Google merged Gemini + NotebookLM into "Notebooks in Gemini." Both validate that Shop Metrics needs an <strong>MCP server exposing the 37 calculators</strong> and 4man should ship as <strong>domain-scoped notebooks</strong> (GD&amp;T, Threading, Speeds/Feeds, Materials) instead of one monolithic chatbot.</p>
+    </div>
+  </div>
+
+  <!-- SIGNAL -->
+  <div class="section-header">Signal — 7 items</div>
+
+  <!-- CARD 1: URGENT -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Claude Managed Agents — Production Infrastructure for 4man</div>
+      <div class="tags">
+        <span class="tag tag-urgent">Urgent</span>
+        <span class="tag tag-build">Build Better</span>
+        <span class="tag tag-run">Run Smarter</span>
+      </div>
+    </div>
+    <div class="card-meta">
+      <a href="https://x.com/mc_anthropic/status/2041952633305625084" target="_blank">@mc_anthropic</a> · April 8, 2026 · Anthropic API team engineer
+    </div>
+    <div class="card-body">
+      <p>Michael Cohen from Anthropic's API team introduced <strong>Claude Managed Agents</strong>: a performance-tuned agent harness paired with production infrastructure. Marketed as "everything you need to build and deploy agents at scale — go from prototype to launch in days." Now in public beta on the Claude Platform.</p>
+      <p>This is the deployment path for 4man. Instead of standing up our own harness, queue, memory, and monitoring stack, <strong>4man ships on Managed Agents</strong> and engineering focuses on the Machinery's Handbook knowledge base and calculator logic. It also unlocks the AI consulting arm — custom per-shop agents (quoting, scheduling, handbook) delivered on a single managed runtime. Read the announcement + docs, benchmark against 4man's needs, and scope a migration plan this week.</p>
+    </div>
+  </div>
+
+  <!-- CARD 2 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Vertical AI Agents Playbook — "AI Agents for Dentists"</div>
+      <div class="tags">
+        <span class="tag tag-run">Run Smarter</span>
+        <span class="tag tag-serve">Serve Customers</span>
+      </div>
+    </div>
+    <div class="card-meta">
+      <a href="https://x.com/RobHoffman_/status/2042272306701992136" target="_blank">@RobHoffman_</a> · April 8, 2026 · GTM example
+    </div>
+    <div class="card-body">
+      <p>Concrete go-to-market riding the Managed Agents launch: build and sell packaged AI agents for dentists, targeting the <strong>6 recurring problems every dental office has</strong> (patients not booking, no one answering calls at night, unpaid bills, bad reviews, etc.).</p>
+      <p>This is a direct template for Shop Metrics' consulting arm. Replace "dental office's 6 problems" with the <strong>6 problems every machine shop has</strong>: slow quoting, shop-floor scheduling chaos, material traceability, tribal knowledge trapped in one senior machinist, missed ship dates, inventory waste. Package each as a productized agent (Quoting Agent, Scheduling Agent, Handbook Agent) — higher margin, faster deals, referenceable case studies. Next step: write the one-pager "The 6 Problems Every Machine Shop Has (and the AI Agents That Solve Them)."</p>
+    </div>
+  </div>
+
+  <!-- CARD 3 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Shopify AI Toolkit — Platforms Are Becoming Agent-Addressable</div>
+      <div class="tags">
+        <span class="tag tag-build">Build Better</span>
+        <span class="tag tag-run">Run Smarter</span>
+      </div>
+    </div>
+    <div class="card-meta">
+      <a href="https://x.com/Shopify/status/2042335627862032754" target="_blank">@Shopify</a> · April 9, 2026
+    </div>
+    <div class="card-body">
+      <p>Shopify shipped the <strong>Shopify AI Toolkit</strong>, exposing the store management surface to Claude Code, Codex, Cursor, VS Code, and more. Merchants manage their store by talking to their agent instead of clicking through the admin UI.</p>
+      <p>Strategic signal for Shop Metrics: the winning platforms are making themselves agent-addressable. Shop Metrics should <strong>publish the 37 calculators as an MCP server</strong> (or Claude skills pack) so any shop's agent can call them — "compute speeds and feeds for 6061 aluminum, 1/4 in end mill" becomes a native agent capability. Being first in the MCP registry and Cowork marketplace = default choice for machinists building agent workflows.</p>
+    </div>
+  </div>
+
+  <!-- CARD 4 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Notebooks in Gemini — Gemini + NotebookLM Unified</div>
+      <div class="tags">
+        <span class="tag tag-build">Build Better</span>
+      </div>
+    </div>
+    <div class="card-meta">
+      <a href="https://x.com/aiwithmayank/status/2042169131957616820" target="_blank">@aiwithmayank</a> · April 9, 2026
+    </div>
+    <div class="card-body">
+      <p>Google merged Gemini and NotebookLM into a single workspace called <strong>Notebooks in Gemini</strong> — the personal knowledge base power users have been asking for. Create a notebook per topic, load sources, query with Gemini.</p>
+      <p>Competitive/architectural signal for 4man: <strong>ship as named notebooks, not a monolith</strong>. Instead of one chat box on myshopmetrics.com, offer "4man: GD&amp;T," "4man: Threading," "4man: Speeds/Feeds," "4man: Materials." Cleaner mental model, better retrieval scoping. Also a sanity check — Google is shipping the same architecture the Second Brain / OpenDataLoader / code-review-graph stack (intel #18, #50, #51) points at. We're on the right track; ship faster.</p>
+    </div>
+  </div>
+
+  <!-- CARD 5 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Cowork / Claude Code Team Skill Distribution</div>
+      <div class="tags">
+        <span class="tag tag-build">Build Better</span>
+        <span class="tag tag-run">Run Smarter</span>
+      </div>
+    </div>
+    <div class="card-meta">
+      <a href="https://x.com/JJEnglert/status/2042322280035074265" target="_blank">@JJEnglert</a> · April 9, 2026
+    </div>
+    <div class="card-body">
+      <p>JJ Englert: the #1 question in the Claude Code / Cowork Community is "how do I share my Cowork skills with my team?" He walks through the current friction (zip, Slack, download, upload) and the cleaner distribution workflow that's replacing it.</p>
+      <p>Two direct applications. <strong>Ship every AI consulting engagement as a Cowork plugin</strong> — the plugin install is the deliverable. And <strong>publish Shop Metrics' public tools as one installable plugin</strong> in the Cowork marketplace — zero-friction acquisition channel that puts the 37 calculators (and eventually 4man) into any shop's Cowork session. Dogfood with the Klyde skill first.</p>
+    </div>
+  </div>
+
+  <!-- CARD 6 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Paper × Claude Code — Animated Product Mockups</div>
+      <div class="tags">
+        <span class="tag tag-run">Run Smarter</span>
+      </div>
+    </div>
+    <div class="card-meta">
+      <a href="https://x.com/cbboyer/status/2042331949424087149" target="_blank">@cbboyer</a> · April 9, 2026 · ft. @paper / @stephenhaney
+    </div>
+    <div class="card-body">
+      <p>Cole Boyer demoed using <strong>Paper</strong> with Claude Code to generate animated product mockups from low-effort prompts. Calls it "the biggest unlock in my work since Claude Code itself."</p>
+      <p>Another option in the marketing asset stack alongside Remotion (intel #1) and Claude Code animated posts (intel #52). Use case: replace static calculator screenshots on myshopmetrics.com with short looping animated mockups showing the tool in use on a shop-floor iPad. And for the 4man launch — a one-minute animated mockup of 4man answering a machining question is a stronger landing-page hero than any screenshot. Action: evaluate Paper vs Remotion and pick one as the default.</p>
+    </div>
+  </div>
+
+  <!-- CARD 7 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Claude Code Screenshot Skill</div>
+      <div class="tags">
+        <span class="tag tag-run">Run Smarter</span>
+      </div>
+    </div>
+    <div class="card-meta">
+      <a href="https://x.com/alliekmiller/status/2042279712991355105" target="_blank">@alliekmiller</a> · April 9, 2026
+    </div>
+    <div class="card-body">
+      <p>Allie Miller's most-used Claude Code skill: a <strong>SCREENSHOT skill</strong>. Frames it as functionality Anthropic should have built into Claude Code by default.</p>
+      <p>Small but real CEO-efficiency win — install it to speed up Klyde verification steps, calculator QA (before/after screenshots), and customer-facing documentation for AI consulting engagements. Low investment, high daily-use frequency.</p>
+    </div>
+  </div>
+
+  <!-- ACTION ITEMS -->
+  <div class="section-header">Action Items</div>
+  <ul class="action-list">
+    <li class="action-item">
+      <div class="action-check"></div>
+      <div><strong>[Build]</strong> Read the Claude Managed Agents announcement + docs and scope a 4man migration plan. Highest priority this week. <a href="https://x.com/mc_anthropic/status/2041952633305625084" target="_blank">→ Source</a></div>
+    </li>
+    <li class="action-item">
+      <div class="action-check"></div>
+      <div><strong>[Build]</strong> Scope a Shop Metrics MCP server exposing the 37 calculators (speeds/feeds, threading, GD&amp;T, unit conversion) and publish to the MCP registry and Cowork marketplace.</div>
+    </li>
+    <li class="action-item">
+      <div class="action-check"></div>
+      <div><strong>[Build]</strong> Prototype the "4man notebooks" architecture — domain-scoped notebooks instead of a monolithic chatbot, modeled on Notebooks in Gemini.</div>
+    </li>
+    <li class="action-item">
+      <div class="action-check"></div>
+      <div><strong>[Run]</strong> Write the one-pager "The 6 Problems Every Machine Shop Has (and the AI Agents That Solve Them)" using the dentist playbook as a template.</div>
+    </li>
+    <li class="action-item">
+      <div class="action-check"></div>
+      <div><strong>[Run]</strong> Install the Allie Miller Screenshot skill in Claude Code for Klyde QA and consulting deliverables.</div>
+    </li>
+    <li class="action-item">
+      <div class="action-check"></div>
+      <div><strong>[Run]</strong> Document a repeatable "Shop Metrics plugin release" process (manifest, skills folder, versioning). Dogfood with the Klyde skill first.</div>
+    </li>
+    <li class="action-item">
+      <div class="action-check"></div>
+      <div><strong>[Run]</strong> Evaluate Paper vs Remotion and pick one as Shop Metrics' default animation stack.</div>
+    </li>
+    <li class="action-item">
+      <div class="action-check"></div>
+      <div><strong>[Build]</strong> Test Notebooks in Gemini with a subset of the Machinery's Handbook as a baseline quality benchmark for 4man.</div>
+    </li>
+  </ul>
+
+  <!-- NOISE -->
+  <div class="section-header">Noise — 1 item cleared</div>
+  <div class="noise-list">
+    <div class="noise-item">
+      <span class="noise-label">Off-topic</span>
+      @skshadan_ — Claude Code autonomously reverse-engineered Subway Surfers and gave itself unlimited coins. Impressive agentic demo, but game cheating has no Shop Metrics relevance through any lens.
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>Klyde Intelligence System</strong> · Shop Metrics Daily Briefing · April 10, 2026<br>
+  <span style="color:#30363d;">Automated scan of @MK4040_ bookmarks · 3am nightly</span>
+</div>
+
+</body>
+</html>
