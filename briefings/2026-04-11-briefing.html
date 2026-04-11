@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Klyde Daily Briefing — Saturday, April 11, 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0d1117;
+    color: #f0f6fc;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    padding: 0 16px 60px;
+  }
+  a { color: #f78166; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* HEADER */
+  .header {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 40px 0 24px;
+    border-bottom: 1px solid #30363d;
+  }
+  .header-top {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+  .logo {
+    font-size: 22px;
+    font-weight: 700;
+    color: #f78166;
+    letter-spacing: -0.5px;
+  }
+  .divider { color: #30363d; font-size: 18px; }
+  .header-date {
+    font-size: 14px;
+    color: #8b949e;
+  }
+  .stats-bar {
+    display: flex;
+    gap: 24px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .stat-num {
+    font-size: 24px;
+    font-weight: 700;
+    color: #f78166;
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #6e7681;
+  }
+
+  /* MAIN CONTENT */
+  .content {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  /* HEADLINES */
+  .headlines-card {
+    background: linear-gradient(135deg, #161b22 0%, #1c2333 100%);
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    padding: 28px 32px;
+    margin: 28px 0;
+  }
+  .headlines-card h2 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #6e7681;
+    margin-bottom: 14px;
+  }
+  .headline-text {
+    font-size: 16px;
+    color: #c9d1d9;
+    line-height: 1.7;
+  }
+  .headline-text strong { color: #f0f6fc; }
+  .headline-text p + p { margin-top: 10px; }
+
+  /* SECTION HEADERS */
+  .section-header {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #6e7681;
+    margin: 36px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #21262d;
+  }
+
+  /* SIGNAL CARDS */
+  .card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 14px;
+    transition: border-color 0.15s;
+  }
+  .card:hover { border-color: #484f58; }
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #f0f6fc;
+    flex: 1;
+    min-width: 200px;
+  }
+  .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  .tag-build { background: #1a4d2e; color: #56d364; }
+  .tag-run { background: #3d1f5c; color: #bc8cff; }
+  .tag-serve { background: #1c3a5e; color: #58a6ff; }
+  .tag-urgent {
+    background: #5c1f1f;
+    color: #ff7b72;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.65; }
+  }
+  .card-meta {
+    font-size: 12px;
+    color: #6e7681;
+    margin-bottom: 10px;
+  }
+  .card-meta a { color: #8b949e; }
+  .card-meta a:hover { color: #f78166; }
+  .card-body {
+    font-size: 14px;
+    color: #c9d1d9;
+    line-height: 1.65;
+  }
+  .card-body p + p { margin-top: 8px; }
+  .card-body strong { color: #f0f6fc; }
+
+  /* ACTION ITEMS */
+  .action-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .action-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 18px;
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #c9d1d9;
+    line-height: 1.5;
+  }
+  .action-check {
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid #30363d;
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* NOISE SECTION */
+  .noise-list {
+    background: #161b22;
+    border: 1px solid #21262d;
+    border-radius: 8px;
+    padding: 18px 24px;
+  }
+  .noise-item {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 6px 0;
+    font-size: 13px;
+    color: #484f58;
+  }
+  .noise-item:last-child { border-bottom: none; }
+  .noise-label {
+    font-size: 11px;
+    background: #21262d;
+    color: #6e7681;
+    padding: 2px 8px;
+    border-radius: 20px;
+    flex-shrink: 0;
+  }
+
+  /* FOOTER */
+  .footer {
+    max-width: 860px;
+    margin: 60px auto 0;
+    padding-top: 24px;
+    border-top: 1px solid #21262d;
+    text-align: center;
+    font-size: 12px;
+    color: #484f58;
+  }
+  .footer strong { color: #6e7681; }
+
+  /* CODE INLINE */
+  code {
+    background: #1c2333;
+    color: #f78166;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <span class="logo">Klyde</span>
+    <span class="divider">|</span>
+    <span class="header-date">Saturday, April 11, 2026</span>
+  </div>
+  <div class="stats-bar">
+    <div class="stat">
+      <span class="stat-num">3</span>
+      <span class="stat-label">Bookmarks Scanned</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">3</span>
+      <span class="stat-label">Signal</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">0</span>
+      <span class="stat-label">Noise</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">1</span>
+      <span class="stat-label">Urgent</span>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- HEADLINES -->
+  <div class="headlines-card">
+    <h2>Today's Headlines</h2>
+    <div class="headline-text">
+      <p>Small but highly concentrated scan. All three new bookmarks point in the same direction: <strong>AI is embedding into the authoring tools machinists already live in</strong>. Word got a native Claude sidebar with tracked changes. Blender got a Claude driver that turns prompts into 3D geometry. YouTube got an interactive transcript layer from Obsidian. The strategic lesson is consistent — <strong>4man shouldn't be a chatbot on a website, it should be an in-app co-pilot inside Word, Fusion 360, and the video library</strong>.</p>
+      <p>Urgent signal of the week: <strong>Claude × Blender</strong>. The same MCP pattern maps one-to-one onto Fusion 360, SolidWorks, Mastercam, and FreeCAD — every CAD/CAM app a shop uses exposes a Python API. First mover on an "AI CAD co-pilot for machine shops" owns a product category that doesn't exist yet. Prototype a minimal Fusion 360 MCP this week and record it for the consulting landing page.</p>
+    </div>
+  </div>
+
+  <!-- SIGNAL -->
+  <div class="section-header">Signal — 3 items</div>
+
+  <!-- CARD 1: URGENT -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Claude × Blender — Text-to-3D Geometry Inside the Modeler</div>
+      <div class="tags">
+        <span class="tag tag-urgent">Urgent</span>
+        <span class="tag tag-build">Build Better</span>
+        <span class="tag tag-serve">Serve Customers</span>
+      </div>
+    </div>
+    <div class="card-meta">
+      <a href="https://x.com/HowToAI_/status/2042575185229025530" target="_blank">@HowToAI_</a> · April 10, 2026 · 8.6K likes · 889K views
+    </div>
+    <div class="card-body">
+      <p>A Claude-to-Blender integration drives the modeler's Python API live from natural-language prompts. You type — Claude builds the geometry in the viewport. Visually convincing demo and a clean MCP-style pattern that is straightforward to reproduce on any Python-scriptable app.</p>
+      <p><strong>Biggest Serve Customers signal of the week.</strong> Fusion 360, SolidWorks, Mastercam, and FreeCAD all expose the same kind of Python surface. That means Shop Metrics can ship an <strong>AI CAD co-pilot for machine shops</strong> — "model a 4-flute end mill holder with a 1/2 in bore and three M6 tapped holes on a 40 mm PCD" and Claude drives the CAD app. No competitor has this. First-mover moat on the machinist vertical.</p>
+      <p><strong>Next step (this week):</strong> clone the Blender integration, study the MCP surface, and prototype a minimal <strong>Fusion 360 MCP</strong> with five operations — sketch, extrude, hole, fillet, export STEP. Demo it to one pilot shop and record the session as the hero video for the AI consulting landing page.</p>
+    </div>
+  </div>
+
+  <!-- CARD 2 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Claude for Word — Native Sidebar with Tracked Changes</div>
+      <div class="tags">
+        <span class="tag tag-run">Run Smarter</span>
+        <span class="tag tag-serve">Serve Customers</span>
+        <span class="tag tag-build">Build Better</span>
+      </div>
+    </div>
+    <div class="card-meta">
+      <a href="https://x.com/claudeai/status/2042670341915295865" target="_blank">@claudeai</a> · April 10, 2026 · 26K likes · 8.6M views · Team/Enterprise beta
+    </div>
+    <div class="card-body">
+      <p>Anthropic shipped Claude for Word in public beta. Lives in a Word sidebar, drafts and revises documents while preserving formatting, and — critically — applies its edits as <strong>tracked changes</strong> rather than silently overwriting. Available on Team and Enterprise plans.</p>
+      <p><strong>Shops still live in Word.</strong> SOPs, quality manuals, ISO 9001 / AS9100 documentation, quality inspection reports, customer quotes, training materials — all Word. Package a "Shop Metrics for Word" consulting deliverable: machining-specific prompts, SOP templates, quoting templates, inspection-report scaffolds, material-cert boilerplate. This is a near-zero-effort, high-margin consulting offer.</p>
+      <p><strong>Build angle:</strong> the Word sidebar is a new distribution surface for 4man. An "Ask 4man" button inside a Word document is a much stickier entry point than a web chat box — the machinist never leaves the work they're already doing. Get Matt onto the Word beta, author one SOP template and one quoting template, and use them as the first productized consulting deliverable.</p>
+    </div>
+  </div>
+
+  <!-- CARD 3 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Obsidian Reader — Interactive YouTube Transcripts</div>
+      <div class="tags">
+        <span class="tag tag-build">Build Better</span>
+        <span class="tag tag-serve">Serve Customers</span>
+        <span class="tag tag-run">Run Smarter</span>
+      </div>
+    </div>
+    <div class="card-meta">
+      <a href="https://x.com/kepano/status/2042683393247449148" target="_blank">@kepano</a> · April 10, 2026 · 8.5K likes · 427K views
+    </div>
+    <div class="card-body">
+      <p>Kepano (Obsidian CEO): Obsidian Reader now overlays YouTube with an interactive transcript — scrub, highlight, auto-scroll. "I can't go back to the regular YouTube UI after this." From a CEO whose product decisions tend to become builder-community patterns.</p>
+      <p><strong>Machinist training lives on YouTube</strong> — Titans of CNC, NYC CNC, Abom79, Winston Moy, Blondihacks. An interactive transcript layer is the exact ingestion surface 4man needs. Scrub to the moment, highlight the technique, capture the transcript chunk, feed it into the Machinery's Handbook RAG index as a "video citation" alongside the text source.</p>
+      <p><strong>Product idea:</strong> a "<strong>4man: Video Library</strong>" mode where a shop pastes a machining YouTube URL and asks questions grounded in that video — "what feedrate did he use at 4:12?" — with the answer citing the exact timestamp. Leverages an enormous existing content library without having to film our own. Add video-citation support to 4man's retrieval format (text source OR video source + timestamp) while scoping the ingestion pipeline.</p>
+    </div>
+  </div>
+
+  <!-- ACTION ITEMS -->
+  <div class="section-header">Action Items</div>
+  <ul class="action-list">
+    <li class="action-item">
+      <div class="action-check"></div>
+      <div><strong>[Build]</strong> Clone the Claude × Blender integration, study the MCP surface, and prototype a minimal <strong>Fusion 360 MCP</strong> (sketch, extrude, hole, fillet, export STEP). Highest priority this week. <a href="https://x.com/HowToAI_/status/2042575185229025530" target="_blank">→ Source</a></div>
+    </li>
+    <li class="action-item">
+      <div class="action-check"></div>
+      <div><strong>[Serve]</strong> Line up one pilot shop for the Fusion 360 co-pilot demo and record the session as the hero video for the AI consulting landing page.</div>
+    </li>
+    <li class="action-item">
+      <div class="action-check"></div>
+      <div><strong>[Run]</strong> Get Matt onto the Claude for Word beta (Team/Enterprise plan). <a href="https://x.com/claudeai/status/2042670341915295865" target="_blank">→ Source</a></div>
+    </li>
+    <li class="action-item">
+      <div class="action-check"></div>
+      <div><strong>[Serve]</strong> Author an SOP template and a quoting template in Word using Claude, and package them as the first "Shop Metrics for Word" consulting offer.</div>
+    </li>
+    <li class="action-item">
+      <div class="action-check"></div>
+      <div><strong>[Build]</strong> Add "4man: Video Library" to the 4man roadmap — YouTube ingestion via interactive transcripts, chunked and embedded alongside the Machinery's Handbook text corpus.</div>
+    </li>
+    <li class="action-item">
+      <div class="action-check"></div>
+      <div><strong>[Build]</strong> Extend 4man's retrieval format to support video citations (source URL + timestamp) so answers can cite a specific moment in a machining video.</div>
+    </li>
+    <li class="action-item">
+      <div class="action-check"></div>
+      <div><strong>[Run]</strong> Install Obsidian Reader and use it for Matt's own intake of long-form machining and AI talks; drop quoted chunks straight into the intel file.</div>
+    </li>
+  </ul>
+
+  <!-- NOISE -->
+  <div class="section-header">Noise — 0 items cleared</div>
+  <div class="noise-list">
+    <div class="noise-item">
+      <span class="noise-label">Clean scan</span>
+      All three new bookmarks passed at least one lens. Nothing cleared as noise today.
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>Klyde Intelligence System</strong> · Shop Metrics Daily Briefing · April 11, 2026<br>
+  <span style="color:#30363d;">Automated scan of @MK4040_ bookmarks · 3am nightly</span>
+</div>
+
+</body>
+</html>
