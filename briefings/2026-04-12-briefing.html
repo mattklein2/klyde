@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Klyde Daily Briefing — Sunday, April 12, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0d1117;
+      color: #f0f6fc;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      padding: 32px 16px;
+    }
+    .container { max-width: 760px; margin: 0 auto; }
+    .header { border-bottom: 1px solid #30363d; padding-bottom: 24px; margin-bottom: 28px; }
+    .brand { font-size: 13px; font-weight: 600; color: #f78166; text-transform: uppercase; letter-spacing: 0.08em; }
+    .header h1 { font-size: 22px; font-weight: 700; color: #f0f6fc; }
+    .header .date { font-size: 13px; color: #8b949e; margin-bottom: 16px; }
+    .stats-bar { display: flex; gap: 24px; flex-wrap: wrap; }
+    .stat { display: flex; flex-direction: column; }
+    .stat-value { font-size: 24px; font-weight: 700; color: #f78166; }
+    .stat-label { font-size: 11px; color: #6e7681; text-transform: uppercase; letter-spacing: 0.06em; }
+    .headlines { background: linear-gradient(135deg, #161b22 0%, #1c2333 100%); border: 1px solid #30363d; border-radius: 8px; padding: 20px 24px; margin-bottom: 28px; }
+    .headlines h2 { font-size: 11px; font-weight: 600; color: #f78166; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
+    .headlines p { color: #c9d1d9; font-size: 15px; line-height: 1.65; }
+    .section-header { font-size: 11px; font-weight: 600; color: #6e7681; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px; padding-bottom: 6px; border-bottom: 1px solid #21262d; }
+    .signal-grid { display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
+    .card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 18px 20px; transition: border-color 0.15s; }
+    .card:hover { border-color: #f78166; }
+    .card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+    .card-title { font-size: 15px; font-weight: 600; color: #f0f6fc; flex: 1; }
+    .tag-group { display: flex; gap: 6px; flex-wrap: wrap; flex-shrink: 0; }
+    .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+    .tag-build { background: #1a4d2e; color: #56d364; }
+    .tag-run { background: #3d1f5c; color: #bc8cff; }
+    .tag-serve { background: #1c3a5e; color: #58a6ff; }
+    .tag-urgent { background: #5c1f1f; color: #ff7b72; animation: pulse 1.8s ease-in-out infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+    .card-meta { font-size: 12px; color: #6e7681; margin-bottom: 10px; }
+    .card-meta a { color: #58a6ff; text-decoration: none; }
+    .card-body { color: #c9d1d9; font-size: 14px; line-height: 1.65; }
+    .card-body strong { color: #f0f6fc; }
+    .actions { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px 24px; margin-bottom: 28px; }
+    .actions h2 { font-size: 11px; font-weight: 600; color: #f78166; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px; }
+    .action-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .action-list li { display: flex; align-items: flex-start; gap: 10px; color: #c9d1d9; font-size: 14px; line-height: 1.5; }
+    .action-list li::before { content: "☐"; color: #f78166; font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+    .action-tag { padding: 1px 6px; border-radius: 3px; font-size: 10px; font-weight: 700; letter-spacing: 0.05em; flex-shrink: 0; }
+    .noise { margin-bottom: 28px; }
+    .noise-list { display: flex; flex-direction: column; gap: 4px; }
+    .noise-item { font-size: 13px; color: #484f58; padding: 6px 12px; background: #0d1117; border: 1px solid #21262d; border-radius: 4px; }
+    .noise-item span { color: #6e7681; margin-right: 6px; }
+    .footer { border-top: 1px solid #21262d; padding-top: 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .footer-brand { font-size: 12px; font-weight: 600; color: #f78166; text-transform: uppercase; letter-spacing: 0.08em; }
+    .footer-meta { font-size: 12px; color: #484f58; }
+    code { background: #1c2333; color: #f78166; font-family: 'SF Mono', 'Fira Code', monospace; padding: 1px 5px; border-radius: 3px; font-size: 12px; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="header-top"><span class="brand">Klyde</span></div>
+    <h1>Daily Intelligence Briefing</h1>
+    <div class="date">Sunday, April 12, 2026 &nbsp;&middot;&nbsp; Shop Metrics</div>
+    <div class="stats-bar">
+      <div class="stat"><span class="stat-value">7</span><span class="stat-label">Bookmarks Scanned</span></div>
+      <div class="stat"><span class="stat-value">6</span><span class="stat-label">Signal</span></div>
+      <div class="stat"><span class="stat-value">1</span><span class="stat-label">Noise</span></div>
+      <div class="stat"><span class="stat-value">1</span><span class="stat-label">Urgent</span></div>
+    </div>
+  </div>
+  <div class="headlines">
+    <h2>Headlines</h2>
+    <p>Anthropic's Claude Managed Agents hit public beta &mdash; this is the production agent infrastructure 4man has been waiting for. Separately, a viral AI content model emerged (500K views on a tax-filing story) with a direct Shop Metrics playbook. Voice input just went mainstream on iOS, unlocking a shop-floor UX path, and free AI APIs from NVIDIA open a 4man cost-reduction angle.</p>
+  </div>
+  <div class="section-header">Signal &mdash; 6 Items</div>
+  <div class="signal-grid">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Claude Managed Agents &mdash; Public Beta</div>
+        <div class="tag-group"><span class="tag tag-build">Build Better</span><span class="tag tag-urgent">&#9889; Urgent</span></div>
+      </div>
+      <div class="card-meta"><a href="https://x.com/jess__yan/status/2042454183367098571" target="_blank">@jess__yan</a> &nbsp;&middot;&nbsp; Apr 9, 2026 &nbsp;&middot;&nbsp; 116K views</div>
+      <div class="card-body">Anthropic officially shipped Claude Managed Agents into public beta. You define the <strong>tools, environments, and success criteria</strong> &mdash; Claude works autonomously until done. A YouTube tutorial is live.<br><br><strong>4man is the exact target use case.</strong> Define the knowledge tools (Machinery's Handbook RAG, speeds/feeds database, material lookup), set the success criteria ("answer the machining question accurately"), and deploy a production-grade agent with Anthropic's infrastructure. FSWizard and G-Wizard have no agent layer &mdash; this is the competitive window.<br><br><strong>Action:</strong> Watch the YouTube tutorial this week. Prototype 4man's first Managed Agents tool definition. Document the per-query cost.</div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">claude-code-best-practice &mdash; 84 Sourced Tips</div>
+        <div class="tag-group"><span class="tag tag-run">Run Smarter</span><span class="tag tag-build">Build Better</span></div>
+      </div>
+      <div class="card-meta"><a href="https://x.com/sukh_saroy/status/2043199144429531433" target="_blank">@sukh_saroy</a> &nbsp;&middot;&nbsp; Apr 12, 2026 &nbsp;&middot;&nbsp; 21K views</div>
+      <div class="card-body">A GitHub repo called <code>claude-code-best-practice</code> with 84 sourced tips, implementation examples for every major Claude Code feature, and workflow comparisons across 8 major repos. Claimed to unlock "90% of Claude Code's power that most users leave on the table."<br><br>Matt is running Klyde, 4man prototyping, and calculator builds entirely through Claude Code/Cowork. This is a direct force multiplier.<br><br><strong>Action:</strong> Find repo URL, skim the 84 tips, tag the top 10 applicable to this stack, implement in the next session.</div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Paperclip Desktop v2.0.0 &mdash; Mac App for Claude Context</div>
+        <div class="tag-group"><span class="tag tag-run">Run Smarter</span><span class="tag tag-build">Build Better</span></div>
+      </div>
+      <div class="card-meta"><a href="https://x.com/aronprins/status/2043281092782817543" target="_blank">@aronprins</a> &nbsp;&middot;&nbsp; Apr 12, 2026 &nbsp;&middot;&nbsp; 398 likes</div>
+      <div class="card-body">Free Mac app wrapping all of @dotta's Paperclip context management tooling &mdash; skill organization, system prompt management, and agent scaffolding in a native desktop experience. Auto-updates from v1.0.0. Free on GitHub (<code>github.com/aronprins/paperclip-desktop</code>).<br><br>For Matt managing multiple Claude projects (Klyde, 4man, calculators, consulting), this is a unified Mac-native surface. The architecture mirrors what 4man needs at scale: structured routing of knowledge contexts to the right agent.</div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Viral AI Case Study Model &mdash; 500K Views on Tax Filing</div>
+        <div class="tag-group"><span class="tag tag-run">Run Smarter</span></div>
+      </div>
+      <div class="card-meta"><a href="https://x.com/leopardracer/status/2042607436134056164" target="_blank">@leopardracer</a> &nbsp;&middot;&nbsp; Apr 10, 2026 &nbsp;&middot;&nbsp; 500K views</div>
+      <div class="card-body">An X article &mdash; <em>"I Used Claude Code to File My Taxes. Here's Exactly How I Did It (And Got a $6,500 Refund)"</em> &mdash; hit 500K views. Complex real-world situation (2 LLCs, W-2, investments, mortgage) documented step by step.<br><br>This is a <strong>content strategy template.</strong> Shop Metrics has better subject matter. One well-documented "I used AI to solve a hard machining problem" post per month is the SEO/GEO flywheel. The format also anchors consulting proposals.<br><br><strong>Action:</strong> Write one Shop Metrics version this month. Document specific numbers.</div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Aqua Voice &mdash; iOS Voice Keyboard (Shop Floor Angle)</div>
+        <div class="tag-group"><span class="tag tag-serve">Serve Customers</span><span class="tag tag-run">Run Smarter</span></div>
+      </div>
+      <div class="card-meta"><a href="https://x.com/aquavoice/status/2042105774449795182" target="_blank">@aquavoice</a> &nbsp;&middot;&nbsp; Apr 9, 2026 &nbsp;&middot;&nbsp; 798K views</div>
+      <div class="card-body">Aqua Voice launched on iOS as a premium voice keyboard for <em>every app</em> on the phone. 798K views on launch confirms mainstream voice-input momentum.<br><br><strong>Machinists work with gloves, coolant, and chips.</strong> Touch-typing is the #1 Shop Metrics mobile friction point. A reliable system-wide voice keyboard removes that barrier. 4man should be tuned for voice-first query patterns &mdash; spoken machining queries differ from typed text.<br><br>Evaluate for shop-floor accuracy on machining terminology. If solid, surface as a recommended setup to mobile users.</div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">NVIDIA Free AI API Endpoints &mdash; MiniMax M2.7</div>
+        <div class="tag-group"><span class="tag tag-build">Build Better</span></div>
+      </div>
+      <div class="card-meta"><a href="https://x.com/AdolfoUsier/status/2043195754425028961" target="_blank">@AdolfoUsier</a> &nbsp;&middot;&nbsp; Apr 12, 2026 &nbsp;&middot;&nbsp; 27K views</div>
+      <div class="card-body">NVIDIA offering completely free AI API endpoints including MiniMax M2.7. Standard API key access.<br><br>4man's inference cost is the biggest profitability risk at scale. Free-tier APIs for low-complexity queries (unit conversions, simple lookups) could reduce spend on the long tail. Benchmark MiniMax M2.7 vs Claude Haiku for 4man's "quick answer" tier.<br><br><em>Note: free tiers carry rate-limit and deprecation risk. Cost-reduction experiment, not production dependency.</em></div>
+    </div>
+  </div>
+  <div class="actions">
+    <h2>Action Items</h2>
+    <ul class="action-list">
+      <li><span class="action-tag tag tag-build">Build</span>Watch Claude Managed Agents tutorial (@jess__yan YouTube) and prototype 4man's first tool definition against the API this week</li>
+      <li><span class="action-tag tag tag-run">Run</span>Find <code>claude-code-best-practice</code> repo, tag top 10 tips for Klyde/4man stack, implement next session</li>
+      <li><span class="action-tag tag tag-run">Run</span>Install Paperclip Desktop v2.0.0 and evaluate for multi-project context management</li>
+      <li><span class="action-tag tag tag-run">Run</span>Draft one "I used AI to solve a hard machining problem" X Article this month &mdash; specific numbers required</li>
+      <li><span class="action-tag tag tag-serve">Serve</span>Test Aqua Voice on iPhone for machining terminology accuracy; add to mobile setup recommendations if solid</li>
+      <li><span class="action-tag tag tag-build">Build</span>Benchmark MiniMax M2.7 (free NVIDIA API) vs Claude Haiku for 4man simple-query cost routing</li>
+    </ul>
+  </div>
+  <div class="noise">
+    <div class="section-header">Noise Cleared &mdash; 1 Item</div>
+    <div class="noise-list">
+      <div class="noise-item"><span>@toolfolio</span> Tweet promoting @paper for a "human optimism" GIF &mdash; vague content tool, no Shop Metrics application</div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="footer-brand">Klyde Intelligence System</span>
+    <span class="footer-meta">myshopmetrics.com &middot; April 12, 2026 &middot; Auto-generated at 3:00 AM</span>
+  </div>
+</div>
+</body>
+</html>
