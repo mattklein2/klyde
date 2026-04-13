@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Klyde Daily Briefing — Monday, April 13, 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0d1117;
+    color: #f0f6fc;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  a { color: #f78166; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .header {
+    text-align: center;
+    padding: 40px 0 20px;
+    border-bottom: 1px solid #30363d;
+    margin-bottom: 30px;
+  }
+  .header h1 { font-size: 28px; color: #f78166; margin-bottom: 8px; }
+  .header .date { color: #8b949e; font-size: 16px; margin-bottom: 16px; }
+  .stats-bar { display: flex; justify-content: center; gap: 30px; margin-top: 16px; }
+  .stat { text-align: center; }
+  .stat-number { font-size: 24px; font-weight: 700; color: #f78166; }
+  .stat-label { font-size: 12px; color: #6e7681; text-transform: uppercase; letter-spacing: 1px; }
+  .headlines {
+    background: linear-gradient(135deg, #161b22 0%, #1c2333 100%);
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 30px;
+  }
+  .headlines h2 { font-size: 18px; color: #f78166; margin-bottom: 12px; }
+  .headlines p { color: #c9d1d9; font-size: 15px; }
+  .signal-card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 16px;
+    transition: border-color 0.2s;
+  }
+  .signal-card:hover { border-color: #f78166; }
+  .signal-card h3 { font-size: 18px; color: #f0f6fc; margin-bottom: 8px; }
+  .signal-card .meta { font-size: 13px; color: #8b949e; margin-bottom: 12px; }
+  .signal-card .body { color: #c9d1d9; font-size: 14px; margin-bottom: 12px; }
+  .signal-card .application { color: #c9d1d9; font-size: 14px; padding-left: 16px; border-left: 2px solid #30363d; margin-top: 12px; }
+  .signal-card .application strong { color: #f78166; }
+  .tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 12px; margin-right: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .tag-build { background: #1a4d2e; color: #56d364; }
+  .tag-run { background: #3d1f5c; color: #bc8cff; }
+  .tag-serve { background: #1c3a5e; color: #58a6ff; }
+  .tag-urgent { background: #5c1f1f; color: #ff7b72; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+  .action-items { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 24px; margin-bottom: 30px; }
+  .action-items h2 { font-size: 18px; color: #f78166; margin-bottom: 16px; }
+  .action-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; border-bottom: 1px solid #21262d; color: #c9d1d9; font-size: 14px; }
+  .action-item:last-child { border-bottom: none; }
+  .checkbox { width: 18px; height: 18px; border: 2px solid #30363d; border-radius: 4px; flex-shrink: 0; margin-top: 2px; }
+  .noise-section { margin-bottom: 30px; }
+  .noise-section h2 { font-size: 16px; color: #6e7681; margin-bottom: 12px; }
+  .noise-item { color: #6e7681; font-size: 13px; padding: 6px 0; border-bottom: 1px solid #21262d; }
+  .footer { text-align: center; padding: 30px 0; border-top: 1px solid #30363d; color: #484f58; font-size: 13px; }
+  code { background: #1c2333; color: #f78166; font-family: 'SF Mono', 'Fira Code', monospace; padding: 2px 6px; border-radius: 4px; font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>Klyde Daily Briefing</h1>
+  <div class="date">Monday, April 13, 2026</div>
+  <div class="stats-bar">
+    <div class="stat"><div class="stat-number">4</div><div class="stat-label">Scanned</div></div>
+    <div class="stat"><div class="stat-number">3</div><div class="stat-label">Signal</div></div>
+    <div class="stat"><div class="stat-number">1</div><div class="stat-label">Noise</div></div>
+  </div>
+</div>
+<div class="headlines">
+  <h2>Headlines</h2>
+  <p>Light scan today with a Claude Code workflow theme. The hidden <code>/effort max</code> command is an immediate fix for quality issues — add it to every session now. Claude Mem's viral 46K-star surge confirms persistent memory as the top community need, and a mega-list of 7 essential repos rounds out the Claude Code power-user toolkit. All three signals land in the Run Smarter lane with Build Better crossover.</p>
+</div>
+
+<div class="signal-card">
+  <div><span class="tag tag-run">Run Smarter</span></div>
+  <h3>Claude /effort Command — Hidden Performance Toggle</h3>
+  <div class="meta">@BasedMedical · <a href="https://x.com/BasedMedical/status/2043071294871343182">View post</a></div>
+  <div class="body">Anthropic's <code>/effort</code> command controls Claude's reasoning depth. Without explicitly setting <code>/effort max</code> at the start of every session, Claude defaults to a lower effort level that significantly reduces output quality. Most users don't know this exists, which explains widespread complaints about model degradation.</div>
+  <div class="application"><strong>Shop Metrics play:</strong> Add <code>/effort max</code> to every Claude Code session, every Cowork task, and every 4man prompt template immediately. This is a zero-cost fix that may explain quality inconsistencies in previous sessions. Use this as an AI consulting talking point — the kind of insider knowledge that differentiates Shop Metrics' consulting.</div>
+</div>
+
+<div class="signal-card">
+  <div><span class="tag tag-run">Run Smarter</span><span class="tag tag-build">Build Better</span></div>
+  <h3>Claude Code Permanent Memory — 46K Stars in 48 Hours</h3>
+  <div class="meta">@RoundtableSpace · <a href="https://x.com/RoundtableSpace/status/2043347156141064476">View post</a></div>
+  <div class="body">The Claude Mem repo (thedotmack/claude-mem) hit 46K GitHub stars in 48 hours. Provides persistent memory across Claude Code sessions — 95% less token consumption, never hits context limits, picks up exactly where you left off. One command install, completely free.</div>
+  <div class="application"><strong>Shop Metrics play:</strong> The viral traction confirms persistent memory is the #1 pain point for Claude Code users — and it's Shop Metrics' pain point too when building calculators across sessions. 95% less token consumption means dramatically lower costs for 4man development. Install immediately for all development sessions.</div>
+</div>
+
+<div class="signal-card">
+  <div><span class="tag tag-build">Build Better</span><span class="tag tag-run">Run Smarter</span></div>
+  <h3>Claude Code GitHub Repos Mega-List — 7 Essential Repos</h3>
+  <div class="meta">@Suryanshti777 · <a href="https://x.com/Suryanshti777/status/2043230605991899165">View post</a></div>
+  <div class="body">Curated list of 7 essential GitHub repos: Claude Mem (persistent memory), UI UX Pro Max (50+ styles, 161 palettes, 99 UX guidelines), n8n-MCP (400+ integrations), LightRAG (graph + vector RAG for large codebases), Everything Claude Code (full agent harness), Awesome Claude Code (community skills/hooks), and Superpowers.</div>
+  <div class="application"><strong>Shop Metrics play:</strong> LightRAG is the new find — graph + vector RAG lets Claude understand large codebases structurally. Apply this to the Machinery's Handbook for structured retrieval in 4man. Compare against BM25 (intel #33) and MemPalace (intel #41). n8n-MCP opens 400+ workflow automations for lead capture, email sequences, and analytics.</div>
+</div>
+<div class="action-items">
+  <h2>Action Items</h2>
+  <div class="action-item"><div class="checkbox"></div><div><span class="tag tag-run">Run Smarter</span> Set <code>/effort max</code> as default in all Claude sessions, Cowork tasks, and 4man prompts</div></div>
+  <div class="action-item"><div class="checkbox"></div><div><span class="tag tag-build">Build Better</span> Install Claude Mem (thedotmack/claude-mem) for persistent context across all Shop Metrics dev sessions</div></div>
+  <div class="action-item"><div class="checkbox"></div><div><span class="tag tag-build">Build Better</span> Evaluate LightRAG (hkuds/lightrag) as a potential retrieval architecture for 4man — compare with BM25 and MemPalace</div></div>
+  <div class="action-item"><div class="checkbox"></div><div><span class="tag tag-run">Run Smarter</span> Test n8n-MCP for Shop Metrics workflow automation (lead capture, email sequences, analytics)</div></div>
+</div>
+
+<div class="noise-section">
+  <h2>Noise — Cleared</h2>
+  <div class="noise-item">@tn100x — Crypto account shitpost about Twitter password. Skipped.</div>
+</div>
+
+<div class="footer">Klyde Intelligence System · Automated scan · April 13, 2026</div>
+
+</body>
+</html>
