@@ -191,11 +191,11 @@
   <div class="date">Friday, April 17, 2026</div>
   <div class="stats-bar">
     <div class="stat">
-      <div class="stat-number">12</div>
+      <div class="stat-number">17</div>
       <div class="stat-label">Scanned</div>
     </div>
     <div class="stat">
-      <div class="stat-number">10</div>
+      <div class="stat-number">15</div>
       <div class="stat-label">Signal</div>
     </div>
     <div class="stat">
@@ -207,7 +207,82 @@
 
 <div class="headlines">
   <h2>Headlines</h2>
-  <p>Anthropic publicly validated the Skills-first architecture Klyde and 4man are already built on — Boris Cherny's Opus 4.7 dogfooding thread, the "Skills over agents" pivot, and the community-cloned Claude Code routines (Multica Autopilot) all reinforce the same direction. One urgent cost signal: Claude Code <code>v2.1.100</code> is silently injecting ~20K tokens into every request, burning Max limits ~40% faster. Plus a video-production unlock (OpenMontage, ~$0.69/ad) and a 15K-star Karpathy CLAUDE.md that should become the default discipline file across every Shop Metrics repo.</p>
+  <p>Opus 4.7 lands on the shop floor — a same-day delta scan surfaced the single most on-target signal Klyde has produced: Opus 4.7 now automates CAD. Paired with Anthropic's first-party <code>migrate to Opus 4.7</code> skill, HeyGen's HyperFrames HTML-to-MP4 framework, and a Lottie Creator MCP that builds animations from one prompt, today's reading list materially changes the 4man roadmap and the immediate toolchain. Morning run reinforced this with Anthropic's Skills-first pivot, Boris Cherny's Opus 4.7 dogfooding tips, and an urgent Claude Code <code>v2.1.100</code> 20K-token injection finding.</p>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-build">Build Better</span>
+    <span class="tag tag-serve">Serve Customers</span>
+    <span class="tag tag-urgent">Urgent</span>
+  </div>
+  <h3>Opus 4.7 Automates CAD — Direct Hit on the Shop Floor</h3>
+  <div class="meta">@EHuanglu · <a href="https://x.com/EHuanglu/status/2044900707569123697">View post</a></div>
+  <div class="body">
+    Short, high-signal post claiming Opus 4.7 now automates CAD workflows end-to-end. If reproducible, this is the first credible public signal that a frontier general-purpose model can drive CAD without a vertical tool — and CAD is exactly where shops live.
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> If the claim holds, the 4man roadmap expands from "answers machining questions" to "builds and revises the part." Verify this week with a reproducible test (simple bracket in Fusion 360 or Onshape). If real: add a CAD-driver skill to 4man and scope a high-margin consulting offer — "automate your CAD revisions with Opus 4.7 + your PDM" — before the CAD incumbents react. Pairs with Multica Autopilot for nightly CAD-revision sweeps against a shop's part library.
+  </div>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-run">Run Smarter</span>
+  </div>
+  <h3>Claude API Skill — One-Command <code>migrate to Opus 4.7</code></h3>
+  <div class="meta">@ClaudeDevs · <a href="https://x.com/ClaudeDevs/status/2044872737672646716">View post</a></div>
+  <div class="body">
+    Anthropic updated the first-party <code>claude-api</code> skill in Claude Code. Say "migrate to Opus 4.7" and it rewrites model names, prompts, and effort settings across a codebase. Zero-risk migration path from the team that ships the model.
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> Run it across Klyde, every Cowork task file, the Shop Metrics repo CLAUDE.md, and every Claude-powered tool this week. Effort cost is effectively zero; upside is every routine on the current best model. Pair with the <code>v2.1.100</code> token-injection audit so the before/after is clean. For shops already on Claude Code, "migrate your prompts to Opus 4.7" is a 30-minute billable engagement with a clear receipt.
+  </div>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-build">Build Better</span>
+    <span class="tag tag-run">Run Smarter</span>
+  </div>
+  <h3>Lottie Creator MCP — One-Prompt Animations for Shop UI</h3>
+  <div class="meta">@reallynattu · <a href="https://x.com/reallynattu/status/2044954579377492438">View post</a></div>
+  <div class="body">
+    Opus 4.7 + the Lottie Creator MCP produces complex Lottie animations from a single prompt — example: 500 particles, each with its own path, easing, and arrival frame, no keyframes touched. Lottie renders natively on web and mobile as lightweight JSON.
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> Replace static icons across the 37 calculators with tight loading/success Lotties — elevated perceived quality for zero design spend. A hero animation on myshopmetrics.com (a chip evacuating a pocket, a thread form building up, a tolerance stack assembling) becomes a one-prompt deliverable. In 4man, an animated "thinking" state while the Handbook-lookup skill runs signals "expert working" to the user.
+  </div>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-run">Run Smarter</span>
+    <span class="tag tag-build">Build Better</span>
+  </div>
+  <h3>HeyGen HyperFrames — Agent-Native HTML-to-MP4</h3>
+  <div class="meta">@HeyGen · <a href="https://x.com/HeyGen/status/2044827454460871072">View post</a></div>
+  <div class="body">
+    HeyGen open-sourced HyperFrames, a Claude Code–native framework that turns HTML into MP4 for launch-quality video. <code>npx skills add heygen-com/hyperframes</code>. HeyGen — a dominant AI-video brand — publishing a Claude-first skill is a strong validation of the skills-as-distribution trend.
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> Animate the actual Shop Metrics calculators and the 4man chat UI directly into demo videos — highest-fidelity product demos possible. Run the same brief through HyperFrames and OpenMontage and compare. Bonus distribution play: ship Shop Metrics' own <code>shop-metrics-calculators</code> skill via <code>npx skills add</code>, mirroring HeyGen's move — every Claude Code user becomes a distribution node.
+  </div>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-build">Build Better</span>
+    <span class="tag tag-run">Run Smarter</span>
+  </div>
+  <h3>Claude Build-and-Deploy Apps — Unverified, Worth Chasing</h3>
+  <div class="meta">@cyrilXBT · <a href="https://x.com/cyrilXBT/status/2044988063793737811">View post</a></div>
+  <div class="body">
+    Hype-coded claim that Anthropic shipped the ability for Claude to build and deploy full apps from a natural-language description — no code, no terminal, no hosting setup. Treat as unverified until corroborated by first-party docs or a reproducible test.
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> If real and resilient, small Shop Metrics calculators could be prototyped and published from a describe-it prompt — compressing "calculator idea on a shop call" to "link in their inbox the same day." Before any architecture bet: figure out what this actually maps to (Managed Agents? Routines? Something new?) and reproduce end-to-end. Great candidate for an AI-consulting product line once confirmed ("your calculator in a day, deployed").
+  </div>
 </div>
 
 <div class="signal-card">
@@ -334,7 +409,15 @@
   <h2>Action Items</h2>
   <div class="action-item">
     <div class="checkbox"></div>
+    <div><span class="tag tag-build">Build Better</span><span class="tag tag-urgent">Urgent</span> Reproduce the Opus 4.7 CAD automation claim (simple bracket in Fusion 360 or Onshape). If it works, add a CAD-driver skill to 4man and scope an AI-consulting offer around CAD revision automation.</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
     <div><span class="tag tag-run">Run Smarter</span><span class="tag tag-urgent">Urgent</span> Audit Claude Code version on Matt's machine + Cowork runtime; pin pre-<code>v2.1.100</code> if the 20K-token injection is confirmed</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-run">Run Smarter</span> Run <code>migrate to Opus 4.7</code> across Klyde, Cowork task files, Shop Metrics repo CLAUDE.md, and every Claude-powered tool. Benchmark token spend before/after.</div>
   </div>
   <div class="action-item">
     <div class="checkbox"></div>
@@ -354,7 +437,19 @@
   </div>
   <div class="action-item">
     <div class="checkbox"></div>
-    <div><span class="tag tag-run">Run Smarter</span> Produce one OpenMontage demo video for an existing Shop Metrics calculator and evaluate quality</div>
+    <div><span class="tag tag-build">Build Better</span> Prototype the Lottie Creator MCP on a Shop Metrics calculator icon and the 4man "thinking" state</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-run">Run Smarter</span> Produce one OpenMontage demo video for a Shop Metrics calculator; then run the same brief through HeyGen HyperFrames and compare fidelity</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-run">Run Smarter</span> Verify the @cyrilXBT describe-to-deploy claim against Anthropic first-party docs before building on it</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-build">Build Better</span> Ship a <code>shop-metrics-calculators</code> skill via <code>npx skills add</code> to mirror HeyGen's distribution play</div>
   </div>
   <div class="action-item">
     <div class="checkbox"></div>
