@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Klyde Daily Briefing — Friday, April 17, 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0d1117;
+    color: #f0f6fc;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  a { color: #f78166; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .header {
+    text-align: center;
+    padding: 40px 0 20px;
+    border-bottom: 1px solid #30363d;
+    margin-bottom: 30px;
+  }
+  .header h1 {
+    font-size: 28px;
+    color: #f78166;
+    margin-bottom: 8px;
+  }
+  .header .date {
+    color: #8b949e;
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+  .stats-bar {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 16px;
+  }
+  .stat { text-align: center; }
+  .stat-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: #f78166;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: #6e7681;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .headlines {
+    background: linear-gradient(135deg, #161b22 0%, #1c2333 100%);
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 30px;
+  }
+  .headlines h2 {
+    font-size: 18px;
+    color: #f78166;
+    margin-bottom: 12px;
+  }
+  .headlines p {
+    color: #c9d1d9;
+    font-size: 15px;
+  }
+
+  .signal-card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 16px;
+    transition: border-color 0.2s;
+  }
+  .signal-card:hover { border-color: #f78166; }
+  .signal-card h3 {
+    font-size: 18px;
+    color: #f0f6fc;
+    margin: 8px 0;
+  }
+  .signal-card .meta {
+    font-size: 13px;
+    color: #8b949e;
+    margin-bottom: 12px;
+  }
+  .signal-card .body {
+    color: #c9d1d9;
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+  .signal-card .application {
+    color: #c9d1d9;
+    font-size: 14px;
+    padding-left: 16px;
+    border-left: 2px solid #30363d;
+    margin-top: 12px;
+  }
+  .signal-card .application strong { color: #f78166; }
+
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin-right: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .tag-build { background: #1a4d2e; color: #56d364; }
+  .tag-run { background: #3d1f5c; color: #bc8cff; }
+  .tag-serve { background: #1c3a5e; color: #58a6ff; }
+  .tag-urgent { background: #5c1f1f; color: #ff7b72; animation: pulse 2s infinite; }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+
+  .action-items {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 30px;
+  }
+  .action-items h2 {
+    font-size: 18px;
+    color: #f78166;
+    margin-bottom: 16px;
+  }
+  .action-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #21262d;
+    color: #c9d1d9;
+    font-size: 14px;
+  }
+  .action-item:last-child { border-bottom: none; }
+  .checkbox {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #30363d;
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .noise-section { margin-bottom: 30px; }
+  .noise-section h2 {
+    font-size: 16px;
+    color: #6e7681;
+    margin-bottom: 12px;
+  }
+  .noise-item {
+    color: #6e7681;
+    font-size: 13px;
+    padding: 6px 0;
+    border-bottom: 1px solid #21262d;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 30px 0;
+    border-top: 1px solid #30363d;
+    color: #484f58;
+    font-size: 13px;
+  }
+
+  code {
+    background: #1c2333;
+    color: #f78166;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Klyde Daily Briefing</h1>
+  <div class="date">Friday, April 17, 2026</div>
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-number">12</div>
+      <div class="stat-label">Scanned</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">10</div>
+      <div class="stat-label">Signal</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">2</div>
+      <div class="stat-label">Noise</div>
+    </div>
+  </div>
+</div>
+
+<div class="headlines">
+  <h2>Headlines</h2>
+  <p>Anthropic publicly validated the Skills-first architecture Klyde and 4man are already built on — Boris Cherny's Opus 4.7 dogfooding thread, the "Skills over agents" pivot, and the community-cloned Claude Code routines (Multica Autopilot) all reinforce the same direction. One urgent cost signal: Claude Code <code>v2.1.100</code> is silently injecting ~20K tokens into every request, burning Max limits ~40% faster. Plus a video-production unlock (OpenMontage, ~$0.69/ad) and a 15K-star Karpathy CLAUDE.md that should become the default discipline file across every Shop Metrics repo.</p>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-run">Run Smarter</span>
+    <span class="tag tag-urgent">Urgent</span>
+  </div>
+  <h3>Claude Code v2.1.100 Silently Burns 20K Tokens Per Request</h3>
+  <div class="meta">@om_patel5 · 259K views · <a href="https://x.com/om_patel5/status/2043524173016727639">View post</a></div>
+  <div class="body">
+    A developer set up an HTTP proxy to capture full Claude Code API requests across four versions. Finding: <code>v2.1.100</code> silently injects ~20,000 invisible tokens into every single request. That's why Max subscribers are hitting usage limits ~40% faster than expected.
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> Matt is on Claude Code Max daily. A 40% faster burn from an undocumented injection is a real operating-cost line item. Check the installed version on Matt's dev machine and the Cowork/Klyde runtime — if it's <code>v2.1.100</code> or newer, consider pinning an earlier version until Anthropic fixes or documents it. Also: this invalidates any 4man cost model that assumes advertised token counts. Package the findings as an AI-consulting deliverable for shops already paying for Claude.
+  </div>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-run">Run Smarter</span>
+  </div>
+  <h3>Boris Cherny — Opus 4.7 Dogfooding Tips From Inside Anthropic</h3>
+  <div class="meta">@bcherny · 1.1M views · 9.5K likes · <a href="https://x.com/bcherny/status/2044847848035156457">View post</a></div>
+  <div class="body">
+    Boris Cherny — a core Claude Code engineer at Anthropic — posted a set of tips after weeks of dogfooding Opus 4.7. Frames it as concrete habits that raise output quality on the new model. First-party signal from the team actually shipping the tool.
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> Any workflow gain Boris identifies compounds across every Shop Metrics dev session, every Klyde run, and every 4man iteration. Audit the current Shop Metrics CLAUDE.md and Cowork templates against his recommendations and update where our patterns diverge from what Anthropic's own team uses. "Tips directly from Anthropic's Claude Code team" is a high-credibility anchor for the AI-consulting pitch.
+  </div>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-build">Build Better</span>
+    <span class="tag tag-run">Run Smarter</span>
+    <span class="tag tag-serve">Serve Customers</span>
+  </div>
+  <h3>OpenMontage — Claude Code as a Full Video Production Studio</h3>
+  <div class="meta">@thisdudelikesAI · 183K views · <a href="https://x.com/thisdudelikesAI/status/2044359382335651929">View post</a></div>
+  <div class="body">
+    Open-source agentic video production system on Claude Code: 11 pipelines, 49 tools, 400+ agent skills. Produces a complete cinematic product ad end-to-end for roughly <code>$0.69</code> in API spend.
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> 37 calculators, zero marketing videos. Sub-$1 per ad makes per-tool demo videos trivially cheap, and a cinematic "meet 4man" launch ad becomes viable without a video budget. Pair with Remotion (intel #1) as the leaner alternative and offer AI-generated demo videos as a line item in consulting engagements.
+  </div>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-build">Build Better</span>
+    <span class="tag tag-run">Run Smarter</span>
+  </div>
+  <h3>Skills Over Agents — Anthropic's Pivot + 20 Agentic Skills</h3>
+  <div class="meta">@DataChaz · quoting @exploraX_ (371K views) · <a href="https://x.com/DataChaz/status/2043990826154635471">View post</a></div>
+  <div class="body">
+    Anthropic's Agent tools team publicly explained why they moved away from general agents and refocused entirely on Skills — positioning Skills as the more powerful, composable primitive. Paired with a curated 20-skill .md-format library that plugs into Claude, ChatGPT, or Gemini.
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> Direct validation of the Cowork/Klyde architecture — we're already skills-first. Model 4man as a family of skills (<code>HandbookLookup</code>, <code>SpeedsFeedsCalc</code>, <code>GDTInterpreter</code>, <code>MaterialSpec</code>, <code>ToleranceStack</code>) rather than a monolithic agent. Skills are portable across Claude/ChatGPT/Gemini, which matters if we ever need multi-LLM fallback. Harvest exploraX's 20 skills and port the applicable ones.
+  </div>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-build">Build Better</span>
+    <span class="tag tag-run">Run Smarter</span>
+  </div>
+  <h3>Karpathy-Inspired CLAUDE.md Hits 15K Stars</h3>
+  <div class="meta">@akshay_pachaar · 715K views · <a href="https://x.com/akshay_pachaar/status/2043374229199151351">View post</a> · companion: <a href="https://x.com/techNmak/status/2043683120319520806">@techNmak breakdown</a></div>
+  <div class="body">
+    A CLAUDE.md file distilling Karpathy's public observations about LLM coding failure modes hit 15K GitHub stars. Four principles: <em>Think Before Coding, Simplicity First, Surgical Changes, Goal-Driven Execution.</em> techNmak's companion post surfaces three direct Karpathy quotes every Claude Code user has felt but couldn't articulate.
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> Adopt wholesale as the default discipline file for every Shop Metrics repo and every Cowork workspace. The four principles map cleanly to 4man prompt engineering — "Goal-Driven Execution" = tests-first calculator validation, "Surgical Changes" = don't clobber customer-configured calculator logic. A visible, principled CLAUDE.md in the Shop Metrics org signals engineering seriousness to technical shop owners.
+  </div>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-run">Run Smarter</span>
+    <span class="tag tag-build">Build Better</span>
+  </div>
+  <h3>Multica Autopilot — Open-Source Clone of Claude Code Routines</h3>
+  <div class="meta">@DataChaz · <a href="https://x.com/DataChaz/status/2044166157905912171">View post</a></div>
+  <div class="body">
+    Anthropic shipped Claude Code "routines" (prompt + repo + connectors, run on a schedule or via API/event) — and within hours the community shipped Multica Autopilot, a local, vendor-neutral clone that runs the same pattern with Opencode, Codex, Hermes, or OpenClaw as the backend.
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> Klyde is essentially a routine. A local fallback removes single-vendor risk for the nightly scan and any future Shop Metrics scheduled jobs (lead nurture, competitor price checks, forum sweeps). When 4man ships, data-refresh jobs (Machinery's Handbook updates, embeddings rebuilds) can live on cheapest-available infra.
+  </div>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-build">Build Better</span>
+    <span class="tag tag-run">Run Smarter</span>
+  </div>
+  <h3>SINKING SHIP — Pre-Ship AI Code Audit Checklist</h3>
+  <div class="meta">@Hartdrawss · 141K views · <a href="https://x.com/Hartdrawss/status/2043351026053386727">View post</a></div>
+  <div class="body">
+    A pre-ship checklist for anything built with AI assistance. Security category includes no frontend secrets, auth on every route, HTTPS enforced, CORS locked. Additional sections cover reliability and data handling. Framed as the audit to run before pushing any AI-generated feature to production.
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> Every calculator on myshopmetrics.com is Claude Code-assisted. A formal pre-ship audit reduces the chance of a leaked key or open CORS as the tool count grows past 37. 4man is higher stakes — user queries, chat history, paid tiers. Commit as <code>SHIP_CHECKLIST.md</code> and gate calculator PRs on it. Packageable as a small-dollar "shop-ready AI security audit" consulting offer.
+  </div>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-run">Run Smarter</span>
+    <span class="tag tag-serve">Serve Customers</span>
+  </div>
+  <h3>Claude "Magazine" Hack — Editorial-Style Learning and Content</h3>
+  <div class="meta">@jasondoesstuff · <a href="https://x.com/jasondoesstuff/status/2043816363827847450">post 1</a> · <a href="https://x.com/jasondoesstuff/status/2043677336973783255">post 2</a></div>
+  <div class="body">
+    Jason's new favorite learning workflow: (1) give Claude a link to anything, (2) ask for an "editorial magazine" about the content with one slide specifically on how it applies to his business. "Magazine" triggers much better visual design output than "slideshow" and forces Claude to produce a real synthesis.
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> Direct upgrade to how Matt consumes machining/AI reading — paste a Machinery's Handbook section or competitor article, get a visual editorial brief with a "how this applies to Shop Metrics" slide. Product angle: 4man feature to "convert this spec sheet into a shop-floor magazine." Content angle: render Klyde briefings optionally as editorial-magazine HTML for higher visual impact.
+  </div>
+</div>
+
+<div class="action-items">
+  <h2>Action Items</h2>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-run">Run Smarter</span><span class="tag tag-urgent">Urgent</span> Audit Claude Code version on Matt's machine + Cowork runtime; pin pre-<code>v2.1.100</code> if the 20K-token injection is confirmed</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-run">Run Smarter</span> Pull Boris Cherny's Opus 4.7 tips in full and merge into Shop Metrics CLAUDE.md + Cowork task templates</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-build">Build Better</span> Fork the Karpathy-inspired CLAUDE.md, add machining-shop framing to each principle, commit to the Shop Metrics main repo</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-build">Build Better</span> Commit <code>SHIP_CHECKLIST.md</code> (SINKING SHIP) and gate calculator merges on it</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-build">Build Better</span> Re-architect 4man as discrete Skills: <code>HandbookLookup</code>, <code>SpeedsFeeds</code>, <code>GDTInterpreter</code>, <code>MaterialSpec</code>, <code>ToleranceStack</code></div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-run">Run Smarter</span> Produce one OpenMontage demo video for an existing Shop Metrics calculator and evaluate quality</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-run">Run Smarter</span> Test Jason Zook's editorial-magazine pattern on a real intel URL; consider as alternate Klyde render</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-run">Run Smarter</span> Evaluate Multica Autopilot as a local, vendor-neutral fallback for Klyde</div>
+  </div>
+</div>
+
+<div class="noise-section">
+  <h2>Noise — Cleared</h2>
+  <div class="noise-item">@kwindla — Gradient Bang, LLM-driven multiplayer game. Interesting sub-agent tech but dominant framing is entertainment. Skipped.</div>
+  <div class="noise-item">@realBigBrainAI — Ryan Montgomery AI jailbreaking tutorial. Not relevant to Shop Metrics / 4man. Skipped.</div>
+</div>
+
+<div class="footer">
+  Klyde Intelligence System · Automated scan · April 17, 2026
+</div>
+
+</body>
+</html>
