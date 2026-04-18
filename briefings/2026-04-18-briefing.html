@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Klyde Daily Briefing — Saturday, April 18, 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0d1117;
+    color: #f0f6fc;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  a { color: #f78166; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .header {
+    text-align: center;
+    padding: 40px 0 20px;
+    border-bottom: 1px solid #30363d;
+    margin-bottom: 30px;
+  }
+  .header h1 {
+    font-size: 28px;
+    color: #f78166;
+    margin-bottom: 8px;
+  }
+  .header .date {
+    color: #8b949e;
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+  .stats-bar {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 16px;
+  }
+  .stat { text-align: center; }
+  .stat-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: #f78166;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: #6e7681;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .headlines {
+    background: linear-gradient(135deg, #161b22 0%, #1c2333 100%);
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 30px;
+  }
+  .headlines h2 {
+    font-size: 18px;
+    color: #f78166;
+    margin-bottom: 12px;
+  }
+  .headlines p {
+    color: #c9d1d9;
+    font-size: 15px;
+  }
+
+  .signal-card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 16px;
+    transition: border-color 0.2s;
+  }
+  .signal-card:hover { border-color: #f78166; }
+  .signal-card h3 {
+    font-size: 18px;
+    color: #f0f6fc;
+    margin: 8px 0;
+  }
+  .signal-card .meta {
+    font-size: 13px;
+    color: #8b949e;
+    margin-bottom: 12px;
+  }
+  .signal-card .body {
+    color: #c9d1d9;
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+  .signal-card .application {
+    color: #c9d1d9;
+    font-size: 14px;
+    padding-left: 16px;
+    border-left: 2px solid #30363d;
+    margin-top: 12px;
+  }
+  .signal-card .application strong { color: #f78166; }
+
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin-right: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .tag-build { background: #1a4d2e; color: #56d364; }
+  .tag-run { background: #3d1f5c; color: #bc8cff; }
+  .tag-serve { background: #1c3a5e; color: #58a6ff; }
+  .tag-urgent { background: #5c1f1f; color: #ff7b72; animation: pulse 2s infinite; }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+
+  .action-items {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 30px;
+  }
+  .action-items h2 {
+    font-size: 18px;
+    color: #f78166;
+    margin-bottom: 16px;
+  }
+  .action-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #21262d;
+    color: #c9d1d9;
+    font-size: 14px;
+  }
+  .action-item:last-child { border-bottom: none; }
+  .checkbox {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #30363d;
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .noise-section { margin-bottom: 30px; }
+  .noise-section h2 {
+    font-size: 16px;
+    color: #6e7681;
+    margin-bottom: 12px;
+  }
+  .noise-item {
+    color: #6e7681;
+    font-size: 13px;
+    padding: 6px 0;
+    border-bottom: 1px solid #21262d;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 30px 0;
+    border-top: 1px solid #30363d;
+    color: #484f58;
+    font-size: 13px;
+  }
+
+  code {
+    background: #1c2333;
+    color: #f78166;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Klyde Daily Briefing</h1>
+  <div class="date">Saturday, April 18, 2026</div>
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-number">6</div>
+      <div class="stat-label">Scanned</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">3</div>
+      <div class="stat-label">Signal</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">0</div>
+      <div class="stat-label">Noise</div>
+    </div>
+  </div>
+</div>
+
+<div class="headlines">
+  <h2>Headlines</h2>
+  <p>Agent-native distribution and pricing is the 2026 question — and Salesforce just forced it into the open. Headless 360 exposes the entire Salesforce, Agentforce, and Slack stack as APIs, MCP, and CLI — no browser required. @VibeMarketer_'s follow-on read is the real signal: per-seat pricing breaks when agents are the users. For Shop Metrics the play is symmetric — ship an MCP that exposes every calculator and commit to agent-native pricing for 4man before the market commoditizes the answer. @the_smart_ape's $20-beats-$200-with-MCPs-and-skills anecdote reinforces the same story from the demand side. A lighter third signal: a Gemini 3.1 + Seedance 2.0 tutorial for cinematic websites — first non-Claude content stack worth benchmarking against OpenMontage / HyperFrames this month.</p>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-build">Build Better</span>
+    <span class="tag tag-run">Run Smarter</span>
+    <span class="tag tag-serve">Serve Customers</span>
+  </div>
+  <h3>Salesforce Headless 360 — The Per-Seat Model Just Broke</h3>
+  <div class="meta">@VibeMarketer_ quoting @Benioff · 1.6K likes · <a href="https://x.com/VibeMarketer_/status/2045214598165315716">View post</a></div>
+  <div class="body">
+    Salesforce is fully exposed as APIs, MCP, and CLI — "our API is the UI." @VibeMarketer_'s commentary: per-seat SaaS pricing assumes humans clicking dashboards; agents don't log in, they make API calls. <em>"What happens to per-seat pricing when the primary user of your platform isn't a person? … the ones that figure out agent-native pricing first will own the next cycle. the ones still charging per seat while agents do the work will get left behind."</em>
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> Salesforce — the defining per-seat SaaS — shipping MCP as a first-class surface is the strongest validation yet for an MCP-first Shop Metrics. Every one of the 37 calculators should be callable over MCP so an Opus 4.7 or Gemini agent running in a shop's environment can execute <code>speeds_feeds(material="4140", tool_dia=0.5)</code> without a browser. Add "agent-callable" to the myshopmetrics.com home page as differentiation vs FSWizard / G-Wizard / Machining Doctor. Decide 4man's pricing posture now — metered API calls, not seats. Consulting angle: "agent-native SaaS audit for manufacturing shops" is a high-value deliverable we can own before the big SaaS firms retrofit their own stories.
+  </div>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-run">Run Smarter</span>
+    <span class="tag tag-build">Build Better</span>
+  </div>
+  <h3>MCP + Skills = $20 Plan Beats the $200 Plan</h3>
+  <div class="meta">@the_smart_ape · <a href="https://x.com/the_smart_ape/status/2044744980816957685">View post</a></div>
+  <div class="body">
+    Personal-story post: subscribed at $20, felt limited, upgraded to $200 and maxed a credit card for the same results. Installed MCP servers and skills — <em>"claude becomes 100x more powerful"</em> — downgraded back to $20 and shipped more in a week than three months on the $200 plan. Aligns with Anthropic's Skills-first pivot (intel #75) and Cherny's Opus 4.7 tips (#72).
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> Audit Matt's own Claude plan against actual daily usage after the Klyde + Cowork skills stack is doing the heavy lifting — the $180/mo delta between Max and Pro may be negative ROI today. Pairs with the still-open <code>v2.1.100</code> 20K-token injection audit (intel #77). Save the post as an outside-voice quote for Shop Metrics / 4man launch copy — "shops don't need enterprise AI budgets, they need the right skills" sells better when the proof comes from somewhere other than our own marketing. Productize a "plan right-sizing + skills install" one-hour consulting engagement for shops already paying for AI — pays for itself in month one.
+  </div>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-run">Run Smarter</span>
+    <span class="tag tag-serve">Serve Customers</span>
+  </div>
+  <h3>Gemini 3.1 + Seedance 2.0 — Cinematic Website Tutorial</h3>
+  <div class="meta">@RoundtableSpace · 7K likes · 13K views · <a href="https://x.com/RoundtableSpace/status/2045030749598810280">View post</a></div>
+  <div class="body">
+    A high-visibility pointer to a 16-minute tutorial using Google's Gemini 3.1 plus Seedance 2.0 to produce "cinematic $10K-looking websites." Not a Claude workflow, but a credible demonstration that the non-Claude AI video + site-generation stack is now mature enough for premium-feeling landing pages at tutorial-level accessibility.
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> First non-Claude content stack to clear the three-lens filter this month. Worth a single benchmark run against the brief already queued for OpenMontage (#73) and HyperFrames (#84) — if Gemini + Seedance materially wins on cinematic quality, adopt a polyglot content pipeline (Claude for logic, Seedance for cinematic shots). Separately: "premium shop website in a week, agent-built" is a consulting product many shops would pay for — most shop websites look like Frontpage 2003, and using best-of-breed tools per task differentiates us from a standard web-design agency.
+  </div>
+</div>
+
+<div class="action-items">
+  <h2>Action Items</h2>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-build">Build Better</span> Ship a thin Shop Metrics MCP exposing every one of the 37 calculator endpoints as tools (<code>speeds_feeds</code>, <code>thread_data</code>, <code>unit_convert</code>, etc.). Publish the spec this week.</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-run">Run Smarter</span> Decide and publish Shop Metrics' agent-native pricing posture for the 4man paid tier before the market commoditizes the answer.</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-serve">Serve Customers</span> Productize an "agent-native SaaS audit for manufacturing shops" consulting offer — inventory shops' per-seat software, project the curve as agents replace keystrokes, recommend MCP-exposed alternatives.</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-run">Run Smarter</span> Audit Matt's current Claude plan vs actual Klyde/Cowork usage with the full Skills stack loaded. Combine with the pending <code>v2.1.100</code> token-injection audit (intel #77) and right-size.</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-build">Build Better</span> Save @the_smart_ape's $20-beats-$200-with-MCPs-and-skills post as an outside-voice quote for Shop Metrics / 4man launch copy.</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-run">Run Smarter</span> Watch the Gemini 3.1 + Seedance 2.0 tutorial at 1.5x, extract the prompting pattern, and run one hero-video experiment against the same brief queued for OpenMontage / HyperFrames.</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-run">Run Smarter</span> Update <code>klyde-system.md</code> to formalize the dedup rule: after finding candidate bookmarks above the marker, filter out URLs that already appear in the intel file before processing. (3 duplicates surfaced today.)</div>
+  </div>
+</div>
+
+<div class="noise-section">
+  <h2>Noise — Cleared</h2>
+  <div class="noise-item">None this run — all 3 new bookmarks passed at least one lens.</div>
+  <div class="noise-item">Note: @ClaudeDevs, @reallynattu, and @cyrilXBT re-surfaced above the marker in today's bookmark feed but were already processed in yesterday's delta run (intel #81–83). Skipped as duplicates.</div>
+</div>
+
+<div class="footer">
+  Klyde Intelligence System · Automated scan · April 18, 2026
+</div>
+
+</body>
+</html>
