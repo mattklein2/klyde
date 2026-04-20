@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Klyde Daily Briefing — Monday, April 20, 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0d1117;
+    color: #f0f6fc;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  a { color: #f78166; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .header {
+    text-align: center;
+    padding: 40px 0 20px;
+    border-bottom: 1px solid #30363d;
+    margin-bottom: 30px;
+  }
+  .header h1 {
+    font-size: 28px;
+    color: #f78166;
+    margin-bottom: 8px;
+  }
+  .header .date {
+    color: #8b949e;
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+  .stats-bar {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 16px;
+  }
+  .stat { text-align: center; }
+  .stat-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: #f78166;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: #6e7681;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .headlines {
+    background: linear-gradient(135deg, #161b22 0%, #1c2333 100%);
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 30px;
+  }
+  .headlines h2 {
+    font-size: 18px;
+    color: #f78166;
+    margin-bottom: 12px;
+  }
+  .headlines p {
+    color: #c9d1d9;
+    font-size: 15px;
+  }
+
+  .signal-card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 16px;
+    transition: border-color 0.2s;
+  }
+  .signal-card:hover { border-color: #f78166; }
+  .signal-card h3 {
+    font-size: 18px;
+    color: #f0f6fc;
+    margin: 8px 0;
+  }
+  .signal-card .meta {
+    font-size: 13px;
+    color: #8b949e;
+    margin-bottom: 12px;
+  }
+  .signal-card .body {
+    color: #c9d1d9;
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+  .signal-card .application {
+    color: #c9d1d9;
+    font-size: 14px;
+    padding-left: 16px;
+    border-left: 2px solid #30363d;
+    margin-top: 12px;
+  }
+  .signal-card .application strong { color: #f78166; }
+
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin-right: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .tag-build { background: #1a4d2e; color: #56d364; }
+  .tag-run { background: #3d1f5c; color: #bc8cff; }
+  .tag-serve { background: #1c3a5e; color: #58a6ff; }
+  .tag-urgent { background: #5c1f1f; color: #ff7b72; animation: pulse 2s infinite; }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+
+  .action-items {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 30px;
+  }
+  .action-items h2 {
+    font-size: 18px;
+    color: #f78166;
+    margin-bottom: 16px;
+  }
+  .action-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #21262d;
+    color: #c9d1d9;
+    font-size: 14px;
+  }
+  .action-item:last-child { border-bottom: none; }
+  .checkbox {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #30363d;
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .noise-section { margin-bottom: 30px; }
+  .noise-section h2 {
+    font-size: 16px;
+    color: #6e7681;
+    margin-bottom: 12px;
+  }
+  .noise-item {
+    color: #6e7681;
+    font-size: 13px;
+    padding: 6px 0;
+    border-bottom: 1px solid #21262d;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 30px 0;
+    border-top: 1px solid #30363d;
+    color: #484f58;
+    font-size: 13px;
+  }
+
+  code {
+    background: #1c2333;
+    color: #f78166;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Klyde Daily Briefing</h1>
+  <div class="date">Monday, April 20, 2026</div>
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-number">46</div>
+      <div class="stat-label">Scanned</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">6</div>
+      <div class="stat-label">Signal</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">3</div>
+      <div class="stat-label">Noise</div>
+    </div>
+  </div>
+</div>
+
+<div class="headlines">
+  <h2>Headlines</h2>
+  <p>Three A-tier voices validated the AI-consulting gold rush in 72 hours — Mark Cuban, Chris Camillo, and Greg Isenberg all named customized AI for SMBs as the next trillion-dollar lane, and Shop Metrics' existing consulting book is the literal product-market-fit. A sharper counter-POV from @ashtilawat turned the Salesforce Headless thesis on its head — "data is the moat, quit renting yours" — which converts cleanly into an "ERP data liberation" consulting SOW for shops on E2 / JobBOSS / ProShop. On the build side, Anthropic Labs shipped Claude Design + Opus 4.7 for prototypes, slides, and one-pagers, closing the last gap in a Claude-only content pipeline for the 4man launch and the myshopmetrics.com rebuild. Claude Code v2.1.113 also went native-binary — an easy Klyde/Cowork upgrade for the week.</p>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-run">Run Smarter</span>
+    <span class="tag tag-serve">Serve Customers</span>
+    <span class="tag tag-build">Build Better</span>
+  </div>
+  <h3>Mark Cuban — "Software Is Dead. Customized AI for 33M US Companies."</h3>
+  <div class="meta">@rohanpaul_ai quoting Mark Cuban (TBPN) · 2.4K likes · 230 RTs · <a href="https://x.com/rohanpaul_ai/status/2045914070394585177">View post</a></div>
+  <div class="body">
+    Cuban reframes the next AI wave as customized integration for SMBs, not more off-the-shelf SaaS. <em>"Software is dead because everything's gonna be customized to your unique utilization. Who's gonna do it for them... there are 33 mn companies in the US."</em> He's explicitly calling out a multi-decade consulting opportunity targeting SMBs without in-house AI teams.
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> Machine shops are exactly the SMB segment Cuban names — three-person job shops to 200-person floors, zero in-house AI talent, already frustrated with their off-the-shelf ERP / CAM / scheduling SaaS. Cuban's credibility with shop owners exceeds any AI newsletter's — pull the quote onto the myshopmetrics.com consulting page as an outside-voice anchor this week. Reinforces 4man's positioning: general-purpose Claude doesn't know a shop's feeds/speeds exceptions, tooling, or house rules — 4man with a customer-specific Machinery's Handbook is the concrete instantiation of "customized to your unique utilization."
+  </div>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-serve">Serve Customers</span>
+    <span class="tag tag-run">Run Smarter</span>
+  </div>
+  <h3>Chris Camillo — "$500K/Year Being the AI Guy for Small Businesses"</h3>
+  <div class="meta">@yonann quoting Chris Camillo · 4.3K likes · 258 RTs · <a href="https://x.com/yonann/status/2045880852136022455">View post</a></div>
+  <div class="body">
+    Second independent data point the same weekend as Cuban: generalist operators clearing $500K/year as the "AI guy" for SMBs with a simple walk-in sales motion. Quote: <em>"you just walk in and say give me one area where you're leaking money, I'll"</em> — the rest: fix it, install AI, charge retainer. Anecdotal but directionally consistent with #88 (Cuban) and #93 (Isenberg).
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> Pricing benchmark for Shop Metrics consulting — a vertical specialist with the 37 calculators and eventual 4man should price at a clear multiple of the $500K/yr generalist rate (machining domain is a real moat). Adopt the Camillo opener as the Shop Metrics first-call script: "tell me the one number on your shop floor that drives you nuts — I'll build a tool that fixes it in a week." Put it on the consulting landing page. Every leak surfaced becomes a custom-calculator candidate and a feedback loop into the product.
+  </div>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-serve">Serve Customers</span>
+    <span class="tag tag-build">Build Better</span>
+    <span class="tag tag-run">Run Smarter</span>
+  </div>
+  <h3>@ashtilawat — "Headless SaaS Is Rented Postgres. Pull Your Data Out."</h3>
+  <div class="meta">@ashtilawat · 644 likes · 50 RTs · <a href="https://x.com/ashtilawat/status/2045862404559454333">View post</a></div>
+  <div class="body">
+    Sharp counter-POV to the Headless 360 narrative from intel #85. Reframes agent-native SaaS as an anti-incumbent arbitrage: <em>"Headless Salesforce = paying enterprise prices to rent a Postgres instance. Pull the data out. Host it yourself at 1/3 the cost. Wire your agents in directly. The data is the moat. Quit renting yours."</em>
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> The most useful contrarian take on the agent-native thesis this month. Packaged as a consulting SOW: <em>"your ERP data, extracted and owned. 1/3 the cost. Agent-ready."</em> Shops using E2, Global Shop, JobBOSS, Fishbowl, or ProShop are paying enterprise prices for what is functionally a tabular database with a web skin — a quarter-long migration to an owned Postgres + MCP layer + our calculators on top is concrete. Use #85 framing ("agent-native, forward-looking") for visionary buyers and #90 framing ("quit renting your data, half the cost") for cost-conscious buyers. Same offer, two ledes.
+  </div>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-build">Build Better</span>
+    <span class="tag tag-run">Run Smarter</span>
+    <span class="tag tag-serve">Serve Customers</span>
+  </div>
+  <h3>Claude Design (Opus 4.7) — Talk-to-Prototype for Websites, Slides, One-Pagers</h3>
+  <div class="meta">@claudeai (147K likes, 24K RTs) + @viktoroddy tutorial (22K likes) · <a href="https://x.com/claudeai/status/2045156267690213649">Anthropic launch</a> · <a href="https://x.com/viktoroddy/status/2045492112054165813">Viktor Oddy tutorial</a></div>
+  <div class="body">
+    Anthropic Labs shipped Claude Design — a research-preview surface that produces prototypes, slides, and one-pagers from a conversation. Powered by Opus 4.7 as the vision model. Available on Pro, Max, Team, and Enterprise. @viktoroddy's 18-minute tutorial is the first external walkthrough, showing marketing-site-grade animated output.
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> Closes the last gap in a Claude-only content pipeline: Claude Design for layout, <a href="https://x.com/thisdudelikesAI/status/2044359382335651929">OpenMontage</a> (#73) or <a href="https://x.com/HeyGen/status/2044827454460871072">HyperFrames</a> (#84) for video, <a href="https://x.com/reallynattu/status/2044954579377492438">Lottie Creator MCP</a> (#82) for micro-animations. Re-skin the myshopmetrics.com hero + tool cards + 4man waitlist landing through Claude Design this week before any external agency engagement. Every AI-consulting one-pager is now a conversational task — compresses the consulting sales cycle by a week per account. "Premium shop website in a week, agent-built" becomes a productized deliverable.
+  </div>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-run">Run Smarter</span>
+    <span class="tag tag-serve">Serve Customers</span>
+    <span class="tag tag-build">Build Better</span>
+  </div>
+  <h3>Greg Isenberg — "$1T for Agent-First Startups. 10,000+ Niches."</h3>
+  <div class="meta">@gregisenberg · 3K likes · 282 RTs · <a href="https://x.com/gregisenberg/status/2045485535154647386">View post</a></div>
+  <div class="body">
+    Third confirming data point this weekend (alongside Cuban and Camillo), from the indie-hacker / VC angle. Isenberg's framing: (1) every SaaS follows Salesforce and goes headless within 18 months; (2) a new category of "agent-native" startups emerges treating incumbents as API substrates; (3) TAM is measured in trillions across ~10K niches.
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> Strongest public statement this quarter that a single vertical — manufacturing shops — is a defensible niche inside the agent-native transition, not a niche-of-one. Rebrand the Shop Metrics external strategic narrative explicitly as "agent-native Shop Metrics." Near-term competitors aren't FSWizard / G-Wizard — they're agent-native newcomers who will attack the space with an MCP-first surface. Set a recurring <code>/last30days</code> sweep for "manufacturing MCP" and "shop agent" to catch them before they clear $1M ARR.
+  </div>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-run">Run Smarter</span>
+    <span class="tag tag-build">Build Better</span>
+  </div>
+  <h3>Claude Code v2.1.113 — Native Binary Ships by Default (No Node.js Runtime)</h3>
+  <div class="meta">@ClaudeDevs (Anthropic) · 3.6K likes · 153 RTs · <a href="https://x.com/ClaudeDevs/status/2045267790018543736">View post</a></div>
+  <div class="body">
+    The <code>claude-code</code> npm package now ships the native binary. Faster startup, no Node.js runtime required. The JS build is pin-able for anyone who needs it. Small-surface release but material for automated / headless environments where Node is overhead.
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> Every scheduled Klyde run boots a Claude Code process — native binary trims cold-start and removes a Node dependency from the Cowork execution path. Upgrade the Cowork machine to ≥v2.1.113 this week and re-measure the nightly Klyde wall-clock baseline. Pairs with intel #77 (v2.1.100 20K-token injection audit) and #81 (Opus 4.7 migration skill). Consulting angle: "we migrated your Claude Code stack to native binary and cut agent boot time X%" is a clean measurable deliverable for a short engagement.
+  </div>
+</div>
+
+<div class="action-items">
+  <h2>Action Items</h2>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-run">Run Smarter</span> Put the Mark Cuban quote and Camillo "find the leak" line on the myshopmetrics.com consulting page as outside-voice anchors this week.</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-serve">Serve Customers</span> Package the "ERP data liberation + MCP layer" consulting SOW from intel #90. Price above the $500K/yr generalist AI-guy benchmark from #89.</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-serve">Serve Customers</span> Rebrand the external Shop Metrics strategic narrative as "agent-native Shop Metrics" (intel #85, #90, #93 convergence).</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-build">Build Better</span> Re-skin myshopmetrics.com hero + tool cards + 4man waitlist landing via Claude Design (#92) before engaging any external agency.</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-run">Run Smarter</span> Watch @viktoroddy's 18-minute Claude Design tutorial at 1.5x; extract the prompting pattern; log it under intel #92.</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-run">Run Smarter</span> Upgrade the Cowork machine's Claude Code to ≥v2.1.113 (#91); re-measure the Klyde nightly wall-clock baseline.</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-build">Build Better</span> Schedule a recurring <code>/last30days</code> sweep for "manufacturing MCP" and "shop agent" (#93) to spot agent-native-newcomer competitors early.</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-run">Run Smarter</span> Finally update <code>klyde-system.md</code> with the URL-level dedup rule (carried from April 18 — this run confirms it is load-bearing).</div>
+  </div>
+</div>
+
+<div class="noise-section">
+  <h2>Noise (Dismissed)</h2>
+  <div class="noise-item">@kwindla's "Gradient Bang" — a massively multiplayer LLM-driven game. Entertainment; fails all three lenses for Shop Metrics.</div>
+  <div class="noise-item">@realBigBrainAI — Ryan Montgomery on prompt-based AI jailbreaking. AI red-teaming has no application to manufacturing consulting or 4man.</div>
+  <div class="noise-item">@future_coded — Rocket.new "Vibe Solutioning" promo. Low engagement, hype framing, non-Claude stack, no manufacturing angle.</div>
+</div>
+
+<div class="footer">
+  Klyde Intelligence System — Automated scan completed April 20, 2026
+</div>
+
+</body>
+</html>
