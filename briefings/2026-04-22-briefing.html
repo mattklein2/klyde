@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Klyde Briefing — 2026-04-22</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --panel: #161b22;
+    --panel-2: #1c2129;
+    --border: #30363d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #06b6d4;
+
+    --build-bg: #1a4d2e;
+    --build-fg: #56d364;
+    --run-bg: #3d1f5c;
+    --run-fg: #bc8cff;
+    --serve-bg: #1c3a5e;
+    --serve-fg: #58a6ff;
+    --urgent-bg: #5c1f1f;
+    --urgent-fg: #ff7b72;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.55; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 32px 24px 80px; }
+
+  header { border-bottom: 1px solid var(--border); padding-bottom: 18px; margin-bottom: 28px; }
+  header h1 { margin: 0; font-size: 28px; letter-spacing: -0.01em; }
+  header .sub { color: var(--muted); font-size: 14px; margin-top: 6px; }
+
+  h2 { margin: 36px 0 12px; font-size: 20px; border-left: 3px solid var(--accent); padding-left: 10px; }
+  h3 { margin: 22px 0 6px; font-size: 16px; color: var(--text); }
+
+  .meta { color: var(--muted); font-size: 13px; margin: 2px 0 10px; }
+  .meta a { color: var(--accent); text-decoration: none; }
+  .meta a:hover { text-decoration: underline; }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+  .tag { font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 999px; letter-spacing: 0.02em; text-transform: uppercase; }
+  .tag.build  { background: var(--build-bg);  color: var(--build-fg); }
+  .tag.run    { background: var(--run-bg);    color: var(--run-fg); }
+  .tag.serve  { background: var(--serve-bg);  color: var(--serve-fg); }
+  .tag.urgent { background: var(--urgent-bg); color: var(--urgent-fg); animation: pulse 1.8s ease-in-out infinite; }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255,123,114,0.55); }
+    50%      { box-shadow: 0 0 0 6px rgba(255,123,114,0); }
+  }
+
+  .card { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; margin-bottom: 14px; }
+  .card p { margin: 6px 0; }
+  .card p.note { color: var(--muted); font-size: 14px; }
+
+  .tldr { background: var(--panel-2); border: 1px solid var(--border); border-radius: 10px; padding: 18px 22px; margin-bottom: 28px; }
+  .tldr ol { margin: 8px 0 0 18px; padding: 0; }
+  .tldr li { margin-bottom: 6px; }
+
+  footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
+
+  .count-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 10px; }
+  .count { background: var(--panel-2); border: 1px solid var(--border); border-radius: 8px; padding: 6px 12px; font-size: 13px; color: var(--muted); }
+  .count strong { color: var(--text); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>Klyde Briefing &mdash; 2026-04-22</h1>
+    <div class="sub">44 bookmarks scanned &middot; 40 signal &middot; 4 noise &middot; first Klyde run</div>
+    <div class="count-row">
+      <span class="count"><span class="tag build">Build Better</span>&nbsp;<strong>12</strong> items</span>
+      <span class="count"><span class="tag run">Run Smarter</span>&nbsp;<strong>30</strong> items</span>
+      <span class="count"><span class="tag serve">Serve Customers</span>&nbsp;<strong>5</strong> items</span>
+      <span class="count"><span class="tag urgent">Urgent</span>&nbsp;<strong>1</strong> item</span>
+    </div>
+  </header>
+
+  <div class="tldr">
+    <h2 style="margin-top:0;border:none;padding:0;">TL;DR</h2>
+    <ol>
+      <li><strong>Opus 4.7 + Onshape MCP is doing parametric CAD.</strong> Two independent demos. This is the single most important signal for Shop Metrics this week.</li>
+      <li><strong>The &ldquo;AI guy for SMBs&rdquo; market frame consolidated</strong> &mdash; target $3&ndash;10M/yr shops, not sub-$1M mom-and-pops.</li>
+      <li><strong>Per-seat pricing is dying.</strong> 4man needs to price per-action from day one.</li>
+      <li><strong>Claude Design + Opus 4.7</strong> lets us produce landing pages, videos, and animations at ~zero cost. Use it.</li>
+      <li><strong>Anthropic&rsquo;s agent team ditched agents for Skills.</strong> 4man should be Skills + MCP first.</li>
+      <li><strong>Claude Code Max v2.1.100 silently adds ~20K tokens/request.</strong> Pin to v2.1.98 for heavy sessions.</li>
+    </ol>
+  </div>
+
+  <h2>Urgent &mdash; CAD automation is in reach</h2>
+
+  <div class="card">
+    <div class="tags"><span class="tag urgent">Urgent</span><span class="tag build">Build Better</span><span class="tag serve">Serve Customers</span></div>
+    <h3>Opus 4.7 + Jarvis Onshape MCP builds 4-part monitor arm from a sketch</h3>
+    <div class="meta">@Reshef_ &middot; Apr 20</div>
+    <p>Claude worked for an hour and produced a working parametric CAD model &mdash; starting only from a sketch and description &mdash; by being given tools to look at its own work. Second corroborating demo from <span class="meta" style="display:inline">@EHuanglu</span>: &ldquo;wowww.. Opus 4.7 has automated CAD.&rdquo;</p>
+    <p class="note">Application: the CAD automation wedge for machine shops is finally technically viable. Investigate the Jarvis Onshape MCP today; evaluate a Fusion or Mastercam equivalent as a custom-build offering or a 4man integration.</p>
+  </div>
+
+  <h2>Build Better</h2>
+
+  <div class="card">
+    <div class="tags"><span class="tag build">Build Better</span><span class="tag run">Run Smarter</span></div>
+    <h3>MCP + Skills make Claude &ldquo;100x more powerful&rdquo;</h3>
+    <div class="meta">@the_smart_ape &middot; Apr 16</div>
+    <p>Anecdote: $200 Max plan felt limited; installed MCPs + skills on $20 plan &rarr; outbuilt the $200 binge in a week. Reinforces the Skills-first architecture thesis for 4man.</p>
+  </div>
+
+  <div class="card">
+    <div class="tags"><span class="tag build">Build Better</span><span class="tag run">Run Smarter</span></div>
+    <h3>Claude Mem &mdash; permanent memory repo hit 46K stars in 48h</h3>
+    <div class="meta">@RoundtableSpace &middot; Apr 12</div>
+    <p>95% less token consumption per session; persistent memory; one-command install. Directly relevant to 4man's need to remember per-shop context (materials, machines, tolerances).</p>
+  </div>
+
+  <div class="card">
+    <div class="tags"><span class="tag build">Build Better</span><span class="tag run">Run Smarter</span></div>
+    <h3>20 Powerful Agent Skills article + Anthropic's skills-first pivot</h3>
+    <div class="meta">@DataChaz &middot; Apr 14 &middot; ref @exploraX_</div>
+    <p>Anthropic's internal agent team ditched agents to focus entirely on Skills. Companion article compiles 20 reusable .md skills. Audit Shop Metrics' skill library against this list.</p>
+  </div>
+
+  <div class="card">
+    <div class="tags"><span class="tag build">Build Better</span><span class="tag run">Run Smarter</span></div>
+    <h3>$1T for agent-first startups &mdash; Greg Isenberg</h3>
+    <div class="meta">@gregisenberg &middot; Apr 18</div>
+    <p>Every SaaS goes headless within 18 months; &ldquo;agent-native&rdquo; startups treat incumbents as data layers. Positions 4man as an agent-native platform from day one, not a dashboard.</p>
+  </div>
+
+  <div class="card">
+    <div class="tags"><span class="tag build">Build Better</span></div>
+    <h3>Salesforce Headless 360 &mdash; per-seat SaaS dying</h3>
+    <div class="meta">@Benioff / @VibeMarketer_ / @ashtilawat &middot; Apr 16&ndash;19</div>
+    <p>&ldquo;Agents don't log in; they make API calls.&rdquo; Per-seat pricing breaks. Price 4man per-action, per-job, or per-question from day one.</p>
+  </div>
+
+  <div class="card">
+    <div class="tags"><span class="tag build">Build Better</span></div>
+    <h3>Tableau's moat is governance, not the chart &mdash; Pawel Huryn</h3>
+    <div class="meta">@PawelHuryn &middot; Apr 21</div>
+    <p>BI sells &ldquo;10,000 employees agreeing on the number.&rdquo; For Shop Metrics, the analogous moat is standardized, Machinery-Handbook-traceable calculators. Lean into the certified-metric framing.</p>
+  </div>
+
+  <div class="card">
+    <div class="tags"><span class="tag build">Build Better</span><span class="tag run">Run Smarter</span></div>
+    <h3>SINKING SHIP &mdash; pre-ship checklist for anything AI-built</h3>
+    <div class="meta">@Hartdrawss &middot; Apr 12</div>
+    <p>No API keys in frontend, auth on every route, HTTPS, CORS, etc. Add to Shop Metrics' Netlify release checklist.</p>
+  </div>
+
+  <div class="card">
+    <div class="tags"><span class="tag build">Build Better</span></div>
+    <h3>NVIDIA free API endpoints &mdash; MiniMax M2.7 free</h3>
+    <div class="meta">@AdolfoUsier &middot; Apr 12</div>
+    <p>Candidate low-cost fallback inference for 4man features that don't need Claude quality.</p>
+  </div>
+
+  <h2>Run Smarter</h2>
+
+  <div class="card">
+    <div class="tags"><span class="tag run">Run Smarter</span></div>
+    <h3>Claude Design (Anthropic Labs) &mdash; prototypes, slides, deployable apps</h3>
+    <div class="meta">@claudeai / @viktoroddy / @cyrilXBT &middot; Apr 16&ndash;18</div>
+    <p>Opus 4.7-powered, talking-interface prototyping. Pro/Max/Team/Enterprise. Use for landing-page variants and customer-discovery prototypes.</p>
+  </div>
+
+  <div class="card">
+    <div class="tags"><span class="tag run">Run Smarter</span></div>
+    <h3>Claude Code Max burns limits 40% faster in v2.1.100</h3>
+    <div class="meta">@om_patel5 &middot; Apr 12</div>
+    <p>HTTP-proxy evidence: v2.1.100 silently adds ~20K invisible tokens per request (versus v2.1.98). Pin to v2.1.98 for heavy workflows.</p>
+  </div>
+
+  <div class="card">
+    <div class="tags"><span class="tag run">Run Smarter</span></div>
+    <h3>claude-api skill: &ldquo;migrate to Opus 4.7&rdquo;</h3>
+    <div class="meta">@ClaudeDevs &middot; Apr 17</div>
+    <p>Updates model names, prompts, and effort settings automatically. Low-friction upgrade path.</p>
+  </div>
+
+  <div class="card">
+    <div class="tags"><span class="tag run">Run Smarter</span></div>
+    <h3>Opus 4.7 productivity tips &mdash; Boris Cherny</h3>
+    <div class="meta">@bcherny &middot; Apr 16 &middot; read the full thread</div>
+  </div>
+
+  <div class="card">
+    <div class="tags"><span class="tag run">Run Smarter</span></div>
+    <h3>Ryze AI &mdash; Claude-built Google/Meta ads dashboards in 30s</h3>
+    <div class="meta">@irabukht &middot; Apr 21</div>
+    <p>Pattern for Shop Metrics' future live shop-KPI dashboard. One-click account connection, Claude pulls data and schedules tasks.</p>
+  </div>
+
+  <div class="card">
+    <div class="tags"><span class="tag run">Run Smarter</span></div>
+    <h3>HyperFrames &mdash; HTML &rarr; MP4 open-source framework</h3>
+    <div class="meta">@HeyGen &middot; Apr 16 &middot; <code>npx skills add heygen-com/hyperframes</code></div>
+    <p>Good for turning calculator demos into shareable launch videos.</p>
+  </div>
+
+  <div class="card">
+    <div class="tags"><span class="tag run">Run Smarter</span></div>
+    <h3>OpenMontage &mdash; Claude Code as agentic video studio</h3>
+    <div class="meta">@thisdudelikesAI &middot; Apr 15</div>
+    <p>11 pipelines, 49 tools, 400+ skills. ~$0.69 per cinematic product ad.</p>
+  </div>
+
+  <div class="card">
+    <div class="tags"><span class="tag run">Run Smarter</span></div>
+    <h3>Opus 4.7 + Lottie Creator MCP &mdash; animations from one prompt</h3>
+    <div class="meta">@reallynattu &middot; Apr 16</div>
+    <p>Per-particle paths and easing, no keyframing. Use for landing-page micro-animations.</p>
+  </div>
+
+  <div class="card">
+    <div class="tags"><span class="tag run">Run Smarter</span></div>
+    <h3>Jason Zook &mdash; Claude as an editorial magazine generator</h3>
+    <div class="meta">@jasondoesstuff &middot; Apr 13 (x2 posts)</div>
+    <p>Ask Claude for a &ldquo;magazine,&rdquo; not a slideshow. Better visual output for learning and client briefings.</p>
+  </div>
+
+  <div class="card">
+    <div class="tags"><span class="tag run">Run Smarter</span></div>
+    <h3>Multica Autopilot &mdash; run Claude routines locally w/ any agent</h3>
+    <div class="meta">@DataChaz &middot; Apr 14</div>
+    <p>Supports Opencode, Codex, Hermes, OpenClaw. Interesting for shops that won't allow cloud calls.</p>
+  </div>
+
+  <div class="card">
+    <div class="tags"><span class="tag run">Run Smarter</span></div>
+    <h3>Best Claude Code GitHub repos &amp; claude-code-best-practice (84 tips)</h3>
+    <div class="meta">@Suryanshti777 &middot; @sukh_saroy &middot; Apr 12</div>
+    <p>Two overlapping catalogs of Claude Code setup best practices. Worth reading back-to-back.</p>
+  </div>
+
+  <div class="card">
+    <div class="tags"><span class="tag run">Run Smarter</span></div>
+    <h3>Single CLAUDE.md file hits 15K stars &mdash; Karpathy-inspired 4 principles</h3>
+    <div class="meta">@akshay_pachaar &middot; Apr 12</div>
+    <p>Think Before Coding / Simplicity First / Surgical Changes / Goal-Driven Execution. Audit our CLAUDE.md against these.</p>
+  </div>
+
+  <div class="card">
+    <div class="tags"><span class="tag run">Run Smarter</span></div>
+    <h3>Karpathy on Claude Code's predictable mistakes</h3>
+    <div class="meta">@techNmak &middot; Apr 13</div>
+    <p>Over-engineering, ignoring existing patterns, adding unasked deps. &ldquo;Don't seek clarifications, don't present tradeoffs.&rdquo; Useful framing for our CLAUDE.md guard-rails.</p>
+  </div>
+
+  <div class="card">
+    <div class="tags"><span class="tag run">Run Smarter</span></div>
+    <h3>&ldquo;effort max&rdquo; &mdash; Anthropic's /effort command lobotomy</h3>
+    <div class="meta">@BasedMedical &middot; Apr 11</div>
+    <p>Unconfirmed: unless you prefix sessions with <code>/effort max</code>, Claude is allegedly nerfed. Worth testing on our heavy reasoning runs.</p>
+  </div>
+
+  <div class="card">
+    <div class="tags"><span class="tag run">Run Smarter</span></div>
+    <h3>Claude Code v2.1.113 now ships a native binary</h3>
+    <div class="meta">@ClaudeDevs &middot; Apr 17</div>
+    <p>Same <code>npm install</code>, faster startup, no Node dependency.</p>
+  </div>
+
+  <div class="card">
+    <div class="tags"><span class="tag run">Run Smarter</span></div>
+    <h3>Personal AI dashboard with Claude &mdash; CyrilXBT</h3>
+    <div class="meta">@cyrilXBT &middot; Apr 21</div>
+    <p>Calendar + tasks + goals in one Claude-driven dashboard. Inspiration for an internal CEO cockpit.</p>
+  </div>
+
+  <div class="card">
+    <div class="tags"><span class="tag run">Run Smarter</span></div>
+    <h3>SaaStr AI Annual (May 12&ndash;14) &mdash; Lemkin + Replit</h3>
+    <div class="meta">@jasonlk &middot; Apr 18</div>
+    <p>&ldquo;Build your own AI VP Marketing / Sales&rdquo; workshops. Watch for session recordings.</p>
+  </div>
+
+  <div class="card">
+    <div class="tags"><span class="tag run">Run Smarter</span></div>
+    <h3>&ldquo;Vibe coding&rdquo; isn't slop &mdash; Brotzky</h3>
+    <div class="meta">@brotzky &middot; Apr 20</div>
+    <p>Weekend case study of a fast, cleanly-built AI-coded site. Good counter-example for the &ldquo;AI = junk&rdquo; crowd.</p>
+  </div>
+
+  <div class="card">
+    <div class="tags"><span class="tag run">Run Smarter</span></div>
+    <h3>Gemini 3.1 + Seedance 2.0 &mdash; cinematic $10K websites</h3>
+    <div class="meta">@RoundtableSpace &middot; Apr 17 &middot; 16-min tutorial</div>
+  </div>
+
+  <div class="card">
+    <div class="tags"><span class="tag run">Run Smarter</span></div>
+    <h3>AI company $0 &rarr; $1M+ blueprint &mdash; Founder Thoughts</h3>
+    <div class="meta">@mogulinfluence &middot; 17h &middot; $30M ARR founder's playbook</div>
+  </div>
+
+  <div class="card">
+    <div class="tags"><span class="tag run">Run Smarter</span></div>
+    <h3>AI Tools Governance PM at Amazon</h3>
+    <div class="meta">@gothburz &middot; 22h</div>
+    <p>Org built from scratch in 5 months. Signal on enterprise AI-tool rollout structure.</p>
+  </div>
+
+  <div class="card">
+    <div class="tags"><span class="tag run">Run Smarter</span></div>
+    <h3>&ldquo;CLAUDE.md kid&rdquo; &mdash; 19yr-old dropped 4 principles and shipped</h3>
+    <div class="meta">@noisyb0y1 &middot; Apr 20</div>
+    <p>Companion anecdote to the 15K-star CLAUDE.md repo.</p>
+  </div>
+
+  <h2>Serve Customers</h2>
+
+  <div class="card">
+    <div class="tags"><span class="tag run">Run Smarter</span><span class="tag serve">Serve Customers</span></div>
+    <h3>Chris Camillo &mdash; $500K/yr as &ldquo;AI guy&rdquo; for local businesses</h3>
+    <div class="meta">@yonann &middot; Apr 19 &middot; @NorthstarBrain (13h) rebuttal</div>
+    <p>Walk into HVAC/plumbing/shop; ask where they're leaking money; build an agent. Rebuttal: target $3&ndash;10M/yr businesses, not the tiny ones. This is the Shop Metrics ICP definition.</p>
+  </div>
+
+  <div class="card">
+    <div class="tags"><span class="tag run">Run Smarter</span><span class="tag serve">Serve Customers</span></div>
+    <h3>Mark Cuban &mdash; customized AI integration is the next job wave</h3>
+    <div class="meta">@rohanpaul_ai &middot; Apr 19</div>
+    <p>&ldquo;Software is dead because everything's gonna be customized&hellip; 33M US companies.&rdquo; Validates the custom-calculator + AI-consulting thesis.</p>
+  </div>
+
+  <footer>
+    <p>Klyde first run &middot; 2026-04-22 &middot; Generated autonomously while Matt was away. 40 signal / 4 noise over 44 scanned bookmarks (Apr 11 &rarr; Apr 22).</p>
+    <p><strong>Note:</strong> <code>klyde-system.md</code> and <code>cowork/last-seen.md</code> did not exist at the start of this run; Klyde bootstrapped them. Future runs will scan only items newer than the last-seen marker.</p>
+  </footer>
+
+</div>
+</body>
+</html>
