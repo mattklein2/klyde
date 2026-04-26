@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Klyde Daily Briefing — Sunday, April 26, 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0d1117;
+    color: #f0f6fc;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  a { color: #f78166; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .header {
+    text-align: center;
+    padding: 40px 0 20px;
+    border-bottom: 1px solid #30363d;
+    margin-bottom: 30px;
+  }
+  .header h1 {
+    font-size: 28px;
+    color: #f78166;
+    margin-bottom: 8px;
+  }
+  .header .date {
+    color: #8b949e;
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+  .stats-bar {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 16px;
+  }
+  .stat { text-align: center; }
+  .stat-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: #f78166;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: #6e7681;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .headlines {
+    background: linear-gradient(135deg, #161b22 0%, #1c2333 100%);
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 30px;
+  }
+  .headlines h2 {
+    font-size: 18px;
+    color: #f78166;
+    margin-bottom: 12px;
+  }
+  .headlines p {
+    color: #c9d1d9;
+    font-size: 15px;
+  }
+
+  .signal-card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 16px;
+    transition: border-color 0.2s;
+  }
+  .signal-card:hover { border-color: #f78166; }
+  .signal-card h3 {
+    font-size: 18px;
+    color: #f0f6fc;
+    margin: 8px 0;
+  }
+  .signal-card .meta {
+    font-size: 13px;
+    color: #8b949e;
+    margin-bottom: 12px;
+  }
+  .signal-card .body {
+    color: #c9d1d9;
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+  .signal-card .application {
+    color: #c9d1d9;
+    font-size: 14px;
+    padding-left: 16px;
+    border-left: 2px solid #30363d;
+    margin-top: 12px;
+  }
+  .signal-card .application strong { color: #f78166; }
+
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin-right: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .tag-build { background: #1a4d2e; color: #56d364; }
+  .tag-run { background: #3d1f5c; color: #bc8cff; }
+  .tag-serve { background: #1c3a5e; color: #58a6ff; }
+  .tag-urgent { background: #5c1f1f; color: #ff7b72; animation: pulse 2s infinite; }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+
+  .action-items {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 30px;
+  }
+  .action-items h2 {
+    font-size: 18px;
+    color: #f78166;
+    margin-bottom: 16px;
+  }
+  .action-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #21262d;
+    color: #c9d1d9;
+    font-size: 14px;
+  }
+  .action-item:last-child { border-bottom: none; }
+  .checkbox {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #30363d;
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .noise-section { margin-bottom: 30px; }
+  .noise-section h2 {
+    font-size: 16px;
+    color: #6e7681;
+    margin-bottom: 12px;
+  }
+  .noise-item {
+    color: #6e7681;
+    font-size: 13px;
+    padding: 6px 0;
+    border-bottom: 1px solid #21262d;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 30px 0;
+    border-top: 1px solid #30363d;
+    color: #484f58;
+    font-size: 13px;
+  }
+
+  code {
+    background: #1c2333;
+    color: #f78166;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Klyde Daily Briefing</h1>
+  <div class="date">Sunday, April 26, 2026</div>
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-number">28</div>
+      <div class="stat-label">Scanned</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">21</div>
+      <div class="stat-label">Signal</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">3</div>
+      <div class="stat-label">Noise</div>
+    </div>
+  </div>
+</div>
+
+<div class="headlines">
+  <h2>Headlines</h2>
+  <p>Largest signal day in Klyde's history — 24 new bookmarks above the marker, 16 consolidated intel entries (#97–112). The unambiguous headline: <strong>Reshef shipped Jarvis Onshape MCP — Claude doing actual production CAD work in Onshape</strong>, building a 4-part monitor arm in an hour from a sketch. This is the single most directly Shop-Metrics-relevant intel item in the file's history. Two parallel threads compound it: (1) April 22 was an "agent infrastructure day" — Anthropic's MCP production playbook + aarondfrancis's terminal-as-MCP + learnwithella's self-improving Claude Code skills landed in the same 24 hours, together making a multi-agent self-improving 4man cheap to ship; (2) <strong>CLAUDE.md is now consensus as the leverage point</strong> — three independent posts in 5 days converge on "the file you give Claude is the moat, not the model tier," with PawelHuryn's BI-governance pushback laying the groundwork for Shop Metrics as the certified-metrics layer for shop AI use. Operator pushback on the Camillo $500K-AI-guy thesis (NorthstarBrain — real ICP is $3–10M companies, not mom-and-pop) calibrates the consulting targeting; Adam Robinson's Magic Triangle (#102) gives the GTM; cyrilXBT's life-OS dashboard (#103) is the direct template for a "Shop OS" live artifact.</p>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-build">Build Better</span>
+    <span class="tag tag-serve">Serve Customers</span>
+    <span class="tag tag-run">Run Smarter</span>
+    <span class="tag tag-urgent">Headline</span>
+  </div>
+  <h3>Jarvis Onshape MCP — Claude Now Does Production CAD (4-Part Monitor Arm in 1 Hour)</h3>
+  <div class="meta">@Reshef_ · 57 replies · 233 RTs · 2.2K likes · 275K views · <a href="https://x.com/Reshef_/status/2046298277268934852">View post</a></div>
+  <div class="body">
+    Reshef released "Jarvis Onshape MCP" — Claude wired into Onshape (production cloud CAD). In the demo, Claude takes a hand sketch + a description and builds a 4-part monitor arm fully unattended over an hour. The reported trick was giving the agent tools to look at its own work between iterations. Onshape is the cloud CAD many job shops standardize on — especially shops without legacy SolidWorks licenses.
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> The most directly Shop-Metrics-relevant intel entry in the file's history. Three moves: (1) <em>This week:</em> spec a "Claude in your Onshape" 2–4 week consulting SOW — install Jarvis, configure against the shop's part library, train on the shop's standard tolerances and house rules. Very high willingness-to-pay because every shop owner has watched a CAD operator burn half a day on a fixture they could describe in two sentences. (2) Build a <strong>4man variant wrapping Jarvis Onshape MCP + Machinery's Handbook context</strong> — "the most knowledgeable CAD copilot in manufacturing." This is the wedge that separates 4man from any generic CAD AI. (3) Replicate the Jarvis pattern across SolidWorks / Fusion 360 / Mastercam as a 4-product line. Embed a Reshef-style live capture demo on the homepage — only demo that converts skeptical CNC operators. Pairs with intel #85 (MCP-as-default), #91 (native binary on shop Windows boxes), #97 (the agent-infra trifecta that made this possible).
+  </div>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-build">Build Better</span>
+    <span class="tag tag-run">Run Smarter</span>
+  </div>
+  <h3>April 22 "Agent Infrastructure Day" Trifecta — MCP Playbook + Terminal MCP + Self-Improving Skills</h3>
+  <div class="meta">@ClaudeDevs (461K views, 3.2K likes) · <a href="https://x.com/ClaudeDevs/status/2047086372666921217">MCP blog</a> · @aarondfrancis (118R, 18K views) · <a href="https://x.com/aarondfrancis/status/2047079877489164714">Terminal MCP</a> · @learnwithella · <a href="https://x.com/learnwithella/status/2046858357936685057">Self-improving skills</a></div>
+  <div class="body">
+    Three independent posts in the same 24 hours that level up the entire agent stack: (1) Anthropic's canonical "Building agents that reach production systems with MCP" blog — when to use direct APIs vs CLIs vs MCP, patterns for MCP servers, context-efficient clients, pairing MCP with skills. (2) Aaron Francis demoed terminal-as-MCP — agents spawn agents (Codex → Claude → Amp → Gemini), back-and-forth chat, dispatched tasks, durable wakeup timers. (3) Ella demoed a self-improving Claude Code skill — single loop, 10 test iterations, scored against an eval, prompt rewritten between runs.
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> The MCP blog answers the open Shop Metrics MCP architecture question (intel #85) — use the decision matrix to lock the v1 scope. Aaron's terminal-MCP unlocks a multi-agent 4man — planner Opus + specialist sub-agents per machining domain (speeds/feeds, GD&T, materials, tooling, fixturing); the durable-wakeup primitive is what lets a job-quote agent come back when a supplier finally responds. Ella's eval loop is the path to a 4man that gets better every week without manual prompting — set up a 50-question Machinery's Handbook eval set and run it nightly. Same pattern works for Klyde's own three-lens classifier.
+  </div>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-build">Build Better</span>
+    <span class="tag tag-run">Run Smarter</span>
+    <span class="tag tag-serve">Serve Customers</span>
+  </div>
+  <h3>CLAUDE.md as the Real Leverage Point — Three Independent Threads in 5 Days</h3>
+  <div class="meta">@computerusr Feynman summary · <a href="https://x.com/computerusr/status/2047513156096860342">Apr 24</a> · @noisyb0y1 Karpathy 4 principles (4.2K likes) · <a href="https://x.com/noisyb0y1/status/2046314080558841881">Apr 20</a> · @PawelHuryn live-artifacts/governance (2.4M views, 4.2K likes) · <a href="https://x.com/PawelHuryn/status/2046553282915537293">Apr 21</a></div>
+  <div class="body">
+    Three independent posts converge on the same point — the file you give Claude (CLAUDE.md / project context) is the moat, not the model tier. Computer Toucher proposes a one-liner: <em>"if your response is more than a short, direct answer, include a Feynman summary at the end — if you can't explain it simply you don't understand it well enough."</em> Noisy walks through a 19-year-old's CLAUDE.md built around Karpathy's 4 principles. Pawel Huryn pushes back on the "Cowork live artifacts kill Tableau" hype with the correct framing — Tableau's moat was never the chart, it was 10K employees agreeing on the number. Governance, lineage, certified metrics.
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> Publish a <strong>Shop-Metrics-blessed CLAUDE.md template</strong> (machining house rules, material library, tooling library, customer-specific tolerance overrides, standard units) as both a free-tool lead magnet AND the shape of 4man's eventual memory structure. Add the Feynman summary line to 4man's system prompt verbatim — maps perfectly to the journeyman-teaching-the-apprentice register a shop owner expects. Long-horizon: PawelHuryn's pushback is the warning shot. As shops adopt live artifacts (#94), the question "which version of OEE is the company-blessed number?" becomes a governance problem. <em>Shop Metrics as the canonical certified-metrics layer for shop AI use is a defensible moat that Cowork doesn't reach.</em>
+  </div>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-run">Run Smarter</span>
+    <span class="tag tag-serve">Serve Customers</span>
+  </div>
+  <h3>Operator Pushback on Camillo $500K — Real ICP Is $3–10M Companies, Not Mom-and-Pop</h3>
+  <div class="meta">@NorthstarBrain (Alex Northstar — 6 figures over 3 years, actual operator) · 56R · 123 RTs · 2.3K likes · 342K views · <a href="https://x.com/NorthstarBrain/status/2046717559354069030">View post</a></div>
+  <div class="body">
+    Alex Northstar publicly disputes the viral Camillo "$500K AI guy" framing (intel #89). Direct correction: SMALL businesses will NOT pay 2k to be their AI guy; you CAN extract 2-3k value with a bunch of automations; you want to be aiming for 3-10M/year businesses; you need clarity with business context. First operator-grade pushback against the $500K-AI-guy narrative.
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> The shops that make sense for Shop Metrics consulting are NOT 3-person job shops at the bottom of the SMB pyramid; they are the 20–200-person production shops in the <strong>$3–10M revenue band</strong> Northstar names. Update consulting page targeting and ad copy to call out that band by name; drop "small business" framing. Use $2–3K per fixed-scope SOW as the productized pricing baseline, stack 4–6 per quarter (Autonomous RFQ Responder #95, Jarvis Onshape #98, ESP32 sensor #99, Operator Dashboard #103, AI Governance diagnostic #110) and the consulting line clears the Camillo number without needing the Camillo ICP. Together with #88 (Cuban macro) and #89 (Camillo dollar number), Northstar (#101) closes the calibration: Cuban is right about the macro opportunity, Camillo is right about the dollar number, Northstar is right about the actual ICP.
+  </div>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-build">Build Better</span>
+    <span class="tag tag-run">Run Smarter</span>
+    <span class="tag tag-serve">Serve Customers</span>
+  </div>
+  <h3>Cowork Life-OS Dashboard — Live Artifact Pattern as Personal Operating System</h3>
+  <div class="meta">@cyrilXBT · 75R · 105 RTs · 1.5K likes · 190K views · <a href="https://x.com/cyrilXBT/status/2046520376780537951">View post</a></div>
+  <div class="body">
+    Viral demo of a Cowork-built personal AI dashboard — single screen with calendar + tasks + goals + content pipeline + finances + health metrics, all wired through Claude. <em>"Doesn't feel like a tool, feels like an operating system for an entire life."</em> Same shape as intel #94 (Ryze AI marketing dashboard), pivoted from B2B function to personal life.
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> Direct template for a <strong>"Shop OS" live artifact</strong> — collapse the same UX onto the shop's day: open jobs, late jobs, machine status, today's quote queue, this-week's invoices, runtime/scrap, customer-side communication. One screen, refreshes on open. Build it this week against a sample shop dataset; sell the consulting build at the upper end of the $3–10M-shop band (#101). Record a Reshef-style demo video — single best top-of-funnel asset for the Magic Triangle Content vertex (#102).
+  </div>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-run">Run Smarter</span>
+  </div>
+  <h3>Adam Robinson Magic Triangle — $0 to $1M+ AI Company GTM (Content / Outreach / Retargeting)</h3>
+  <div class="meta">@mogulinfluence quoting @RetentionAdam ($35M+ ARR across 3 companies) · 7R · 184 RTs · 1.8K likes · 795K views · <a href="https://x.com/mogulinfluence/status/2046656982417846512">View post</a></div>
+  <div class="body">
+    Founder Thoughts &amp; Strategies surfaces Adam Robinson's "Magic Triangle" — three vertices for getting an AI company from $0 to $1M+ ARR: Content → Outreach → Retargeting, each with specific playbooks. Robinson is a credibility-weighted source (founder of three companies that combined to $35M+ ARR), which makes this far more than a generic newsletter post.
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> The most credible $0→$1M GTM playbook to clear the three-lens filter in 30 days. Adopt as the Shop Metrics 2026 GTM frame: <strong>Content</strong> = the existing 37 calculators + Klyde-driven daily intel + 4man launch posts; <strong>Outreach</strong> = direct LinkedIn + cold email to operations managers at the $3–10M shops (#101); <strong>Retargeting</strong> = consulting offers from #94/#95/#98/#99 dropped on visitors via meta + LinkedIn pixels. Wire each Klyde briefing into the Content vertex automatically — every entry can become one LinkedIn post, one X thread, one short loom.
+  </div>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-build">Build Better</span>
+    <span class="tag tag-serve">Serve Customers</span>
+    <span class="tag tag-run">Run Smarter</span>
+  </div>
+  <h3>ESP32 Embedded Hardware Generation From a Prompt</h3>
+  <div class="meta">@mfranz_on · 26R · 104 RTs · 1.2K likes · 63K views · <a href="https://x.com/mfranz_on/status/2047077117318275170">View post</a></div>
+  <div class="body">
+    Marco Franzon shipped an ESP32-from-a-prompt workflow — describe the embedded hardware project in natural language, get back generated firmware + a circuit simulation. Tagged as the "hello world" of agent-driven embedded hardware.
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> The #1 reason shops don't deploy machine-monitoring IoT is the embedded layer is gatekept by EE talent shops can't hire. Productize <strong>"Shop Metrics IoT Sensor in a Day"</strong> — describe what you want to measure on this machine, we ship the ESP32 board with the right code on it. Pair with the Shop OS live-artifact dashboard (#103) for the readout side. Highest-converting top-of-funnel content imaginable: "machinist builds his first IoT sensor on his lunch break with Claude."
+  </div>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-run">Run Smarter</span>
+    <span class="tag tag-build">Build Better</span>
+    <span class="tag tag-serve">Serve Customers</span>
+  </div>
+  <h3>image-taste-skill — GPT 5.4 Vision into Production HTML/Frontend</h3>
+  <div class="meta">@LexnLin (Leon Lin) · <a href="https://x.com/LexnLin/status/2046692335006748718">View post</a></div>
+  <div class="body">
+    Leon Lin demoed a Claude skill — "image-taste-skill" — that takes images v2 → GPT 5.4 → working HTML/CSS frontend. Stated outcome: "frontend problem solved." Vision-model-in-the-loop with a taste critic; output is production-grade HTML rather than the broken-mock output of naive image-to-code tools.
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> Third independent stack now generating premium landing pages — Claude Design (#92), Gemini 3.1 + Seedance (#87), and now image-taste-skill (#104) plus Google AI Studio (#112). Run every Shop Metrics calculator through image-taste-skill against a FSWizard / G-Wizard reference for a one-pass visual upgrade across the entire 37-tool catalog. Productize "shop website refresh in a week, agent-built" — chains nicely with #87 / #92 (image-taste-skill is the polish step on top of Claude Design's structure).
+  </div>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-run">Run Smarter</span>
+  </div>
+  <h3>Marketing Skills v1.8.0 — /directory-submissions and /competitor-profiling Modules Land</h3>
+  <div class="meta">@coreyhainesco · 41R · 94 RTs · 1.3K likes · 175K views · <a href="https://x.com/coreyhainesco/status/2046715514387660904">View post</a></div>
+  <div class="body">
+    Corey Haines shipped Marketing Skills v1.8.0. Two new modules of immediate value: /directory-submissions (Product Hunt, G2, AI directories, backlink strategy, listing optimization, submission tracking) and /competitor-profiling (competitive intelligence research, market positioning).
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> Install today. Run <code>/directory-submissions</code> against the AI directories (a16z's gallery, Product Hunt AI categories, There's An AI For That, Futurepedia) for both myshopmetrics.com and the eventual 4man waitlist page. Run <code>/competitor-profiling</code> against FSWizard, G-Wizard, Machining Doctor, Harvey Tool's calculators, Kennametal's, and any agent-native newcomers from intel #93. Output becomes a quarterly competitive landscape doc that informs roadmap and pricing.
+  </div>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-build">Build Better</span>
+    <span class="tag tag-run">Run Smarter</span>
+  </div>
+  <h3>Anthropic "Build a Production Agent in 30 Minutes" Free Workshop</h3>
+  <div class="meta">@codewithimanshu surfacing the Claude AI Agents Team session (Ivan Nardini, Google Cloud) · 2.3K likes · <a href="https://x.com/codewithimanshu/status/2047714256968466628">View post</a></div>
+  <div class="body">
+    Anthropic's Claude AI Agents Team published a free 30-minute walkthrough on building production-grade agents from the engineers who shipped the stack. First-party guidance — orthogonal to and more authoritative than third-party agent tutorials.
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> Watch + extract architectural choices Anthropic itself recommends, then audit the 4man design doc against them. Repackage as a Shop-Metrics-narrated "30 minutes to your shop's first AI agent" video for LinkedIn — feeds the Magic Triangle Content vertex (#102).
+  </div>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-run">Run Smarter</span>
+    <span class="tag tag-serve">Serve Customers</span>
+    <span class="tag tag-build">Build Better</span>
+  </div>
+  <h3>Amazon Stood Up an "AI Tools Governance" Department in 4 Months (17 Hires Since November)</h3>
+  <div class="meta">@gothburz · 3.3K likes · <a href="https://x.com/gothburz/status/2046575505160225010">View post</a></div>
+  <div class="body">
+    A Senior Program Manager publicly notes the existence and scale of Amazon's "AI Tools Governance" team — 17 hires since November on a team that did not exist in November. The largest software company on Earth just decided AI governance needed its own department-scale function in under 5 months.
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> Hyperscaler departmental concerns become SMB consulting offers within 12–18 months. Productize a Shop-Metrics <strong>"AI Governance for Manufacturing Shops"</strong> 2-week diagnostic SOW <em>now</em>, while the framing is novel. Pairs with PawelHuryn (#100) — Tableau's moat was governance, not the chart. Plant the flag now as the canonical governance layer for shop AI use; this is the moat against pure Cowork as it matures down-market.
+  </div>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-run">Run Smarter</span>
+    <span class="tag tag-serve">Serve Customers</span>
+  </div>
+  <h3>Opus 4.7 Trusted to Run Scheduled Google/Meta Ads Changes (Production Bar Crossed)</h3>
+  <div class="meta">@irabukht · 8R · 12 RTs · 335 likes · 109K views · <a href="https://x.com/irabukht/status/2046870622517760495">View post</a></div>
+  <div class="body">
+    Ira Bodnar's follow-up to the Apr 18 Ryze AI ads post (intel #94): Opus 4.7 is now performant enough at Google/Meta ads management that his team <em>"finally trusts it to run scheduled changes"</em> — production-grade trust threshold crossed for unsupervised scheduled actions.
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> As the Magic Triangle GTM (#102) scales, Opus 4.7 + Ryze AI should now own the Shop Metrics Google + Meta accounts on a scheduled basis. Productize a "Claude runs your shop's ads" consulting offer — operator publicly testifying to scheduled-changes trust is sufficient social proof for SMB shops to adopt. Generalizable signal: production-bar crossing in one workflow (ads) is a leading indicator for crossings in others (RFQ #95, scheduling, supplier comms).
+  </div>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-build">Build Better</span>
+  </div>
+  <h3>@brotzky — "Chat Is One of the Hardest UIs to Build" (Apr 22 — Different Post Than April 21 Noise)</h3>
+  <div class="meta">@brotzky · <a href="https://x.com/brotzky/status/2046969058252534128">View post</a></div>
+  <div class="body">
+    Brotzky enumerates why production chat UIs are deceptively hard: rich text editor, stream / pause / refresh data, DOM weight, scroll position, markdown / custom UI. <em>"Easy to build, hard to get right — just getting scroll restoration perfect was brutal."</em> Concrete engineering substance, distinct from the Apr 18 brotzky noise post.
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> Save Brotzky's enumerated failure-mode list as the 4man chat-UI test plan — 4man's primary surface will be a chat. Strongest argument seen this quarter for buying a vetted chat-UI primitive (Vercel AI SDK / assistant-ui / Claude Design output) for 4man rather than rolling our own React. Audit the buy-side options against this checklist before any engineering commit.
+  </div>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-build">Build Better</span>
+  </div>
+  <h3>@thesephist — "Hard to Unsee the Future from Demos Like This" (Pixel-Streaming Generative UI)</h3>
+  <div class="meta">@thesephist (Linus Lee) QT-ing @zan2434 et al. · 3.3K likes · <a href="https://x.com/thesephist/status/2046988455096336711">View post</a></div>
+  <div class="body">
+    Linus Lee surfaces a Zain Shah / @eddiejiao_obj / @drewocarr prototype: "every pixel on your screen, streamed live directly from a model. No HTML, no layout engine, no code." Linus's framing matters precisely because he's the most aesthetically-rigorous interface researcher on X — he doesn't endorse generative UI lightly.
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> Long-horizon (Q4-2026 / 2027) replacement layer for both calculator HTML and 4man chat surface. Worth a research spike for 4man's chat surface — per-question generated UI element (a cutting-speeds calculator widget rendered inline in the answer when you ask about cutting speeds, a tolerance stack-up table when you ask about tolerances). Pairs with intel #92 (Claude Design, the conservative version of the same idea).
+  </div>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-run">Run Smarter</span>
+    <span class="tag tag-serve">Serve Customers</span>
+  </div>
+  <h3>YC's "Build a Company With AI From the Ground Up" Playbook</h3>
+  <div class="meta">@benln · 770 likes · <a href="https://x.com/benln/status/2048447555868963259">View post</a></div>
+  <div class="body">
+    Ben Lang surfaces YC's framework for founding a company with AI as a first-class infrastructure layer (not retrofitted). Most concentrated public expression of the AI-native founding narrative.
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> Outside vocabulary for any future fundraise / partnership conversation — "the YC AI-native company shape, applied to manufacturing." Translates directly to shop-owner content: "build your shop's next process with AI from the ground up rather than retrofit AI onto your current process" → clean LinkedIn post for Magic Triangle Content vertex (#102).
+  </div>
+</div>
+
+<div class="signal-card">
+  <div>
+    <span class="tag tag-run">Run Smarter</span>
+    <span class="tag tag-build">Build Better</span>
+  </div>
+  <h3>Google AI Studio for Premium SaaS Landing Pages (Custom SVGs, No Figma)</h3>
+  <div class="meta">@jsmasterypro (Adrian / JavaScript Mastery) · 12R · 11 RTs · 187 likes · 11K views · <a href="https://x.com/jsmasterypro/status/2047035289906942110">View post</a></div>
+  <div class="body">
+    Adrian shipped a full SaaS landing page using Google AI Studio in one morning — including premium-looking custom SVGs — no Illustrator, no Figma. Live at <code>syncharbor-landing-page.vercel.app</code>.
+  </div>
+  <div class="application">
+    <strong>Shop Metrics play:</strong> Third independent landing-page-generation stack. For the next Shop Metrics landing-page rev or 4man waitlist page, run the same brief through Claude Design (#92) + Gemini 3.1 / Seedance (#87) + Google AI Studio in parallel and benchmark. SVG generation specifically is the part that usually still requires a designer — if Google AI Studio reliably emits SVG-grade vector work, the calculator-visual-upgrade project (#104) gets cheaper.
+  </div>
+</div>
+
+<div class="action-items">
+  <h2>Action Items</h2>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-build">Build Better</span> <span class="tag tag-urgent">Highest Priority</span> Spec the "Claude in your Onshape" 2–4 week consulting SOW today (#98). Pair with the Machinery's Handbook context layer.</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-build">Build Better</span> Lock in the Shop Metrics MCP v1 scope using the ClaudeDevs blog's API/CLI/MCP decision matrix (#97).</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-build">Build Better</span> Build a 50-question 4man eval set against the Machinery's Handbook this week; wire learnwithella's self-improving skills loop on top of it (#97).</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-build">Build Better</span> Spec a multi-agent 4man on aarondfrancis's terminal-MCP primitive (#97) — planner Opus + specialist sub-agents per machining domain.</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-serve">Serve Customers</span> Productize "Shop Metrics IoT Sensor in a Day" using the ESP32-from-prompt pattern (#99).</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-build">Build Better</span> Publish a Shop-Metrics-blessed CLAUDE.md template (machining house rules, materials, tooling, customer overrides) as a free lead magnet (#100).</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-build">Build Better</span> Add the Feynman summary line to 4man's system prompt verbatim AND to Matt's global <code>CLAUDE.md</code> today (#100).</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-serve">Serve Customers</span> Update consulting page targeting + ad copy to call out the $3–10M revenue ICP by name (#101). Drop "small business" framing.</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-run">Run Smarter</span> Adopt the Adam Robinson Magic Triangle (Content / Outreach / Retargeting) as the Shop Metrics 2026 GTM frame (#102). Wire each Klyde briefing into the Content vertex automatically.</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-build">Build Better</span> Build the "Shop OS" Cowork live artifact this week against a sample shop dataset (#103). Record demo video.</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-build">Build Better</span> Run every Shop Metrics calculator through <code>image-taste-skill</code> against a FSWizard / G-Wizard reference for one-pass visual upgrade (#104).</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-run">Run Smarter</span> Install Marketing Skills v1.8.0; run <code>/directory-submissions</code> and <code>/competitor-profiling</code> this week (#105).</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-build">Build Better</span> Watch the Anthropic 30-min agent workshop; audit the 4man design doc against the architectural choices (#106).</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-run">Run Smarter</span> Test Opus 4.7 + Ryze AI on the actual Shop Metrics Google + Meta accounts now that the production-trust threshold has been publicly crossed (#109).</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-serve">Serve Customers</span> Productize an "AI Governance for Manufacturing Shops" 2-week diagnostic SOW while the framing is still novel (#110).</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-urgent">Operational</span> Add a hard sanity check to the Klyde scheduled task that verifies <code>cowork/last-seen.md</code> was actually written before logging "marker updated" — second consecutive run where the file write step silently failed.</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-build">Build Better</span> CARRIED from Apr 21: Prototype three Shop Metrics Cowork live artifacts (#94). The Shop OS dashboard from #103 collapses into the first of these.</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-serve">Serve Customers</span> CARRIED from Apr 21: Spec and price "Autonomous RFQ Responder" 2–4 week SOW (#95).</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-run">Run Smarter</span> CARRIED from Apr 21: Rewrite consulting landing-page section headers as "AI VP of Shop Sales / Operations / Manufacturing Engineering" (#96).</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-run">Run Smarter</span> CARRIED from Apr 18: Formally amend <code>klyde-system.md</code> with the URL-level dedup rule + the marker-write sanity check from this run.</div>
+  </div>
+  <div class="action-item">
+    <div class="checkbox"></div>
+    <div><span class="tag tag-run">Run Smarter</span> CARRIED from Apr 20: Upgrade Cowork machine's Claude Code to ≥v2.1.113 (#91); re-measure Klyde nightly wall-clock baseline.</div>
+  </div>
+</div>
+
+<div class="noise-section">
+  <h2>Noise (Dismissed)</h2>
+  <div class="noise-item">@CodeEdison/2047387465636298844 — "The tech stack of most startups" satirical list (1.5K likes). Humor about React + whatever-the-CTO-knew + Postgres-or-Mongo. No actionable insight or manufacturing angle.</div>
+  <div class="noise-item">@simonbs/2047019370363150573 — "Whoever created these icons for the new ChatGPT Agents needs a pay raise." Pure design appreciation, no transferable technique or Shop Metrics angle.</div>
+  <div class="noise-item">@k1rallik/2047040315870044536 + @shreypandya/2047100550446280792 — Visible content thin / unrelated to the three-lens filter. Dropped.</div>
+</div>
+
+<div class="footer">
+  Klyde Intelligence System — Automated scan completed April 26, 2026. 24 new bookmarks above the marker → 21 signal → 16 consolidated intel entries (#97–112). Headline: Jarvis Onshape MCP.
+</div>
+
+</body>
+</html>
