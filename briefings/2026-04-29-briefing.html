@@ -1,0 +1,151 @@
+TEST_INSERT_X<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Klyde Briefing — 2026-04-29</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --panel: #161b22;
+    --panel-2: #1c2129;
+    --border: #30363d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #06b6d4;
+
+    --build-bg: #1a4d2e;
+    --build-fg: #56d364;
+    --run-bg: #3d1f5c;
+    --run-fg: #bc8cff;
+    --serve-bg: #1c3a5e;
+    --serve-fg: #58a6ff;
+    --urgent-bg: #5c1f1f;
+    --urgent-fg: #ff7b72;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.55; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 32px 24px 80px; }
+
+  header { border-bottom: 1px solid var(--border); padding-bottom: 18px; margin-bottom: 28px; }
+  header h1 { margin: 0; font-size: 28px; letter-spacing: -0.01em; }
+  header .sub { color: var(--muted); font-size: 14px; margin-top: 6px; }
+
+  h2 { margin: 36px 0 12px; font-size: 20px; border-left: 3px solid var(--accent); padding-left: 10px; }
+  h3 { margin: 22px 0 6px; font-size: 16px; color: var(--text); }
+
+  .meta { color: var(--muted); font-size: 13px; margin: 2px 0 10px; }
+  .meta a { color: var(--accent); text-decoration: none; }
+  .meta a:hover { text-decoration: underline; }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+  .tag { font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 999px; letter-spacing: 0.02em; text-transform: uppercase; }
+  .tag.build  { background: var(--build-bg);  color: var(--build-fg); }
+  .tag.run    { background: var(--run-bg);    color: var(--run-fg); }
+  .tag.serve  { background: var(--serve-bg);  color: var(--serve-fg); }
+  .tag.urgent { background: var(--urgent-bg); color: var(--urgent-fg); animation: pulse 1.8s ease-in-out infinite; }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255,123,114,0.55); }
+    50%      { box-shadow: 0 0 0 6px rgba(255,123,114,0); }
+  }
+
+  .card { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; margin-bottom: 14px; }
+  .card p { margin: 6px 0; }
+  .card p.note { color: var(--muted); font-size: 14px; }
+  .card a.src { color: var(--accent); text-decoration: none; font-size: 13px; }
+  .card a.src:hover { text-decoration: underline; }
+
+  .tldr { background: var(--panel-2); border: 1px solid var(--border); border-radius: 10px; padding: 18px 22px; margin-bottom: 28px; }
+  .tldr ol { margin: 8px 0 0 18px; padding: 0; }
+  .tldr li { margin-bottom: 6px; }
+
+  footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
+
+  .count-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 10px; }
+  .count { background: var(--panel-2); border: 1px solid var(--border); border-radius: 8px; padding: 6px 12px; font-size: 13px; color: var(--muted); }
+  .count strong { color: var(--text); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>Klyde Briefing &mdash; 2026-04-29</h1>
+    <div class="sub">4 bookmarks scanned &middot; 4 signal &middot; 0 noise &middot; second Klyde run (Apr 22 &rarr; Apr 29 window)</div>
+    <div class="count-row">
+      <span class="count"><span class="tag build">Build Better</span>&nbsp;<strong>2</strong> items</span>
+      <span class="count"><span class="tag run">Run Smarter</span>&nbsp;<strong>4</strong> items</span>
+      <span class="count"><span class="tag serve">Serve Customers</span>&nbsp;<strong>0</strong> items</span>
+      <span class="count"><span class="tag urgent">Urgent</span>&nbsp;<strong>1</strong> item</span>
+    </div>
+  </header>
+
+  <div class="tldr">
+    <h2 style="margin-top:0;border:none;padding:0;">TL;DR</h2>
+    <ol>
+      <li><strong>Claude Code &rarr; NotebookLM via CLI</strong> is the cheapest path to a Machinery&rsquo;s-Handbook-aware 4man. The Iscar/Sandvik catalog corpus already in the repo is the perfect pilot.</li>
+      <li><strong>&ldquo;The Agency&rdquo; (50K stars in &lt;2 weeks)</strong> &mdash; 147 specialized agents across 12 divisions. Reference architecture for 4man and a candidate substrate for the Shop Metrics consulting line.</li>
+      <li><strong>AliGrids&rsquo; 100+ launch directories</strong> &mdash; save as the standing marketing playbook for every future tool launch.</li>
+      <li><strong>Karpathy GPT-from-scratch video</strong> &mdash; sales-conversation arsenal for shops asking &ldquo;is this just ChatGPT?&rdquo;</li>
+      <li><strong>Operational warning:</strong> the X bookmarks page rendered only 4 cells; the prior Apr 22 backlog is no longer in the DOM. Investigate whether this is X throttling or local. If persistent, switch to capture-on-bookmark instead of nightly scan.</li>
+    </ol>
+  </div>
+
+  <h2>Urgent &mdash; ship the NotebookLM bridge</h2>
+
+  <div class="card">
+    <div class="tags"><span class="tag urgent">Urgent</span><span class="tag build">Build Better</span><span class="tag run">Run Smarter</span></div>
+    <h3>Claude Code &rarr; NotebookLM via CLI &mdash; 300+ file pipeline</h3>
+    <div class="meta">@DamiDefi &middot; Apr 27 &middot; <a class="src" href="https://x.com/DamiDefi/status/2048744219221905505">view on X</a></div>
+    <p>Claude Code can&rsquo;t hold 300 files in context. A CLI wrapper has Claude Code drive Google NotebookLM from the terminal &mdash; Claude Code orchestrates, NotebookLM does the long-context retrieval.</p>
+    <p class="note">Application: This is the pattern for a Machinery&rsquo;s-Handbook-aware 4man. Iscar and Sandvik catalogs (already in the repo: <code>iscar_milling_reference_2.pdf</code>, <code>sandvik_deep_hole_drilling.pdf</code>, <code>sandvik_heavy_machining.pdf</code>, etc.) blow past Claude&rsquo;s context budget on their own. Hand them to NotebookLM and have 4man query through it. Same-week prototype candidate &mdash; this collapses what would otherwise be a custom embeddings + vector-store project into a working demo.</p>
+  </div>
+
+  <h2>Build Better</h2>
+
+  <div class="card">
+    <div class="tags"><span class="tag build">Build Better</span><span class="tag run">Run Smarter</span></div>
+    <h3>&ldquo;The Agency&rdquo; &mdash; 147-agent open-source AI agency, 50K stars in &lt;2 weeks</h3>
+    <div class="meta">@heygurisingh &middot; Apr 28 &middot; <a class="src" href="https://x.com/heygurisingh/status/2049106662347374912">view on X</a></div>
+    <p>147 specialized AI agents organized across 12 divisions: engineering, design, marketing, product, QA, support, spatial computing, etc. &ldquo;Not a prompt template&rdquo; &mdash; full agency-as-code.</p>
+    <p class="note">Application: Two angles. (1) <strong>4man architecture reference</strong> &mdash; we&rsquo;re Skills + MCP first; this repo is the strongest open example of how those pieces fit at scale. Cherry-pick the divisions we&rsquo;re thin on (marketing-content, QA-validation for calculators). (2) <strong>Consulting product</strong> &mdash; pitchable as a turnkey &ldquo;AI agency in a box&rdquo; deliverable for $3&ndash;10M shops, which is exactly our ICP from last week&rsquo;s scan.</p>
+  </div>
+
+  <h2>Run Smarter</h2>
+
+  <div class="card">
+    <div class="tags"><span class="tag run">Run Smarter</span></div>
+    <h3>100+ places to launch your startup &mdash; directory checklist</h3>
+    <div class="meta">@AliGrids &middot; Apr 28 &middot; <a class="src" href="https://x.com/AliGrids/status/2048995227277410554">view on X</a></div>
+    <p>Product Hunt, BetaList, TrustMRR, Uneed, TinyLaunch, Indie Hackers, Hacker News, Tiny Startup, PeerPush, SideProjectors, DevHunt, Launching Next, Microlaunch, Launch Directories, StartupBase, &hellip; (truncated in feed; full list in the linked post).</p>
+    <p class="note">Application: Save as a standing marketing playbook in <code>MARKETING/</code>. Run top-down on every major Shop Metrics or 4man feature launch. Pair with SaaStr AI Annual (May 12&ndash;14, prior intel batch) for early B2B warm intros.</p>
+  </div>
+
+  <div class="card">
+    <div class="tags"><span class="tag run">Run Smarter</span></div>
+    <h3>Karpathy &mdash; &ldquo;GPT from scratch in 2 hours&rdquo; (free video)</h3>
+    <div class="meta">@codewithimanshu &middot; Apr 28 &middot; <a class="src" href="https://x.com/codewithimanshu/status/2049068209421353370">view on X</a></div>
+    <p>OpenAI co-founder builds a transformer line by line. Hype framing in the post, but the underlying lecture is solid.</p>
+    <p class="note">Application: Background reading. Useful when shops ask &ldquo;is this just ChatGPT?&rdquo; &mdash; the calculator pitch is stronger when paired with a credible mechanical explanation of what a transformer is and why grounding it in the Handbook matters.</p>
+  </div>
+
+  <h2>Operational note</h2>
+
+  <div class="card">
+    <div class="tags"><span class="tag run">Run Smarter</span></div>
+    <h3>X bookmarks feed rendered only 4 cells &mdash; possible truncation</h3>
+    <div class="meta">Klyde scan &middot; Apr 29</div>
+    <p>The bookmarks timeline at <code>https://x.com/i/bookmarks</code> exposed only 4 article cells (document height stable at 8015px, no lazy-load on scroll past the bottom). The Apr 22 backlog (44 items, including the prior last-seen URL <code>@NorthstarBrain/status/2046717559354069030</code>) is no longer in the DOM.</p>
+    <p class="note">No bookmarks were unbookmarked by Klyde. Per SKILL.md: when the last-seen URL can&rsquo;t be found, process visible items and reset the marker. Marker reset to <code>@heygurisingh/status/2049106662347374912</code>. If the feed stays this small, switch Klyde to a capture-on-bookmark workflow (or a periodic API export) rather than scanning the live page.</p>
+  </div>
+
+  <footer>
+    <p>Klyde scheduled run &middot; 2026-04-29 &middot; Generated autonomously while Matt was away. 4 signal / 0 noise over 4 visible bookmarks (Apr 27 &rarr; Apr 28).</p>
+    <p><strong>Note:</strong> <code>klyde-system.md</code> still does not exist in the repo &mdash; running against the inline SKILL.md spec. GitHub Pages push was not completed in this autonomous run; the briefing HTML lives at <code>briefings/2026-04-29-briefing.html</code> in the local repo and the email draft links to it from there.</p>
+  </footer>
+
+</div>
+</body>
+</html>
